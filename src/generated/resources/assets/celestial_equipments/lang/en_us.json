@@ -1,0 +1,11 @@
+{
+  "item.celestial_equipments.abyss_whisper": "Abyss Whisper",
+  "item.celestial_equipments.crystal_longsword": "Crystal Longsword",
+  "item.celestial_equipments.giant_skeleton": "Giant Skeleton",
+  "item.celestial_equipments.undead_sword": "Undead Sword",
+  "itemGroup.celestial_equipments.tab": "Celestial Equipments",
+  "tooltip.celestial_equipments.abyss_whisper": "Deals an additional %s Abyss Damage after attacking",
+  "tooltip.celestial_equipments.crystal_longsword": "Briefly increases Critical Rate and Critical Damage after attacking",
+  "tooltip.celestial_equipments.giant_skeleton": "Attacks deal an additional %s damage to the target's maximum health",
+  "tooltip.celestial_equipments.undead_sword": "Increases damage by %s when attacking undead mobs."
+}

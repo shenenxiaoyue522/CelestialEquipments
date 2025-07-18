@@ -1,0 +1,11 @@
+{
+  "itemGroup.celestial_equipments.tab": "星月装备",
+  "item.celestial_equipments.undead_sword": "亡灵之剑",
+  "item.celestial_equipments.abyss_whisper": "深渊低语",
+  "item.celestial_equipments.crystal_longsword": "水晶长剑",
+  "item.celestial_equipments.giant_skeleton": "巨骸",
+  "tooltip.celestial_equipments.undead_sword": "攻击亡灵生物时伤害提高%s",
+  "tooltip.celestial_equipments.abyss_whisper": "攻击后额外造成攻击伤害%s深渊伤害",
+  "tooltip.celestial_equipments.crystal_longsword": "攻击后短暂提升暴击率与暴击伤害",
+  "tooltip.celestial_equipments.giant_skeleton": "攻击时额外提升目标最大生命%s攻击伤害"
+}

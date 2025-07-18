@@ -1,0 +1,5 @@
+// 1.20.1	2025-07-14T20:59:48.632049	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+11b1b81a81a0df39c8c7bde5f45c8aaec0ee2b31 assets/celestial_equipments/lang/en_ud.json
+e64e0f7f343adf39f4a27fb131ebea468d938e84 assets/celestial_equipments/lang/en_us.json
+f3f87d5485456a3b491b0d5c119d82fe5de6a817 assets/celestial_equipments/models/item/undead_sword.json
+35e8373768afab5d56e01492df4d86389778ee0e data/minecraft/tags/items/swords.json

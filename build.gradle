@@ -92,6 +92,16 @@ repositories {
     mavenLocal();
 }
 
+if (lljij) {
+    jarJar.enable();
+    tasks.jarJar.configure {
+        archiveClassifier.set("")
+    }
+    jar {
+        archiveClassifier.set("slime")
+    }
+}
+
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}"))

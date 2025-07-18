@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.event;
 
-import com.xiaoyue.celestial_equipments.generic.SimpleMeleeWeapon;
+import com.xiaoyue.celestial_equipments.content.generic.SimpleMeleeWeapon;
 import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import net.minecraft.world.entity.LivingEntity;
