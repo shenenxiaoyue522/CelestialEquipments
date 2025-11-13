@@ -1,0 +1,79 @@
+package com.xiaoyue.celestial_equipments.events;
+
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrow;
+import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
+import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
+import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
+import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
+import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
+import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
+import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
+import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
+import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+
+public class CEAttackListener implements AttackListener {
+
+    @Override
+    public void onCreateSource(CreateSourceEvent event) {
+        ItemStack stack = event.getAttacker().getMainHandItem();
+        Item var4 = stack.getItem();
+        if (var4 instanceof AttackConfig attack) {
+            attack.onCreateSource(stack, event.getAttacker(), event, EquipmentUtils.getLevel(stack));
+        }
+        Entity direct = event.getDirect();
+        if (direct instanceof GenericArrowEntity entity) {
+            if (entity.arrow.getItem() instanceof GenericArrow arrow) {
+                arrow.onCreateSource(arrow, event);
+            }
+        }
+    }
+
+    @Override
+    public void onHurt(AttackCache cache, ItemStack weapon) {
+        LivingHurtEvent event = cache.getLivingHurtEvent();
+        assert event != null;
+        Entity entity = event.getSource().getEntity();
+        if (entity instanceof LivingEntity attacker) {
+            ItemStack mainItem = attacker.getMainHandItem();
+            if (AttackConfig.isMelee(event.getSource())) {
+                if (mainItem.getItem() instanceof AttackConfig attack) {
+                    attack.onMeleeHurt(mainItem, attacker, cache, EquipmentUtils.getLevel(mainItem));
+                    return;
+                }
+            }
+            ItemStack useItem = attacker.getUseItem();
+            if (AttackConfig.isArrow(event.getSource())) {
+                Item var9 = useItem.getItem();
+                if (var9 instanceof AttackConfig attack) {
+                    attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
+                }
+            }
+        }
+    }
+
+    @ConfigHolderEntry(category = "misc")
+    public static DoubleConfigEntry armorExpGetChance = DoubleConfigEntry.defineChance("Armor Exp Get Chance",
+            0.5, "The chance of gaining experience when armor takes damage");
+
+    @ConfigHolderEntry(category = "misc")
+    public static IntConfigEntry armorExpGet = IntConfigEntry.define("Equipment Max Level", 20, 1, 1000,
+            "The value gained when armor gains experience");
+
+    @Override
+    public void onDamage(AttackCache cache, ItemStack weapon) {
+        LivingEntity entity = cache.getAttackTarget();
+        entity.getArmorSlots().forEach((stack) -> {
+            if (stack.getItem() instanceof GenericArmor armor) {
+                if (entity.getRandom().nextDouble() <= armorExpGetChance.get() && armor.isEnabled()) {
+                    EquipmentUtils.addExp(stack, armorExpGet.get());
+                }
+            }
+        });
+    }
+}

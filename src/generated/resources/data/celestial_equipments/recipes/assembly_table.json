@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_nugget"
+    },
+    "C": {
+      "item": "minecraft:smithing_table"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    " X ",
+    "BCB",
+    " X "
+  ],
+  "result": {
+    "item": "celestial_equipments:assembly_table"
+  },
+  "show_notification": true
+}

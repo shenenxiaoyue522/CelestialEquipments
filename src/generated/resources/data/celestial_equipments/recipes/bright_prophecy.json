@@ -1,0 +1,23 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:golden_sword"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "celestial_core:fire_essence"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:bright_prophecy",
+    "nbt": "{Damage:0}"
+  }
+}

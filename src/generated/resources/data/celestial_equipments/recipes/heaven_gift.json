@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:golden_sword"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "celestial_core:pure_nether_star"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:heaven_gift",
+    "nbt": "{Damage:0}"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:iron_sword"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "celestial_core:treasure_fragment"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:shady_deap",
+    "nbt": "{Damage:0}"
+  }
+}

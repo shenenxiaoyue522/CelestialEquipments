@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:bow"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "celestial_core:midnight_fragment"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:polar_shadow",
+    "nbt": "{Damage:0}"
+  }
+}

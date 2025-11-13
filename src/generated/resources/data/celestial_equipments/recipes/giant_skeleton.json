@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:iron_sword"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:bone_block"
+    },
+    {
+      "item": "minecraft:bone_block"
+    },
+    {
+      "item": "minecraft:bone"
+    },
+    {
+      "item": "celestial_core:death_essence"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:giant_skeleton",
+    "nbt": "{Damage:0}"
+  }
+}

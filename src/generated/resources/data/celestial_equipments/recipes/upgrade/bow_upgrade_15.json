@@ -1,0 +1,25 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:celestial_bow"
+  },
+  "isUpgrade": true,
+  "levelCondition": 15,
+  "materials": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:redstone_block"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    }
+  ]
+}

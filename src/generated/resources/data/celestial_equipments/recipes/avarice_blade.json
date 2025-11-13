@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:golden_sword"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:gold_block"
+    },
+    {
+      "item": "celestial_core:treasure_fragment"
+    },
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:avarice_blade",
+    "nbt": "{Damage:0}"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:bow"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "celestial_core:treasure_fragment"
+    },
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:elven_bow",
+    "nbt": "{Damage:0}"
+  }
+}

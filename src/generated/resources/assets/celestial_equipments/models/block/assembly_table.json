@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "celestial_equipments:block/assembly_table_bottom",
+    "side": "celestial_equipments:block/assembly_table_side",
+    "top": "celestial_equipments:block/assembly_table_top"
+  }
+}

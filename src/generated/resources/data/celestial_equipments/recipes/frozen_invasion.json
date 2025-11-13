@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:bow"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "celestial_core:ocean_essence"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:frozen_invasion",
+    "nbt": "{Damage:0}"
+  }
+}

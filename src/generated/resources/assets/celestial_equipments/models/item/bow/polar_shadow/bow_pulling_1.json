@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow_pulling_1",
+  "textures": {
+    "layer0": "celestial_equipments:item/bow/polar_shadow/bow_pulling_1"
+  }
+}
