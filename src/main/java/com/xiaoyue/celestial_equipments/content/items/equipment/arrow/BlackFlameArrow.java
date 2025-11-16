@@ -31,7 +31,7 @@ public class BlackFlameArrow extends GenericArrow {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Upon impact, the target is plunged into a %s seconds black flame burn", TooltipEntry.num(burnTime.get() / 20));
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 

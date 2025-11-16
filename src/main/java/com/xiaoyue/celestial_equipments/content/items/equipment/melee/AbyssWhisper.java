@@ -40,7 +40,7 @@ public class AbyssWhisper extends GenericMelee implements AttackConfig {
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageMultiplier.get() * lv)));
         list.add(itemCooldown.withGray(TooltipEntry.num(cooldown.get() / 20)));
     }

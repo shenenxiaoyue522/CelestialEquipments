@@ -69,7 +69,7 @@ public class GenericArrow extends ArrowItem implements ICEquipment {
         if (this.builder.ignoreWater) {
             list.add(oceanArrow.withColor(ChatFormatting.BLUE));
         }
-        this.addEffectTooltips(pStack, list);
+        this.addEquipmentTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBan.withGray());

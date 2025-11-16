@@ -34,7 +34,7 @@ public class EnderArrow extends GenericArrow {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Teleports a random target when it hits, and teleports to a block when it hits a block");
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:glass_bottle"
+    },
+    "X": {
+      "item": "celestial_core:virtual_gold_nugget"
+    }
+  },
+  "pattern": [
+    " X ",
+    "BCB",
+    " X "
+  ],
+  "result": {
+    "item": "celestial_equipments:exp_bottle_big"
+  },
+  "show_notification": true
+}

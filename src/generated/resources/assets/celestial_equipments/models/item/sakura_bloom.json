@@ -4,7 +4,7 @@
     {
       "model": "celestial_equipments:item/crossbow/sakura_bloom/crossbow_pulling_0",
       "predicate": {
-        "minecraft:pull": 0.2,
+        "minecraft:pull": 0.25,
         "minecraft:pulling": 1.0
       }
     },

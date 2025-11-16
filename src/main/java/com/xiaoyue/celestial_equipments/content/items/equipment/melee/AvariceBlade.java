@@ -28,7 +28,7 @@ public class AvariceBlade extends GenericMelee {
         return 0.1f;
     }
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(expDropBonus.get() * lv)));
     }
 }

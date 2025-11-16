@@ -35,7 +35,7 @@ public class HeavenGift extends GenericMelee implements AttackConfig {
         return 0.2f * lv;
     }
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
         list.add(sweepBonusText.withGray(TooltipEntry.per(sweepReachBonus.get())));
     }

@@ -45,7 +45,7 @@ public class JazzDagger extends GenericMelee implements AttackConfig {
             "Increases the damage of the target by %s each time they attack, up to a maximum of %s damage");
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get()), TooltipEntry.per(maxDamageBonus.get())));
     }
 

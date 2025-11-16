@@ -39,7 +39,7 @@ public class BrightProphecy extends GenericBow {
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
         list.add(drawingEffect.withGray(CCLangData.eff(MobEffects.NIGHT_VISION)));
     }

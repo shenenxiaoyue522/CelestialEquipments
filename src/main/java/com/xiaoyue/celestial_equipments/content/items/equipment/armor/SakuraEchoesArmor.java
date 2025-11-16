@@ -31,8 +31,8 @@ public class SakuraEchoesArmor extends GenericArmor {
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
-        super.addEffectTooltips(stack, list, lv);
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+        super.addEquipmentTooltips(stack, list, lv);
     }
 
     @Override

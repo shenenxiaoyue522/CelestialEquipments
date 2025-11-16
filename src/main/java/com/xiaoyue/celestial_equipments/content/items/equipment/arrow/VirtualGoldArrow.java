@@ -38,7 +38,7 @@ public class VirtualGoldArrow extends GenericArrow {
             "When the target is hit, it deals 1 magic damage equal to %s of arrow damage every 1 second, for a total of 10 times, and if the target is burning, the damage becomes %s",
             TooltipEntry.per(baseDamageMultiplier.get()), TooltipEntry.per(damageMultiplierInFire.get()));
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 

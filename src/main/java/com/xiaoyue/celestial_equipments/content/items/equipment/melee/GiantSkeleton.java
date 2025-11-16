@@ -41,7 +41,7 @@ public class GiantSkeleton extends GenericMelee implements AttackConfig {
             "Increases the target's %s max health damage when attacking with full force");
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * (float)lv)));
     }
 

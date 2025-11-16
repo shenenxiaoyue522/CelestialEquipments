@@ -46,7 +46,7 @@ public class TerraBroadsword extends GenericMelee implements IAirBladeUser, ICli
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }

@@ -52,7 +52,7 @@ public interface ICEquipment {
             EquipmentUtils.addExpTooltips(list, stack);
             if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
                 list.add(Component.empty());
-                this.addEffectTooltips(stack, list);
+                this.addEquipmentTooltips(stack, list);
             }
         }
     }
@@ -61,11 +61,11 @@ public interface ICEquipment {
         this.addBaseTooltips(stack, list, false);
     }
 
-    default void addEffectTooltips(ItemStack stack, List<Component> list) {
-        this.addEffectTooltips(stack, list, EquipmentUtils.getLevel(stack));
+    default void addEquipmentTooltips(ItemStack stack, List<Component> list) {
+        this.addEquipmentTooltips(stack, list, EquipmentUtils.getLevel(stack));
     }
 
-    default void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    default void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
     }
 
     default boolean noCooldown(LivingEntity entity) {

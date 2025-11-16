@@ -37,7 +37,7 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEffectTooltips(pStack, list);
+            this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
                 list.add(itemBan.withGray());
@@ -61,7 +61,7 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEffectTooltips(pStack, list);
+            this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
                 list.add(itemBan.withGray());
@@ -85,7 +85,7 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEffectTooltips(pStack, list);
+            this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
                 list.add(itemBan.withGray());
@@ -109,7 +109,7 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEffectTooltips(pStack, list);
+            this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
                 list.add(itemBan.withGray());

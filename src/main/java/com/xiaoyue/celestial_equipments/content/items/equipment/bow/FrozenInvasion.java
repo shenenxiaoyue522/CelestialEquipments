@@ -27,7 +27,7 @@ public class FrozenInvasion extends GenericBow implements AttackConfig {
     public static TooltipEntry tooltip = TooltipEntry.define("Targets hit are frozen in %s seconds");
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.num(frozenTime.get() / 20)));
     }
 

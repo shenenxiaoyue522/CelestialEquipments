@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "celestial_core:treasure_fragment"
+    },
+    "C": {
+      "item": "minecraft:glass_bottle"
+    },
+    "X": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "pattern": [
+    " X ",
+    "BCB",
+    " X "
+  ],
+  "result": {
+    "item": "celestial_equipments:exp_bottle_base"
+  },
+  "show_notification": true
+}

@@ -31,7 +31,7 @@ public class BloodBinding extends GenericMelee implements AttackConfig {
         return 2.5f;
     }
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(healMultiplier.get() * lv)));
     }
 

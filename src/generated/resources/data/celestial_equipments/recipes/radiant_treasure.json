@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:golden_pickaxe"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:gold_block"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "celestial_core:light_fragment"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:radiant_treasure",
+    "nbt": "{Damage:0}"
+  }
+}

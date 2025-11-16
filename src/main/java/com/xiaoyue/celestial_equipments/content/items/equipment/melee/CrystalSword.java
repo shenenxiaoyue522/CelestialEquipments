@@ -33,7 +33,7 @@ public class CrystalSword extends GenericMelee {
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(effectChance.get() * lv)));
     }
 

@@ -40,7 +40,7 @@ public class BrilliantGlory extends GenericMelee implements AttackConfig {
             "Increases damage by %s for every 1 positive effect you have when attacking");
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(effectDmgBonus.get() * lv)));
     }
 

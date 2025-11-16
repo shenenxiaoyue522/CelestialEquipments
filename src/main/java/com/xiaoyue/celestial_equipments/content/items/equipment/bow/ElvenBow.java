@@ -34,7 +34,7 @@ public class ElvenBow extends GenericBow implements AttackConfig {
     }
 
     @Override
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
     }
 

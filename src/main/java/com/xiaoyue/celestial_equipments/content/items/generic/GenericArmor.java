@@ -41,7 +41,7 @@ public class GenericArmor extends ExtraDataArmorItem implements ICEquipment {
             }
             if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
                 list.add(Component.empty());
-                this.addEffectTooltips(stack, list);
+                this.addEquipmentTooltips(stack, list);
             }
         }
     }

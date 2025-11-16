@@ -35,7 +35,7 @@ public class SunFlame extends GenericBow implements AttackConfig {
     @SubscribeTooltip(id = "sun_flame")
     public static TooltipEntry tooltip = TooltipEntry.define("Increases damage by %s when attacking burning targets");
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
         list.add(burnTimeText.withGray(TooltipEntry.num((burnTime.get() / 20) * lv)));
     }

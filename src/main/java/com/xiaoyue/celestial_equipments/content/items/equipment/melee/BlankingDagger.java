@@ -29,7 +29,7 @@ public class BlankingDagger extends GenericMelee implements AttackConfig {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Increases damage by %s when attacking mobs from behind");
 
-    public void addEffectTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
     }
 

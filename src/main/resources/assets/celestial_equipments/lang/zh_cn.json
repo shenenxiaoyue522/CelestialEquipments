@@ -36,10 +36,6 @@
   "item.celestial_equipments.fragment_arrow": "破片箭矢",
   "item.celestial_equipments.guardian_arrow": "守卫者箭矢",
   "item.celestial_equipments.training_arrow": "训练箭矢",
-  "item.celestial_equipments.sakura_dream": "樱花之梦",
-  "item.celestial_equipments.sakura_falling": "樱之落",
-  "item.celestial_equipments.sakura_love": "樱花之恋",
-  "item.celestial_equipments.sakura_sky": "樱之空",
   "celestial_equipments.tooltip.undead_sword": "自身每损失1点生命攻击伤害提高%s",
   "celestial_equipments.tooltip.blanking_dagger": "从背后攻击生物时伤害提高%s",
   "celestial_equipments.tooltip.abyss_whisper": "攻击时额外造成1次%s原伤害的深渊伤害",
@@ -91,5 +87,7 @@
   "celestial_equipments.tooltip.shift_down": "§7按[%s]查看武器信息详情",
   "block.celestial_equipments.assembly_table": "装备组装台",
   "jei.ce_forge_recipe.is_upgrade_recipe": "这是一个装备升级配方",
-  "jei.ce_forge_recipe.upgrade_recipe_condition": "适用于等级低于%s级时的装备"
+  "jei.ce_forge_recipe.upgrade_recipe_condition": "适用于等级低于%s级时的装备",
+  "celestial_equipments.tooltip.gravediggers_helper": "挖掘速度快到极致但仅能挖掘石头且无法获得掉落物",
+  "celestial_equipments.tooltip.radiant_treasure": "挖掘时能够无视挖掘等级获取掉落物"
 }

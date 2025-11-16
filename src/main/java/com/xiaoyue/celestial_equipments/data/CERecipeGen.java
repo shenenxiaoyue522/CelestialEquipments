@@ -36,7 +36,7 @@ public class CERecipeGen {
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.EXP_BOTTLE_BIG)::unlockedBy, Items.GLASS_BOTTLE)
                 .pattern(" X ").pattern("BCB").pattern(" X ")
                 .define('X', CCItems.VIRTUAL_GOLD_NUGGET)
-                .define('B', CCItems.HEART_FRAGMENT)
+                .define('B', Items.DIAMOND)
                 .define('C', Items.GLASS_BOTTLE)
                 .save(pvd);
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEBlocks.ASSEMBLY_TABLE)::unlockedBy, Items.SMITHING_TABLE)
@@ -146,6 +146,14 @@ public class CERecipeGen {
                 .material(Items.ENDER_PEARL).material(Items.AMETHYST_SHARD).material(CCItems.HEART_FRAGMENT)
                 .material(Items.NETHERITE_SCRAP)::unlockedBy, Items.GOLD_INGOT).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_20"));
+        // pickaxe
+        unlock(pvd, new CEForgeRecipeBuilder(Items.STONE_PICKAXE, CEItems.GRAVEDIGGERS_HELPER.asStack())
+                .material(Items.ENDER_PEARL).material(Items.IRON_INGOT).material(Items.REDSTONE)::unlockedBy, Items.STONE_PICKAXE)
+                .save(pvd, getID(CEItems.GRAVEDIGGERS_HELPER));
+        unlock(pvd, new CEForgeRecipeBuilder(Items.GOLDEN_PICKAXE, CEItems.RADIANT_TREASURE.asStack())
+                .material(Items.GOLD_BLOCK).material(Items.DIAMOND).material(Items.EXPERIENCE_BOTTLE)
+                .material(CCItems.LIGHT_FRAGMENT)::unlockedBy, Items.GOLDEN_PICKAXE)
+                .save(pvd, getID(CEItems.RADIANT_TREASURE));
     }
 
     public static ResourceLocation getID(ItemLike item, String path) {

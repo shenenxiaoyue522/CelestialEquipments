@@ -1,0 +1,23 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:stone_pickaxe"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:gravediggers_helper",
+    "nbt": "{Damage:0}"
+  }
+}

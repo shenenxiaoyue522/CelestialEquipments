@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:glass_bottle"
+    },
+    "X": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    " X ",
+    "BCB",
+    " X "
+  ],
+  "result": {
+    "item": "celestial_equipments:exp_bottle_small"
+  },
+  "show_notification": true
+}
