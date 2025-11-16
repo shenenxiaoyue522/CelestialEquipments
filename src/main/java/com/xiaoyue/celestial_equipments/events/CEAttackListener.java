@@ -13,7 +13,6 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -22,12 +21,10 @@ public class CEAttackListener implements AttackListener {
     @Override
     public void onCreateSource(CreateSourceEvent event) {
         ItemStack stack = event.getAttacker().getMainHandItem();
-        Item var4 = stack.getItem();
-        if (var4 instanceof AttackConfig attack) {
+        if (stack.getItem() instanceof AttackConfig attack) {
             attack.onCreateSource(stack, event.getAttacker(), event, EquipmentUtils.getLevel(stack));
         }
-        Entity direct = event.getDirect();
-        if (direct instanceof GenericArrowEntity entity) {
+        if (event.getDirect() instanceof GenericArrowEntity entity) {
             if (entity.arrow.getItem() instanceof GenericArrow arrow) {
                 arrow.onCreateSource(arrow, event);
             }
@@ -41,18 +38,12 @@ public class CEAttackListener implements AttackListener {
         Entity entity = event.getSource().getEntity();
         if (entity instanceof LivingEntity attacker) {
             ItemStack mainItem = attacker.getMainHandItem();
-            if (AttackConfig.isMelee(event.getSource())) {
-                if (mainItem.getItem() instanceof AttackConfig attack) {
-                    attack.onMeleeHurt(mainItem, attacker, cache, EquipmentUtils.getLevel(mainItem));
-                    return;
-                }
+            if (AttackConfig.isMelee(event.getSource()) && mainItem.getItem() instanceof AttackConfig attack) {
+                attack.onMeleeHurt(mainItem, attacker, cache, EquipmentUtils.getLevel(mainItem));
             }
             ItemStack useItem = attacker.getUseItem();
-            if (AttackConfig.isArrow(event.getSource())) {
-                Item var9 = useItem.getItem();
-                if (var9 instanceof AttackConfig attack) {
-                    attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
-                }
+            if (AttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof AttackConfig attack) {
+                attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
             }
         }
     }

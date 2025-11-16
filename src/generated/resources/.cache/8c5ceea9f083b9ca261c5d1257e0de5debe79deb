@@ -1,7 +1,7 @@
-// 1.20.1	2025-11-02T15:32:43.4953709	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2025-11-14T19:31:28.1052291	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-1fe824a5b7b30e36865b3660dc0b4a2033db31cb assets/celestial_equipments/lang/en_ud.json
-bd4df69cf021514294f85a7a1fdc6cca63d027ab assets/celestial_equipments/lang/en_us.json
+7322a0fa693c74a55fb9e1d4caaa54f4f6c62abf assets/celestial_equipments/lang/en_ud.json
+a5efae0bda837b8284947908106c39d5ffbf1a26 assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json
@@ -37,6 +37,11 @@ bceab7b36cbaca25b5622df3bba79547c37b8224 assets/celestial_equipments/models/item
 8a3b23338f6a7b03b50be9f6b5d52e13f0ac3b7d assets/celestial_equipments/models/item/bright_prophecy.json
 78c9bf441719335140ae677209d245c7d143ff56 assets/celestial_equipments/models/item/brilliant_glory.json
 9a607c74fff490f8f0282753bfcaa0c0a9c098c1 assets/celestial_equipments/models/item/creative_up_stone.json
+277c3e7f7407f029fa5b54ec1219f22e32d30ed0 assets/celestial_equipments/models/item/crossbow/sakura_bloom/crossbow_charged.json
+20dcb25633117abc74e22e9ab73a8f77e743be48 assets/celestial_equipments/models/item/crossbow/sakura_bloom/crossbow_firework.json
+07cb79127169210485764ca5b368375aaf4bc2d3 assets/celestial_equipments/models/item/crossbow/sakura_bloom/crossbow_pulling_0.json
+9fa941a03b198d9ecd55a62124661b1441233158 assets/celestial_equipments/models/item/crossbow/sakura_bloom/crossbow_pulling_1.json
+0bc412d5095fbca25e1fc86c5d0e6b0dccd24e29 assets/celestial_equipments/models/item/crossbow/sakura_bloom/crossbow_pulling_2.json
 b0c7bfe05db3fd361011d5ea6c9a9e26b0d352f2 assets/celestial_equipments/models/item/crystal_sword.json
 ea8ed8258150c04f38abe49aed5a4a64442637d6 assets/celestial_equipments/models/item/dark_crow.json
 d258ad668686ae8aa26568f793780f09d0a9e0e2 assets/celestial_equipments/models/item/elven_bow.json
@@ -57,6 +62,7 @@ f4f719890037509029eb20c5f9a00882d28eb01c assets/celestial_equipments/models/item
 c0fc5c8ebd31f4c8b885eedf3229ec3df355a624 assets/celestial_equipments/models/item/ocean_arrow.json
 317642cd0ba4322c079faf7fb07790a9b7316b8d assets/celestial_equipments/models/item/polar_shadow.json
 3a35ddd21464777b5154668c5af500b32c546e8f assets/celestial_equipments/models/item/radiant_treasure.json
+6080afc376d57858a2d343817f528bda6342c85f assets/celestial_equipments/models/item/sakura_bloom.json
 be55af84905153f991029a51e126864a438e97d3 assets/celestial_equipments/models/item/shady_deap.json
 8fc5388f9e3cadfb2c0c608237e688fc86772e7e assets/celestial_equipments/models/item/sun_flame.json
 b90514430e30bf65a8430225ee670ca2362bfe8d assets/celestial_equipments/models/item/terra_broadsword.json
@@ -118,6 +124,7 @@ def63e03ea1e6bbeefff662949db334315fdf63b data/celestial_equipments/recipes/upgra
 cd9cd9a64ddc1f63b3c8e5b9a3dd9b2b60f9b837 data/celestial_equipments/recipes/upgrade/melee_upgrade_5.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/celestial_equipments/tags/items/celestial_armors.json
 157cbf9b27d04a990ea48a396b2abc80c71ae255 data/celestial_equipments/tags/items/celestial_bow.json
+420549d079140181fa981fe6c60563fbb006065a data/celestial_equipments/tags/items/celestial_crossbow.json
 b9c338bb523aab075b8cc89560e5878532491d8e data/celestial_equipments/tags/items/celestial_melee.json
 a59b3c8af681f589900b58ed8b12b05f83feb496 data/minecraft/tags/blocks/mineable/pickaxe.json
 bb5bc37e6d8b484aa542dcee5177aced2aeea229 data/minecraft/tags/items/arrows.json

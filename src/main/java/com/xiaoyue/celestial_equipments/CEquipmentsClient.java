@@ -1,12 +1,12 @@
 package com.xiaoyue.celestial_equipments;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericBow;
+import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
+import com.xiaoyue.celestial_invoker.content.generic.item.GenericCrossbowItem;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -27,7 +27,10 @@ public class CEquipmentsClient {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(CEquipmentsClient::registerBowProperties);
+        event.enqueueWork(() -> {
+            CEquipmentsClient.registerBowProperties();
+            CEquipmentsClient.registerCrossbowProperties();
+        });
     }
 
     public static void registerBowProperties() {
@@ -40,21 +43,21 @@ public class CEquipmentsClient {
     }
 
     public static void registerCrossbowProperties() {
-        List<Item> list = List.of();
-        for (Item bow : list) {
-            ItemProperties.register(bow, new ResourceLocation("pull"), (stack, level, entity, i) -> {
-                CompoundTag tag = stack.getTag();
-                if (tag != null && tag.contains("Charged")) {
-                    return tag.getFloat("Charged");
+        List<GenericCrossbowItem> list = List.of(CEItems.SAKURA_BLOOM.get());
+        for (GenericCrossbowItem crossbow : list) {
+            ItemProperties.register(crossbow, new ResourceLocation("pull"), (stack, level, entity, i) -> {
+                if (entity == null) {
+                    return 0.0F;
+                } else {
+                    return CrossbowItem.isCharged(stack) ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / (float) GenericCrossbowItem.getChargeDuration(stack);
                 }
-                return 0.0F;
             });
-            ItemProperties.register(bow, new ResourceLocation("pulling"), (stack, level, entity, i)
-                    -> CrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
-            ItemProperties.register(bow, new ResourceLocation("charged"), (stack, level, entity, i) ->
+            ItemProperties.register(crossbow, new ResourceLocation("pulling"), (stack, level, entity, i)
+                    -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack && !CrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
+            ItemProperties.register(crossbow, new ResourceLocation("charged"), (stack, level, entity, i) ->
                     CrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
-            ItemProperties.register(bow, new ResourceLocation("firework"), (stack, level, entity, i) ->
-                    CrossbowItem.containsChargedProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F);
+            ItemProperties.register(crossbow, new ResourceLocation("firework"), (stack, level, entity, i) ->
+                    CrossbowItem.isCharged(stack) && CrossbowItem.containsChargedProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F);
         }
     }
 }

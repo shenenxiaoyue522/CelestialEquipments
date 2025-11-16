@@ -10,8 +10,8 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 public interface AttackConfig {
 
-    static boolean isArrow(DamageSource source) {
-        return source.is(DamageTypeTags.IS_PROJECTILE);
+    static boolean isProjectile(DamageSource source) {
+        return source.is(DamageTypeTags.IS_PROJECTILE) || source.getDirectEntity() != source.getEntity();
     }
 
     static boolean isMelee(DamageSource source) {

@@ -12,8 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class SakuraEchoesArmor extends GenericArmor {
+    public static final ArmorMate MATE = ArmorMate.builder().build();
+
     public SakuraEchoesArmor(Type pType) {
-        super(mate(), pType, new Properties());
+        super(MATE, pType, new Properties());
     }
 
     @SubscribeTooltip(id = "sakura_echoes_set")
@@ -26,10 +28,6 @@ public class SakuraEchoesArmor extends GenericArmor {
             case LEGGINGS -> "sakura_sky";
             case BOOTS -> "sakura_dream";
         };
-    }
-
-    private static ArmorMate mate() {
-        return ArmorMate.builder().build();
     }
 
     @Override
@@ -59,5 +57,4 @@ public class SakuraEchoesArmor extends GenericArmor {
         list.add(Component.literal("xxxxxxx"));
         list.add(Component.empty());
     }
-
 }

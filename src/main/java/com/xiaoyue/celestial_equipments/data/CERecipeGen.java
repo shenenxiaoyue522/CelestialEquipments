@@ -21,6 +21,24 @@ public class CERecipeGen {
 
     public static void onRecipeGen(RegistrateRecipeProvider pvd) {
         // based
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.EXP_BOTTLE_SMALL)::unlockedBy, Items.GLASS_BOTTLE)
+                .pattern(" X ").pattern("BCB").pattern(" X ")
+                .define('X', Items.LAPIS_LAZULI)
+                .define('B', Items.DIAMOND)
+                .define('C', Items.GLASS_BOTTLE)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.EXP_BOTTLE_BASE)::unlockedBy, Items.GLASS_BOTTLE)
+                .pattern(" X ").pattern("BCB").pattern(" X ")
+                .define('X', Items.EXPERIENCE_BOTTLE)
+                .define('B', CCItems.TREASURE_FRAGMENT)
+                .define('C', Items.GLASS_BOTTLE)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.EXP_BOTTLE_BIG)::unlockedBy, Items.GLASS_BOTTLE)
+                .pattern(" X ").pattern("BCB").pattern(" X ")
+                .define('X', CCItems.VIRTUAL_GOLD_NUGGET)
+                .define('B', CCItems.HEART_FRAGMENT)
+                .define('C', Items.GLASS_BOTTLE)
+                .save(pvd);
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEBlocks.ASSEMBLY_TABLE)::unlockedBy, Items.SMITHING_TABLE)
                 .pattern(" X ").pattern("BCB").pattern(" X ")
                 .define('X', Items.GOLD_INGOT)

@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.items.equipment.ranged;
+package com.xiaoyue.celestial_equipments.content.items.equipment.bow;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericBow;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
