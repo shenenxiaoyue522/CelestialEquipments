@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:arrows"
+    },
+    "X": {
+      "item": "celestial_core:virtual_gold_nugget"
+    }
+  },
+  "pattern": [
+    " X ",
+    "XAX",
+    " X "
+  ],
+  "result": {
+    "item": "celestial_equipments:virtual_gold_arrow"
+  },
+  "show_notification": true
+}

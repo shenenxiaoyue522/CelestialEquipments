@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:arrows"
+    },
+    "X": {
+      "item": "celestial_core:warden_sclerite"
+    }
+  },
+  "pattern": [
+    " X ",
+    "XAX",
+    " X "
+  ],
+  "result": {
+    "count": 4,
+    "item": "celestial_equipments:fragment_arrow"
+  },
+  "show_notification": true
+}

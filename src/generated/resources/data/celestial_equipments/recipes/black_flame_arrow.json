@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:arrows"
+    },
+    {
+      "item": "minecraft:torch"
+    },
+    {
+      "item": "minecraft:soul_sand"
+    },
+    {
+      "item": "celestial_core:death_essence"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "celestial_equipments:black_flame_arrow"
+  }
+}

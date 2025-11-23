@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:arrows"
+    },
+    "X": {
+      "item": "celestial_core:void_essence"
+    }
+  },
+  "pattern": [
+    " X ",
+    "XAX",
+    " X "
+  ],
+  "result": {
+    "count": 4,
+    "item": "celestial_equipments:abyss_arrow"
+  },
+  "show_notification": true
+}

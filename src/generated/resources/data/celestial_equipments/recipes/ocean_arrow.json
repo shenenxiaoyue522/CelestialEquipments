@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:arrows"
+    },
+    "X": {
+      "item": "celestial_core:ocean_ingot"
+    }
+  },
+  "pattern": [
+    " X ",
+    "XAX",
+    " X "
+  ],
+  "result": {
+    "count": 4,
+    "item": "celestial_equipments:ocean_arrow"
+  },
+  "show_notification": true
+}
