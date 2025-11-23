@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.utils;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.GenericBow;
+import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -37,9 +37,9 @@ public class EquipmentUtils {
     }
 
     public static void addBowStatsTooltips(List<Component> list, float damage, float drawSpeed, float arrowSpeed) {
-        list.add(GenericBow.bowDamage.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
-        list.add(GenericBow.drawSpeed.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));
-        list.add(GenericBow.arrowSpeed.withColor(ChatFormatting.BLUE, TooltipEntry.chance(arrowSpeed)));
+        list.add(BowEquipment.bowDamage.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
+        list.add(BowEquipment.drawSpeed.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));
+        list.add(BowEquipment.arrowSpeed.withColor(ChatFormatting.BLUE, TooltipEntry.chance(arrowSpeed)));
     }
 
     public static int getMaxExp() {

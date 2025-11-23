@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_equipments.content.items.equipment.melee.AvariceBlade;
+import com.xiaoyue.celestial_equipments.content.equipment.melee.AvariceBlade;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import net.minecraft.world.entity.player.Player;

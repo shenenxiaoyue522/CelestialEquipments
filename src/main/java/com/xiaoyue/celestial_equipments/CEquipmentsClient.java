@@ -1,9 +1,10 @@
 package com.xiaoyue.celestial_equipments;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.GenericBow;
+import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.generic.item.GenericCrossbowItem;
+import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
+import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CrossbowItem;
@@ -30,11 +31,20 @@ public class CEquipmentsClient {
         event.enqueueWork(() -> {
             CEquipmentsClient.registerBowProperties();
             CEquipmentsClient.registerCrossbowProperties();
+            CEquipmentsClient.registerTridentProperties();
         });
     }
 
+    public static void registerTridentProperties() {
+        List<CelestialTridentItem> list = List.of(CEItems.OCEAN_TIDE.get());
+        for (CelestialTridentItem trident : list) {
+            ItemProperties.register(trident, new ResourceLocation("using"), (stack, level, entity, i) ->
+                    entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0f : 0f);
+        }
+    }
+
     public static void registerBowProperties() {
-        for(GenericBow bow : GenericBow.BOWS) {
+        for(BowEquipment bow : BowEquipment.BOWS) {
             ItemProperties.register(bow, new ResourceLocation("pull"), (stack, level, entity, i) ->
                     entity != null && entity.getUseItem() == stack ? bow.getBowPowerForTime(EquipmentUtils.getLevel(stack), (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks())) : 0f);
             ItemProperties.register(bow, new ResourceLocation("pulling"), (stack, level, entity, i) ->
@@ -43,13 +53,13 @@ public class CEquipmentsClient {
     }
 
     public static void registerCrossbowProperties() {
-        List<GenericCrossbowItem> list = List.of(CEItems.SAKURA_BLOOM.get());
-        for (GenericCrossbowItem crossbow : list) {
+        List<CelestialCrossbowItem> list = List.of(CEItems.SAKURA_BLOOM.get());
+        for (CelestialCrossbowItem crossbow : list) {
             ItemProperties.register(crossbow, new ResourceLocation("pull"), (stack, level, entity, i) -> {
                 if (entity == null) {
                     return 0.0F;
                 } else {
-                    return CrossbowItem.isCharged(stack) ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / (float) GenericCrossbowItem.getChargeDuration(stack);
+                    return CrossbowItem.isCharged(stack) ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / (float) CelestialCrossbowItem.getChargeDuration(stack);
                 }
             });
             ItemProperties.register(crossbow, new ResourceLocation("pulling"), (stack, level, entity, i)

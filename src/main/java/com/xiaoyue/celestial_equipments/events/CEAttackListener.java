@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmor;
-import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrow;
+import com.xiaoyue.celestial_equipments.content.items.generic.ArmorEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
@@ -25,7 +25,7 @@ public class CEAttackListener implements AttackListener {
             attack.onCreateSource(stack, event.getAttacker(), event, EquipmentUtils.getLevel(stack));
         }
         if (event.getDirect() instanceof GenericArrowEntity entity) {
-            if (entity.arrow.getItem() instanceof GenericArrow arrow) {
+            if (entity.arrow.getItem() instanceof GenericArrowItem arrow) {
                 arrow.onCreateSource(arrow, event);
             }
         }
@@ -53,14 +53,14 @@ public class CEAttackListener implements AttackListener {
             0.5, "The chance of gaining experience when armor takes damage");
 
     @ConfigHolderEntry(category = "misc")
-    public static IntConfigEntry armorExpGet = IntConfigEntry.define("Equipment Max Level", 20, 1, 1000,
+    public static IntConfigEntry armorExpGet = IntConfigEntry.define("Equipment Max Level", 1, 0, Integer.MAX_VALUE,
             "The value gained when armor gains experience");
 
     @Override
     public void onDamage(AttackCache cache, ItemStack weapon) {
         LivingEntity entity = cache.getAttackTarget();
         entity.getArmorSlots().forEach((stack) -> {
-            if (stack.getItem() instanceof GenericArmor armor) {
+            if (stack.getItem() instanceof ArmorEquipment armor) {
                 if (entity.getRandom().nextDouble() <= armorExpGetChance.get() && armor.isEnabled()) {
                     EquipmentUtils.addExp(stack, armorExpGet.get());
                 }

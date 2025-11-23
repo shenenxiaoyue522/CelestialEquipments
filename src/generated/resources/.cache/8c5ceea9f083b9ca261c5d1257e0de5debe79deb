@@ -1,7 +1,7 @@
-// 1.20.1	2025-11-16T21:00:42.9224568	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2025-11-23T16:45:58.2293882	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-cfee60f06b2a05928fda2dab6403d1d4c11641a0 assets/celestial_equipments/lang/en_ud.json
-3973d7dcec008a95b17d61fc918da6b7a7413d17 assets/celestial_equipments/lang/en_us.json
+bd7fb3f63b77b76f6a2dea23492f225f5be60db2 assets/celestial_equipments/lang/en_ud.json
+87ba3dfc190cc8f00ce76ccf3e7bd3f24d8c1c61 assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json
@@ -60,6 +60,8 @@ d3127ae8657a6cdf9c0f7f901aa24bfdec20e879 assets/celestial_equipments/models/item
 f4f719890037509029eb20c5f9a00882d28eb01c assets/celestial_equipments/models/item/heaven_gift.json
 4472141aabf53f864cb09d40f9bcf7cc1900b0c3 assets/celestial_equipments/models/item/jazz_dagger.json
 c0fc5c8ebd31f4c8b885eedf3229ec3df355a624 assets/celestial_equipments/models/item/ocean_arrow.json
+c044c6a06d8e71ce1ab45a872bfd659e378f1237 assets/celestial_equipments/models/item/ocean_tide.json
+7f95fc233b6e6025139e103f68bdb35b1d2c713c assets/celestial_equipments/models/item/ocean_tide_using.json
 317642cd0ba4322c079faf7fb07790a9b7316b8d assets/celestial_equipments/models/item/polar_shadow.json
 3a35ddd21464777b5154668c5af500b32c546e8f assets/celestial_equipments/models/item/radiant_treasure.json
 010b88b6f4252a27a8f3da4ba2551ee226754d4a assets/celestial_equipments/models/item/sakura_bloom.json
