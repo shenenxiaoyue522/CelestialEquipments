@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipment.bow;
 import com.xiaoyue.celestial_core.data.CCLangData;
 import com.xiaoyue.celestial_core.utils.CCUtils;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class BrightProphecy extends BowEquipment {
+public class BrightProphecy extends UpgradeableBow {
     public BrightProphecy() {
         super(6000, BowType.LONG_BOW);
     }

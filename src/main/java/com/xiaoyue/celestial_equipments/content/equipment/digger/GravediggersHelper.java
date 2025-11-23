@@ -12,14 +12,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
 public class GravediggersHelper extends IGenericDigger.Pickaxe {
-    public static final ToolStats STAT = new ToolStats(5000, 8.0f, 5.0f, 0, 15, Ingredient.of());
+    public static final ToolStats STAT = ToolStats.builder().durability(5000).speed(8f).attack(5f).enchant(15).build();
 
     public GravediggersHelper() {
         super(STAT, new Item.Properties().rarity(Rarity.RARE));

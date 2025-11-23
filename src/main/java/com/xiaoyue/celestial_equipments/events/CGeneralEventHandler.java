@@ -2,8 +2,8 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.ItemUtils;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
-import com.xiaoyue.celestial_equipments.content.items.generic.ArmorEquipment;
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.register.CEItems;
@@ -64,7 +64,7 @@ public class CGeneralEventHandler {
             }
         }
         CIGeneralEventHandler.postArmorMethod(entity, (stack, armor) -> {
-            if (armor instanceof ArmorEquipment genericArmor) {
+            if (armor instanceof UpgradeableArmor genericArmor) {
                 genericArmor.onDeath(stack, entity, event, EquipmentUtils.getLevel(stack));
             }
         });

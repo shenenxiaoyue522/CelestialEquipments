@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.bow;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class PolarShadow extends BowEquipment {
+public class PolarShadow extends UpgradeableBow {
     public PolarShadow() {
         super(4000, BowType.SHORT_BOW);
     }

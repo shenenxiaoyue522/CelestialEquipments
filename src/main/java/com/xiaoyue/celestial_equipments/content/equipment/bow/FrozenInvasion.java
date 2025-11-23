@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.bow;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class FrozenInvasion extends BowEquipment implements AttackConfig {
+public class FrozenInvasion extends UpgradeableBow implements AttackConfig {
     public FrozenInvasion() {
         super(5500, BowType.LONG_BOW);
     }

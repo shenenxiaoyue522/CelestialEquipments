@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
 import com.xiaoyue.celestial_core.data.CCDamageTypes;
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class AbyssWhisper extends MeleeEquipment implements AttackConfig {
+public class AbyssWhisper extends UpgradeableMelee implements AttackConfig {
     public AbyssWhisper() {
         super(MeleeType.GENERIC);
     }

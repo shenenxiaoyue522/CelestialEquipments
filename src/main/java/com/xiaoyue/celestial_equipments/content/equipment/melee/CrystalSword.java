@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
 import com.xiaoyue.celestial_core.register.CCEffects;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class CrystalSword extends MeleeEquipment {
+public class CrystalSword extends UpgradeableMelee {
     public CrystalSword() {
         super(MeleeType.GENERIC);
     }

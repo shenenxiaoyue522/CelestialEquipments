@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
@@ -44,7 +44,7 @@ public class CEquipmentsClient {
     }
 
     public static void registerBowProperties() {
-        for(BowEquipment bow : BowEquipment.BOWS) {
+        for(UpgradeableBow bow : UpgradeableBow.BOWS) {
             ItemProperties.register(bow, new ResourceLocation("pull"), (stack, level, entity, i) ->
                     entity != null && entity.getUseItem() == stack ? bow.getBowPowerForTime(EquipmentUtils.getLevel(stack), (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks())) : 0f);
             ItemProperties.register(bow, new ResourceLocation("pulling"), (stack, level, entity, i) ->

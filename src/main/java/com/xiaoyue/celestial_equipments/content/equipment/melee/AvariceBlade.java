@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class AvariceBlade extends MeleeEquipment {
+public class AvariceBlade extends UpgradeableMelee {
     public AvariceBlade() {
         super(MeleeType.GENERIC);
     }

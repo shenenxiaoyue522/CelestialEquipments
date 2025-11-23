@@ -8,13 +8,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
 public class RadiantTreasure extends IGenericDigger.Pickaxe {
-    public static final ToolStats STAT = new ToolStats(3200, 8.0f, 6.0f, 3, 22, Ingredient.of());
+    public static final ToolStats STAT = ToolStats.builder().durability(3200).speed(8f).attack(6f).level(3).enchant(22).build();
 
     public RadiantTreasure() {
         super(STAT, new Item.Properties().rarity(Rarity.UNCOMMON));

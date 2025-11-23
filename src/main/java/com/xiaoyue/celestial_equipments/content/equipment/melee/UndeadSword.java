@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class UndeadSword extends MeleeEquipment implements AttackConfig {
+public class UndeadSword extends UpgradeableMelee implements AttackConfig {
     public UndeadSword() {
         super(MeleeType.GENERIC);
     }

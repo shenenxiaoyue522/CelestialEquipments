@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class HeavenGift extends MeleeEquipment implements AttackConfig {
+public class HeavenGift extends UpgradeableMelee implements AttackConfig {
     public HeavenGift() {
         super(MeleeType.BROAD);
     }

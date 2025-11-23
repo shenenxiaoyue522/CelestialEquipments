@@ -34,10 +34,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MeleeEquipment extends Item implements ICEquipment {
+public class UpgradeableMelee extends Item implements ICEquipment {
     public final MeleeType type;
 
-    public MeleeEquipment(MeleeType type) {
+    public UpgradeableMelee(MeleeType type) {
         super(new Item.Properties().stacksTo(1).durability(8000));
         this.type = type;
     }

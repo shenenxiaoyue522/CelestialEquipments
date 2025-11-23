@@ -82,11 +82,11 @@ public class CEItems {
             new GenericArrowItem(p.rarity(Rarity.RARE).fireResistant(), new ArrowDataBuilder().damage(4.0).ignoreWater()));
     public static final ItemEntry<GenericArrowItem> FRAGMENT_ARROW = arrow("fragment_arrow", p ->
             new GenericArrowItem(p.rarity(IRarityUtils.DARK_GREEN), new ArrowDataBuilder().damage(9.0).pierce((byte) 32)));
-    public static final ItemEntry<AbyssArrow> ABYSS_ARROW = arrow("abyss_arrow", p -> new AbyssArrow());
-    public static final ItemEntry<BlackFlameArrow> BLACK_FLAME_ARROW = arrow("black_flame_arrow", p -> new BlackFlameArrow());
-    public static final ItemEntry<EnderArrow> ENDER_ARROW = arrow("ender_arrow", p -> new EnderArrow());
-    public static final ItemEntry<VirtualGoldArrow> VIRTUAL_GOLD_ARROW = arrow("virtual_gold_arrow", p -> new VirtualGoldArrow());
-    public static final ItemEntry<GuardianArrow> GUARDIAN_ARROW = arrow("guardian_arrow", p -> new GuardianArrow());
+    public static final ItemEntry<AbyssArrow> ABYSS_ARROW = arrow("abyss_arrow", AbyssArrow::new);
+    public static final ItemEntry<BlackFlameArrow> BLACK_FLAME_ARROW = arrow("black_flame_arrow", BlackFlameArrow::new);
+    public static final ItemEntry<EnderArrow> ENDER_ARROW = arrow("ender_arrow", EnderArrow::new);
+    public static final ItemEntry<VirtualGoldArrow> VIRTUAL_GOLD_ARROW = arrow("virtual_gold_arrow", VirtualGoldArrow::new);
+    public static final ItemEntry<GuardianArrow> GUARDIAN_ARROW = arrow("guardian_arrow", GuardianArrow::new);
 
     public static <T extends Item> ItemEntry<T> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return CelestialEquipments.REGISTRATE.item(id, factory).model((ctx, pvd) ->
@@ -103,6 +103,10 @@ public class CEItems {
         return CelestialEquipments.REGISTRATE.item(id, factory)
                 .model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/arrow/" + ctx.getName())))
                 .tag(ItemTags.ARROWS).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> arrow(String id, NonNullSupplier<T> factory) {
+        return arrow(id, p -> factory.get());
     }
 
     public static <T extends Item> ItemEntry<T> melee(String id, NonNullSupplier<T> factory) {

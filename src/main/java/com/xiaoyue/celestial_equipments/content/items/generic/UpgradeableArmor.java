@@ -16,10 +16,10 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArmorEquipment extends CelestialArmorItem implements ICEquipment {
-    public static final List<ArmorEquipment> ARMORS = new ArrayList<>();
+public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment {
+    public static final List<UpgradeableArmor> ARMORS = new ArrayList<>();
 
-    public ArmorEquipment(ArmorMaterial material, Type pType, Properties pProperties) {
+    public UpgradeableArmor(ArmorMaterial material, Type pType, Properties pProperties) {
         super(material, pType, pProperties);
         ARMORS.add(this);
     }

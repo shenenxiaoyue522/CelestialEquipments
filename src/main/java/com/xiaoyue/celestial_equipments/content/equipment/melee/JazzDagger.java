@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipment.melee;
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_core.content.generic.EntityIntData;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttrModifierEntry;
@@ -23,7 +23,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class JazzDagger extends MeleeEquipment implements AttackConfig {
+public class JazzDagger extends UpgradeableMelee implements AttackConfig {
     public JazzDagger() {
         super(MeleeType.SMALL);
     }

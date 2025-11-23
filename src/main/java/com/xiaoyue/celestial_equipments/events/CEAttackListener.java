@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.ArmorEquipment;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
@@ -60,7 +60,7 @@ public class CEAttackListener implements AttackListener {
     public void onDamage(AttackCache cache, ItemStack weapon) {
         LivingEntity entity = cache.getAttackTarget();
         entity.getArmorSlots().forEach((stack) -> {
-            if (stack.getItem() instanceof ArmorEquipment armor) {
+            if (stack.getItem() instanceof UpgradeableArmor armor) {
                 if (entity.getRandom().nextDouble() <= armorExpGetChance.get() && armor.isEnabled()) {
                     EquipmentUtils.addExp(stack, armorExpGet.get());
                 }

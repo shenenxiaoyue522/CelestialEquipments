@@ -23,12 +23,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BowEquipment extends CelestialBowItem implements ICEquipment {
+public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
 
-    public static final List<BowEquipment> BOWS = new ArrayList<>();
+    public static final List<UpgradeableBow> BOWS = new ArrayList<>();
     public final BowType type;
 
-    public BowEquipment(int durability, BowType type) {
+    public UpgradeableBow(int durability, BowType type) {
         super(new Item.Properties().stacksTo(1).durability(durability));
         this.type = type;
         BOWS.add(this);

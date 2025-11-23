@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipment.bow;
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_core.utils.CCUtils;
 import com.xiaoyue.celestial_core.utils.ItemUtils;
-import com.xiaoyue.celestial_equipments.content.items.generic.BowEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -22,7 +22,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class DarkCrow extends BowEquipment {
+public class DarkCrow extends UpgradeableBow {
     public DarkCrow() {
         super(6000, BowType.LONG_BOW);
     }

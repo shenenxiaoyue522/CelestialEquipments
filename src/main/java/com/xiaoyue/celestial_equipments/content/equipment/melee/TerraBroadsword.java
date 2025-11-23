@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.entities.AirBladeEntity;
@@ -26,7 +26,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 
-public class TerraBroadsword extends MeleeEquipment implements IAirBladeUser, IClickInteraction {
+public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, IClickInteraction {
     public TerraBroadsword() {
         super(MeleeType.BROAD);
     }

@@ -9,6 +9,7 @@ import com.xiaoyue.celestial_equipments.register.CEItems;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
@@ -44,6 +45,41 @@ public class CERecipeGen {
                 .define('X', Items.GOLD_INGOT)
                 .define('B', Items.IRON_NUGGET)
                 .define('C', Items.SMITHING_TABLE)
+                .save(pvd);
+        // arrow
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CEItems.TRAINING_ARROW, 2)::unlockedBy, Items.STICK)
+                .requires(Items.STICK).requires(Items.PAPER).requires(Items.PAPER).requires(Items.IRON_NUGGET).requires(Items.IRON_NUGGET)
+                        .save(pvd, getID(CEItems.TRAINING_ARROW));
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.OCEAN_ARROW, 4)::unlockedBy, Items.ARROW)
+                .pattern(" X ").pattern("XAX").pattern(" X ")
+                .define('X', CCItems.OCEAN_INGOT)
+                .define('A', ItemTags.ARROWS)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.FRAGMENT_ARROW, 4)::unlockedBy, Items.ARROW)
+                .pattern(" X ").pattern("XAX").pattern(" X ")
+                .define('X', CCItems.WARDEN_SCLERITE)
+                .define('A', ItemTags.ARROWS)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.ABYSS_ARROW, 4)::unlockedBy, Items.ARROW)
+                .pattern(" X ").pattern("XAX").pattern(" X ")
+                .define('X', CCItems.VOID_ESSENCE)
+                .define('A', ItemTags.ARROWS)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.GUARDIAN_ARROW, 4)::unlockedBy, Items.ARROW)
+                .pattern(" X ").pattern("XAX").pattern(" X ")
+                .define('X', CCItems.GUARDIAN_OCEAN_INGOT)
+                .define('A', ItemTags.ARROWS)
+                .save(pvd);
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.VIRTUAL_GOLD_ARROW)::unlockedBy, Items.ARROW)
+                .pattern(" X ").pattern("XAX").pattern(" X ")
+                .define('X', CCItems.VIRTUAL_GOLD_NUGGET)
+                .define('A', ItemTags.ARROWS)
+                .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CEItems.BLACK_FLAME_ARROW, 2)::unlockedBy, Items.ARROW)
+                .requires(ItemTags.ARROWS).requires(Items.TORCH).requires(Items.SOUL_SAND).requires(CCItems.DEATH_ESSENCE)
+                .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CEItems.ENDER_ARROW)::unlockedBy, Items.ARROW)
+                .requires(ItemTags.ARROWS).requires(Items.ENDER_PEARL)
                 .save(pvd);
         // melee
         unlock(pvd, new CEForgeRecipeBuilder(Items.GOLDEN_SWORD, CEItems.UNDEAD_SWORD.asStack())

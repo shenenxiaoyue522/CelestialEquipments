@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.melee;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.MeleeEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -14,7 +14,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import java.util.List;
 
-public class BloodBinding extends MeleeEquipment implements AttackConfig {
+public class BloodBinding extends UpgradeableMelee implements AttackConfig {
     public BloodBinding() {
         super(MeleeType.BROAD);
     }

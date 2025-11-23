@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipment.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.ArmorEquipment;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
 import com.xiaoyue.celestial_invoker.content.ancillary.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class SakuraEchoesArmor extends ArmorEquipment {
+public class SakuraEchoesArmor extends UpgradeableArmor {
     public static final ArmorMate MATE = ArmorMate.builder().build();
 
     public SakuraEchoesArmor(Type pType) {
