@@ -26,6 +26,7 @@
   "item.celestial_equipments.heaven_bow": "天国短弓",
   "item.celestial_equipments.frozen_invasion": "寒霜侵袭",
   "item.celestial_equipments.sakura_bloom": "绽樱",
+  "item.celestial_equipments.ocean_tide": "海潮",
   "item.celestial_equipments.gravediggers_helper": "掘墓者的帮手",
   "item.celestial_equipments.radiant_treasure": "辉光宝藏",
   "item.celestial_equipments.abyss_arrow": "深渊箭矢",
@@ -89,5 +90,8 @@
   "jei.ce_forge_recipe.is_upgrade_recipe": "这是一个装备升级配方",
   "jei.ce_forge_recipe.upgrade_recipe_condition": "适用于等级低于%s级时的装备",
   "celestial_equipments.tooltip.gravediggers_helper": "挖掘速度快到极致但仅能挖掘石头且无法获得掉落物",
-  "celestial_equipments.tooltip.radiant_treasure": "挖掘时能够无视挖掘等级获取掉落物"
+  "celestial_equipments.tooltip.radiant_treasure": "挖掘时能够无视挖掘等级获取掉落物",
+  "celestial_equipments.tooltip.sakura_bloom_1": "发射的箭矢将被转化为分裂箭"
+  "celestial_equipments.tooltip.sakura_bloom_2": "分裂箭击中生物时分裂为5支箭矢"
+  "celestial_equipments.tooltip.sakura_bloom_3": "分裂的箭矢拥有原箭矢%s伤害同时能够无限穿透生物"
 }

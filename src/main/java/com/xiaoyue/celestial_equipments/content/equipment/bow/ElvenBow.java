@@ -21,7 +21,7 @@ public class ElvenBow extends UpgradeableBow implements AttackConfig {
         super(6000, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Elven Bow Damage Bonus", 0.07,
             "Elven Bow: Increased attack when the target is not wearing armor");
 

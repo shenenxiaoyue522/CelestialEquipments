@@ -7,6 +7,7 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipment.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipment.bow.*;
+import com.xiaoyue.celestial_equipments.content.equipment.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.GravediggersHelper;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipment.melee.*;
@@ -16,7 +17,6 @@ import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_invoker.content.ancillary.helper.IRegistrateHelper;
 import com.xiaoyue.celestial_invoker.content.ancillary.helper.ItemModelHelper;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
-import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -67,7 +67,7 @@ public class CEItems {
     public static final ItemEntry<HeavenBow> HEAVEN_BOW = bow("heaven_bow", HeavenBow::new);
     public static final ItemEntry<FrozenInvasion> FROZEN_INVASION = bow("frozen_invasion", FrozenInvasion::new);
 
-    public static final ItemEntry<CelestialCrossbowItem> SAKURA_BLOOM = crossbow("sakura_bloom", CelestialCrossbowItem::new);
+    public static final ItemEntry<SakuraBloom> SAKURA_BLOOM = crossbow("sakura_bloom", SakuraBloom::new);
 
     public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", p -> new CelestialTridentItem(p.durability(2000)));
 
@@ -128,9 +128,9 @@ public class CEItems {
                 .tag(CETagGen.CELESTIAL_BOW).register();
     }
 
-    public static <T extends Item> ItemEntry<T> crossbow(String id, NonNullFunction<Item.Properties, T> factory) {
+    public static <T extends Item> ItemEntry<T> crossbow(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
-        return CelestialEquipments.REGISTRATE.item(id, factory).model(ItemModelHelper::createCrossbowModel)
+        return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createCrossbowModel)
                 .tag(CETagGen.CELESTIAL_CROSSBOW).register();
     }
 

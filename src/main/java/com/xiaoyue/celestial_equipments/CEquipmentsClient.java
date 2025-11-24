@@ -1,7 +1,8 @@
 package com.xiaoyue.celestial_equipments;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
-import com.xiaoyue.celestial_equipments.register.CEItems;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableCrossbow;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
@@ -14,8 +15,6 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-
-import java.util.List;
 
 import static com.xiaoyue.celestial_equipments.CelestialEquipments.MODID;
 
@@ -36,8 +35,7 @@ public class CEquipmentsClient {
     }
 
     public static void registerTridentProperties() {
-        List<CelestialTridentItem> list = List.of(CEItems.OCEAN_TIDE.get());
-        for (CelestialTridentItem trident : list) {
+        for (CelestialTridentItem trident : UpgradeableTrident.TRIDENTS) {
             ItemProperties.register(trident, new ResourceLocation("using"), (stack, level, entity, i) ->
                     entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0f : 0f);
         }
@@ -53,8 +51,7 @@ public class CEquipmentsClient {
     }
 
     public static void registerCrossbowProperties() {
-        List<CelestialCrossbowItem> list = List.of(CEItems.SAKURA_BLOOM.get());
-        for (CelestialCrossbowItem crossbow : list) {
+        for (CelestialCrossbowItem crossbow : UpgradeableCrossbow.CROSSBOWS) {
             ItemProperties.register(crossbow, new ResourceLocation("pull"), (stack, level, entity, i) -> {
                 if (entity == null) {
                     return 0.0F;

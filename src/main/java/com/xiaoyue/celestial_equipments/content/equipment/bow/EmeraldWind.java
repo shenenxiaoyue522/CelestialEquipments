@@ -26,7 +26,7 @@ public class EmeraldWind extends UpgradeableBow {
         super(6000, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry luckBonus = DoubleConfigEntry.define("Emerald Wind Luck Bonus", 2, 1, 100,
             "Emerald Wind: Luck bonus");
 

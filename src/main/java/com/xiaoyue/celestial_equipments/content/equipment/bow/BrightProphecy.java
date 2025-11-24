@@ -25,7 +25,7 @@ public class BrightProphecy extends UpgradeableBow {
         super(6000, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Bright Prophecy Damage Bonus", 0.02,
             "Bright Prophecy: Damage that can be increased by each light level");
 

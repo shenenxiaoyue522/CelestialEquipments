@@ -24,11 +24,11 @@ public class SunFlame extends UpgradeableBow implements AttackConfig {
         super(6000, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static IntConfigEntry burnTime = IntConfigEntry.define("Sun Flame Burn Time", 60, 1, 1000,
             "Sun Flame: The burn time the target is stuck into");
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Sun Flame Damage Bonus", 0.05,
             "Sun Flame: Attack the target in the fire and increase the attack");
 

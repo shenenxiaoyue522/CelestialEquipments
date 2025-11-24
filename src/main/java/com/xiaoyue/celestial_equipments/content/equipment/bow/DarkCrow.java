@@ -27,11 +27,11 @@ public class DarkCrow extends UpgradeableBow {
         super(6000, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry speedBonus = DoubleConfigEntry.defineSmallRange("Dark Crow Speed Bonus", 0.05,
             "Dark Crow: Movement speed bonus");
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Dark Crow Damage Bonus", 0.02,
             "Dark Crow: Increase the attack every 1 point below the maximum light level");
 

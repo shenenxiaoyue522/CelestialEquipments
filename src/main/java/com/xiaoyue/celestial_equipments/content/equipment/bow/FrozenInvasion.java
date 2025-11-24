@@ -19,7 +19,7 @@ public class FrozenInvasion extends UpgradeableBow implements AttackConfig {
         super(5500, BowType.LONG_BOW);
     }
 
-    @ConfigHolderEntry(category = "ranged")
+    @ConfigHolderEntry(category = "bow")
     public static IntConfigEntry frozenTime = IntConfigEntry.define("Frozen Invasion Frozen Time", 60, 10, 1000,
             "Frozen Invasion: The value of time the target is frozen in");
 

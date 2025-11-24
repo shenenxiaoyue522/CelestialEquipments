@@ -86,7 +86,7 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
     }
 
     @Override
-    protected void onConfigShoot(ItemStack bow, Player shooter, ItemStack ammo, ArrowItem arrowItem, AbstractArrow arrow, float pull) {
+    protected final void onConfigShoot(ItemStack bow, Player shooter, ItemStack ammo, ArrowItem arrowItem, AbstractArrow arrow, float pull) {
         int lv = EquipmentUtils.getLevel(bow);
         arrow.setBaseDamage(arrow.getBaseDamage() + type.getAttack(lv, getAttack(lv)));
         arrow.setDeltaMovement(arrow.getDeltaMovement().scale(type.getArrowSpeed(getArrowSpeed(lv))));
