@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:celestial_crossbow"
+  },
+  "isUpgrade": true,
+  "levelCondition": 10,
+  "materials": [
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:gold_block"
+    },
+    {
+      "item": "minecraft:magenta_banner"
+    }
+  ]
+}

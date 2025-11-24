@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:celestial_crossbow"
+  },
+  "isUpgrade": true,
+  "levelCondition": 20,
+  "materials": [
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "celestial_core:midnight_fragment"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    }
+  ]
+}
