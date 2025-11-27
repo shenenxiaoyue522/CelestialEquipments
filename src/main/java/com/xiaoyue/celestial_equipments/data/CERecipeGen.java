@@ -107,7 +107,7 @@ public class CERecipeGen {
                 .material(CCItems.DEATH_ESSENCE)::unlockedBy, Items.IRON_SWORD)
                 .save(pvd, getID(CEItems.GIANT_SKELETON));
         unlock(pvd, new CEForgeRecipeBuilder(Items.IRON_SWORD, CEItems.BLOOD_BINDING.asStack())
-                .material(Items.EXPERIENCE_BOTTLE).material(Items.ROTTEN_FLESH).material(Items.ROTTEN_FLESH)
+                .material(Items.EXPERIENCE_BOTTLE).material(Items.ROTTEN_FLESH).material(CCItems.HEART_FRAGMENT)
                 .material(Items.BLAZE_POWDER)::unlockedBy, Items.IRON_SWORD)
                 .save(pvd, getID(CEItems.BLOOD_BINDING));
         unlock(pvd, new CEForgeRecipeBuilder(Items.GOLDEN_SWORD, CEItems.CRYSTAL_SWORD.asStack())
@@ -187,6 +187,10 @@ public class CERecipeGen {
                 .material(Items.CHERRY_LEAVES).material(CCItems.SAKURA_STEEL)
                 .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.CROSSBOW)
                 .save(pvd, getID(CEItems.SAKURA_BLOOM));
+        unlock(pvd, new CEForgeRecipeBuilder(Items.CROSSBOW, CEItems.VIRTUAL_GOLD_CROSSBOW.asStack())
+                .material(Items.OBSIDIAN).material(CCItems.VIRTUAL_GOLD_INGOT).material(Items.NETHERITE_SCRAP)
+                .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.CROSSBOW)
+                .save(pvd, getID(CEItems.VIRTUAL_GOLD_CROSSBOW));
         // upgrade
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_CROSSBOW, ItemStack.EMPTY)
                 .material(Items.BOOK).material(Items.STRING).material(Items.COPPER_INGOT)

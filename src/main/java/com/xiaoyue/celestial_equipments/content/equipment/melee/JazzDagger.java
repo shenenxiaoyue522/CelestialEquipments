@@ -6,7 +6,7 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttrModifierEntry;
+import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -52,7 +52,7 @@ public class JazzDagger extends UpgradeableMelee implements AttackConfig {
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (selected && lv > 2) {
-            AttrModifierEntry.builder().attr(Attributes.LUCK).nameWithUUID(CelestialEquipments.loc("jazz_dagger"))
+            AttributeAdder.builder().attr(Attributes.LUCK).nameWithUUID(CelestialEquipments.loc("jazz_dagger"))
                             .value(luckBonus.get()).toMap(modify);
         }
     }

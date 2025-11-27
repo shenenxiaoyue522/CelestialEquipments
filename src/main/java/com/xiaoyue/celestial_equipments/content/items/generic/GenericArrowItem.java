@@ -49,30 +49,30 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
     }
 
     @SubscribeTooltip(id = "pierce_level")
-    public static TooltipEntry pierceLevel = TooltipEntry.define("Penetration level: %s");
+    public static TooltipEntry pierceLevelInfo = TooltipEntry.define("Penetration level: %s");
 
     @SubscribeTooltip(id = "knockback_ability")
-    public static TooltipEntry knockbackAbility = TooltipEntry.define("Knockback ability: %s");
+    public static TooltipEntry knockbackAbilityInfo = TooltipEntry.define("Knockback ability: %s");
 
     @SubscribeTooltip(id = "ocean_arrow")
-    public static TooltipEntry oceanArrow = TooltipEntry.define("Arrows are capable of flying in water");
+    public static TooltipEntry oceanArrowInfo = TooltipEntry.define("Arrows are capable of flying in water");
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-        list.add(UpgradeableBow.bowDamage.withColor(ChatFormatting.BLUE, TooltipEntry.num((int) this.builder.damage)));
+        list.add(UpgradeableBow.bowDamageInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num((int) this.builder.damage)));
         if (this.builder.pierce != 0) {
-            list.add(pierceLevel.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.pierce)));
+            list.add(pierceLevelInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.pierce)));
         }
         if (this.builder.knock != 0) {
-            list.add(knockbackAbility.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.knock)));
+            list.add(knockbackAbilityInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.knock)));
         }
         if (this.builder.ignoreWater) {
-            list.add(oceanArrow.withColor(ChatFormatting.BLUE));
+            list.add(oceanArrowInfo.withColor(ChatFormatting.BLUE));
         }
         this.addEquipmentTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBan.withGray());
+            list.add(itemBanInfo.withGray());
         }
     }
 

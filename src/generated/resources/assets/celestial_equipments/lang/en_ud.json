@@ -54,6 +54,9 @@
   "celestial_equipments.tooltip.upgrade_stone_condition": "ןǝʌǝן %s ʍoןǝq :uoıʇɐɔıןddɐ ɟo ǝdoɔS",
   "celestial_equipments.tooltip.upgrade_stone_info": "ʇuǝɯdınbǝ ǝɥʇ ǝpɐɹbdn oʇ ןıʌuɐ ǝɥʇ uo ɯǝʇı ǝɥʇ ɥʇıʍ ǝbɹoɟ 'pǝxɐɯ sı ǝɔuǝıɹǝdxǝ ʇuǝɯdınbǝ ǝɥʇ uǝɥM",
   "celestial_equipments.tooltip.virtual_gold_arrow": "%s sǝɯoɔǝq ǝbɐɯɐp ǝɥʇ 'buıuɹnq sı ʇǝbɹɐʇ ǝɥʇ ɟı puɐ 'sǝɯıʇ 0Ɩ ɟo ןɐʇoʇ ɐ ɹoɟ 'puoɔǝs Ɩ ʎɹǝʌǝ ǝbɐɯɐp ʍoɹɹɐ ɟo %s oʇ ןɐnbǝ ǝbɐɯɐp ɔıbɐɯ Ɩ sןɐǝp ʇı 'ʇıɥ sı ʇǝbɹɐʇ ǝɥʇ uǝɥM",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_0": "buıpɐoןǝɹ ɹǝʇɟɐ ʎןǝʇɐıpǝɯɯı ǝɹıɟ ןןıʍ ʇı 'ʇuǝɯʇuɐɥɔuǝ ʇoɥsıʇןnW ǝɥʇ ǝʌɐɥ noʎ uǝɥM",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_1": "pǝɔnpǝɹ ʎןʇɐǝɹb sı pǝǝds ǝbɹɐɥɔ ǝɥʇ 'ʇuǝɯʇuɐɥɔuǝ ǝbɹɐɥƆ ʞɔınὉ ɐ ǝʌɐɥ noʎ uǝɥM",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_2": "ǝʇnqıɹʇʇɐ uoıʇɐɹʇǝuǝd ɹoɯɹɐ ɹnoʎ ǝsɐǝɹɔuı uɐɔ noʎ 'ʇuǝɯʇuɐɥɔuǝ buıɔɹǝıԀ ǝɥʇ ǝʌɐɥ noʎ uǝɥM",
   "item.celestial_equipments.abyss_arrow": "ʍoɹɹⱯ ssʎqⱯ",
   "item.celestial_equipments.abyss_whisper": "ɹǝdsıɥM ssʎqⱯ",
   "item.celestial_equipments.avarice_blade": "ǝpɐןᗺ ǝɔıɹɐʌⱯ",
@@ -91,6 +94,7 @@
   "item.celestial_equipments.training_arrow": "ʍoɹɹⱯ buıuıɐɹ⟘",
   "item.celestial_equipments.undead_sword": "pɹoʍS pɐǝpu∩",
   "item.celestial_equipments.virtual_gold_arrow": "ʍoɹɹⱯ pןo⅁ ןɐnʇɹıΛ",
+  "item.celestial_equipments.virtual_gold_crossbow": "ʍoqssoɹƆ pןo⅁ ןɐnʇɹıΛ",
   "itemGroup.celestial_equipments.tab": "sʇuǝɯdınbƎ ןɐıʇsǝןǝƆ",
   "jei.ce_forge_recipe.is_upgrade_recipe": "ǝdıɔǝɹ ǝpɐɹbdn ʇuǝɯdınbǝ uɐ sı sıɥ⟘",
   "jei.ce_forge_recipe.upgrade_recipe_condition": "ןǝʌǝן %s ʍoןǝq sı ןǝʌǝן uǝɥʍ ʇuǝɯdınbǝ oʇ sǝıןddⱯ"

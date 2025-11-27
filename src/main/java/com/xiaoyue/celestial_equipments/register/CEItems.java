@@ -8,6 +8,7 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipment.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipment.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipment.crossbow.SakuraBloom;
+import com.xiaoyue.celestial_equipments.content.equipment.crossbow.VirtualGoldCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.GravediggersHelper;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipment.melee.*;
@@ -68,6 +69,7 @@ public class CEItems {
     public static final ItemEntry<FrozenInvasion> FROZEN_INVASION = bow("frozen_invasion", FrozenInvasion::new);
 
     public static final ItemEntry<SakuraBloom> SAKURA_BLOOM = crossbow("sakura_bloom", SakuraBloom::new);
+    public static final ItemEntry<VirtualGoldCrossbow> VIRTUAL_GOLD_CROSSBOW = crossbow("virtual_gold_crossbow", VirtualGoldCrossbow::new);
 
     public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", p -> new CelestialTridentItem(p.durability(2000)));
 

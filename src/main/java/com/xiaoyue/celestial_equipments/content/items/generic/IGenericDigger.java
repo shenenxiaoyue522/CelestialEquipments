@@ -40,7 +40,7 @@ public interface IGenericDigger extends ICEquipment {
             this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBan.withGray());
+                list.add(itemBanInfo.withGray());
             }
         }
 
@@ -64,7 +64,7 @@ public interface IGenericDigger extends ICEquipment {
             this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBan.withGray());
+                list.add(itemBanInfo.withGray());
             }
         }
 
@@ -88,7 +88,7 @@ public interface IGenericDigger extends ICEquipment {
             this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBan.withGray());
+                list.add(itemBanInfo.withGray());
             }
         }
 
@@ -112,7 +112,7 @@ public interface IGenericDigger extends ICEquipment {
             this.addEquipmentTooltips(pStack, list);
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBan.withGray());
+                list.add(itemBanInfo.withGray());
             }
         }
 

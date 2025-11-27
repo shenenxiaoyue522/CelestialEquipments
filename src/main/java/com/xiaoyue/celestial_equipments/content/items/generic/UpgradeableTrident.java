@@ -25,7 +25,10 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBan.withGray());
+            list.add(itemBanInfo.withGray());
+        }
+        if (pStack.isEnchanted()) {
+            list.add(Component.empty());
         }
     }
 

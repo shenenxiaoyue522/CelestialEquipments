@@ -54,6 +54,9 @@
   "celestial_equipments.tooltip.upgrade_stone_condition": "Scope of application: below %s level",
   "celestial_equipments.tooltip.upgrade_stone_info": "When the equipment experience is maxed, forge with the item on the anvil to upgrade the equipment",
   "celestial_equipments.tooltip.virtual_gold_arrow": "When the target is hit, it deals 1 magic damage equal to %s of arrow damage every 1 second, for a total of 10 times, and if the target is burning, the damage becomes %s",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_0": "When you have the Multishot enchantment, it will fire immediately after reloading",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_1": "When you have a Quick Charge enchantment, the charge speed is greatly reduced",
+  "celestial_equipments.tooltip.virtual_gold_crossbow_2": "When you have the Piercing enchantment, you can increase your armor penetration attribute",
   "item.celestial_equipments.abyss_arrow": "Abyss Arrow",
   "item.celestial_equipments.abyss_whisper": "Abyss Whisper",
   "item.celestial_equipments.avarice_blade": "Avarice Blade",
@@ -91,6 +94,7 @@
   "item.celestial_equipments.training_arrow": "Training Arrow",
   "item.celestial_equipments.undead_sword": "Undead Sword",
   "item.celestial_equipments.virtual_gold_arrow": "Virtual Gold Arrow",
+  "item.celestial_equipments.virtual_gold_crossbow": "Virtual Gold Crossbow",
   "itemGroup.celestial_equipments.tab": "Celestial Equipments",
   "jei.ce_forge_recipe.is_upgrade_recipe": "This is an equipment upgrade recipe",
   "jei.ce_forge_recipe.upgrade_recipe_condition": "Applies to equipment when level is below %s level"

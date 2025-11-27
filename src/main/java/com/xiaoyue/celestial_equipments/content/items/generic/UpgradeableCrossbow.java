@@ -51,7 +51,10 @@ public class UpgradeableCrossbow extends CelestialCrossbowItem implements ICEqui
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBan.withGray());
+            list.add(itemBanInfo.withGray());
+        }
+        if (pStack.isEnchanted()) {
+            list.add(Component.empty());
         }
     }
 

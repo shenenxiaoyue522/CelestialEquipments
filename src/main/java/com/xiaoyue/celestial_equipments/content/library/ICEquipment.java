@@ -21,13 +21,13 @@ import java.util.List;
 public interface ICEquipment {
 
     @SubscribeTooltip(id = "item_cooldown")
-    TooltipEntry itemCooldown = TooltipEntry.define("Cooldown time: %s seconds");
+    TooltipEntry itemCooldownInfo = TooltipEntry.define("Cooldown time: %s seconds");
 
     @SubscribeTooltip(id = "shift_down")
-    TooltipEntry shiftDown = TooltipEntry.define("Press [%s] to display equipment info details");
+    TooltipEntry shiftDownInfo = TooltipEntry.define("Press [%s] to display equipment info details");
 
     @SubscribeTooltip(id = "item_ban")
-    TooltipEntry itemBan = TooltipEntry.define("This item is disabled");
+    TooltipEntry itemBanInfo = TooltipEntry.define("This item is disabled");
 
     Item self();
 

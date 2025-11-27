@@ -30,12 +30,12 @@ public class CatalystItem extends Item {
             "When the equipment experience is maxed, forge with the item on the anvil to upgrade the equipment");
 
     @SubscribeTooltip(id = "upgrade_stone_condition")
-    public static TooltipEntry upgradeStoneCondition = TooltipEntry.define("Scope of application: below %s level");
+    public static TooltipEntry upgradeStoneConditionInfo = TooltipEntry.define("Scope of application: below %s level");
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         list.add(upgradeStoneInfo.withGray());
-        list.add(upgradeStoneCondition.withGray(TooltipEntry.num(this.type.getCondition())));
+        list.add(upgradeStoneConditionInfo.withGray(TooltipEntry.num(this.type.getCondition())));
     }
 
     public enum Type {

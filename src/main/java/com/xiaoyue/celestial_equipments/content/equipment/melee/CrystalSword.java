@@ -32,14 +32,18 @@ public class CrystalSword extends UpgradeableMelee {
         return 0.1f;
     }
 
+    public static double getChance(int lv) {
+        return Math.min(1.0, effectChance.get() * lv);
+    }
+
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(effectChance.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(getChance(lv))));
     }
 
     @Override
     protected void attacked(ItemStack stack, LivingEntity target, LivingEntity attacker, int lv) {
-        if (attacker.getRandom().nextDouble() <= effectChance.get() * (double)lv) {
+        if (attacker.getRandom().nextDouble() <= getChance(lv)) {
             int toAdd = lv / 2;
             EntityUtils.addEct(attacker, CCEffects.CRIT_RATE.get(), 100, toAdd - 1);
             EntityUtils.addEct(attacker, CCEffects.CRIT_DAMAGE.get(), 100, toAdd - 1);

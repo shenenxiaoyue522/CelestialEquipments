@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 import static com.xiaoyue.celestial_equipments.CelestialEquipments.MODID;
 
-@EventBusSubscriber(modid = MODID, value = {Dist.CLIENT})
+@EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
 public class ClientEvents {
 
     @SubscribeEvent

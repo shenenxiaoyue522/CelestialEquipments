@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttrModifierEntry;
+import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.ChatFormatting;
@@ -43,7 +43,7 @@ public class UpgradeableMelee extends Item implements ICEquipment {
     }
 
     @SubscribeTooltip(id = "sweep_range_bonus")
-    public static TooltipEntry sweepBonusText = TooltipEntry.define("Sweep range increased by %s");
+    public static TooltipEntry sweepBonusInfo = TooltipEntry.define("Sweep range increased by %s");
 
     public float getAttack(int lv) {
         return 0f;
@@ -65,7 +65,10 @@ public class UpgradeableMelee extends Item implements ICEquipment {
         list.add(this.type.getLang().withStyle(ChatFormatting.BLUE));
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBan.withGray());
+            list.add(itemBanInfo.withGray());
+        }
+        if (stack.isEnchanted()) {
+            list.add(Component.empty());
         }
     }
 
@@ -76,7 +79,7 @@ public class UpgradeableMelee extends Item implements ICEquipment {
         if (slot.equals(EquipmentSlot.MAINHAND)) {
             float attack = this.type.getActualAttack(lv) + this.type.getTypeAttack(this.getAttack(lv));
             float speed = this.type.getBaseSpeed() + this.getSpeed(lv);
-            AttrModifierEntry.builder().uuid(BASE_ATTACK_DAMAGE_UUID).value(attack).toMap(modify)
+            AttributeAdder.builder().uuid(BASE_ATTACK_DAMAGE_UUID).value(attack).toMap(modify)
                             .attr(Attributes.ATTACK_SPEED).uuid(BASE_ATTACK_SPEED_UUID).value(speed).toMap(modify);
         }
         this.modify(slot, stack, EquipmentUtils.getLevel(stack), slot.equals(EquipmentSlot.MAINHAND), modify);

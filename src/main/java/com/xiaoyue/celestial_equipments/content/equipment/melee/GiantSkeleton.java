@@ -5,7 +5,7 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttrModifierEntry;
+import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -33,8 +33,8 @@ public class GiantSkeleton extends UpgradeableMelee implements AttackConfig {
             "Giant Skeleton: Entity reach bonus");
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineChance("Giant Skeleton Damage Bonus", 0.01,
-            "Giant Skeleton: Increase the attack according to the maximum life of the target");
+    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineFromZero("Giant Skeleton Damage Bonus", 0.005,
+            1, "Giant Skeleton: Increase the attack according to the maximum life of the target");
 
     @SubscribeTooltip(id = "giant_skeleton")
     public static TooltipEntry tooltip = TooltipEntry.define(
@@ -48,7 +48,7 @@ public class GiantSkeleton extends UpgradeableMelee implements AttackConfig {
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (selected && lv >= 3) {
-            AttrModifierEntry.builder().attr(ForgeMod.ENTITY_REACH.get())
+            AttributeAdder.builder().attr(ForgeMod.ENTITY_REACH.get())
                     .nameWithUUID(CelestialEquipments.loc("giant_skeleton")).value(reachBonus.get()).toMap(modify);
         }
     }

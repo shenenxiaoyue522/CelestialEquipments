@@ -19,7 +19,7 @@ public class SakuraEchoesArmor extends UpgradeableArmor {
     }
 
     @SubscribeTooltip(id = "sakura_echoes_set")
-    public static TooltipEntry setName = TooltipEntry.define("Sakura blossoms echoed");
+    public static TooltipEntry setNameInfo = TooltipEntry.define("Sakura blossoms echoed");
 
     public static String getArmorName(Type type) {
         return switch (type) {
@@ -48,7 +48,7 @@ public class SakuraEchoesArmor extends UpgradeableArmor {
 
     @Override
     public MutableComponent getArmorSetName() {
-        return setName.withColor(ChatFormatting.LIGHT_PURPLE);
+        return setNameInfo.withColor(ChatFormatting.LIGHT_PURPLE);
     }
 
     @Override

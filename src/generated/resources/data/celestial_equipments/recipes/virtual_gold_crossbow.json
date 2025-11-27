@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "item": "minecraft:crossbow"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "celestial_core:virtual_gold_ingot"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:virtual_gold_crossbow",
+    "nbt": "{Damage:0}"
+  }
+}

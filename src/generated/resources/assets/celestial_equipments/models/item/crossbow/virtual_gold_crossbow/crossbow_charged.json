@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "celestial_equipments:item/crossbow/virtual_gold_crossbow/crossbow_charged"
+  }
+}

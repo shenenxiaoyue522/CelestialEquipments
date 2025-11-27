@@ -51,7 +51,7 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
         this.addBaseTooltips(stack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBan.withGray());
+            list.add(itemBanInfo.withGray());
         }
     }
 
