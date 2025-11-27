@@ -33,7 +33,7 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
     public void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
         if (!Screen.hasShiftDown()) {
-            list.add(shiftDown.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
+            list.add(shiftDownInfo.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         } else {
             EquipmentUtils.addExpTooltips(list, stack);
             if (!getSetArmors().isEmpty()) {
