@@ -8,7 +8,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -51,7 +50,7 @@ public class UpgradeableCrossbow extends CelestialCrossbowItem implements ICEqui
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
         if (pStack.isEnchanted()) {
             list.add(Component.empty());
@@ -75,12 +74,7 @@ public class UpgradeableCrossbow extends CelestialCrossbowItem implements ICEqui
         onConfigShoot(shooter, hand, crossbow, ammo, projectile, arrow, lv);
     }
 
-    protected final void onConfigShoot(LivingEntity shooter, InteractionHand hand, ItemStack crossbow, ItemStack ammo, Projectile projectile, @Nullable AbstractArrow arrow, int lv) {
+    protected void onConfigShoot(LivingEntity shooter, InteractionHand hand, ItemStack crossbow, ItemStack ammo, Projectile projectile, @Nullable AbstractArrow arrow, int lv) {
 
-    }
-
-    @Override
-    public Item self() {
-        return this;
     }
 }

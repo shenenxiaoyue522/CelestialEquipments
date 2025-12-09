@@ -32,7 +32,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static IntConfigEntry cooldown = IntConfigEntry.define("Terra Broadsword Cooldown Time",
+    public static IntConfigEntry cooldownConfig = IntConfigEntry.define("Terra Broadsword Cooldown Time",
             100, 1, 1000000, "Terra Broadsword: Cooldown time");
 
     @SubscribeTooltip(id = "terra_broadsword")
@@ -50,7 +50,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }
-        list.add(itemCooldown.withGray(TooltipEntry.num(cooldown.get() / 20)));
+        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
         if (this.noCooldown(pPlayer) && pPlayer.isCrouching() && EquipmentUtils.getLevel(stack) > 0) {
             Vec3 end = pPlayer.getLookAngle().scale(5f);
             pPlayer.setDeltaMovement(end.x, pPlayer.getDeltaMovement().y(), end.z);
-            this.addCooldown(pPlayer, cooldown.get());
+            this.addCooldown(pPlayer, cooldownConfig.get());
             return InteractionResultHolder.success(stack);
         }
         return InteractionResultHolder.fail(stack);

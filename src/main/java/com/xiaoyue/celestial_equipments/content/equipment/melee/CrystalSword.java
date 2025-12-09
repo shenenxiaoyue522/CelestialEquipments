@@ -20,7 +20,7 @@ public class CrystalSword extends UpgradeableMelee {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry effectChance = DoubleConfigEntry.defineChance("Crystal Sword Effect Chance", 0.2,
+    public static DoubleConfigEntry effectChanceConfig = DoubleConfigEntry.defineChance("Crystal Sword Effect Chance", 0.2,
             "Crystal Sword: How much chance does it have to increase critical hits and critical damage when attacking");
 
     @SubscribeTooltip(id = "crystal_sword")
@@ -33,7 +33,7 @@ public class CrystalSword extends UpgradeableMelee {
     }
 
     public static double getChance(int lv) {
-        return Math.min(1.0, effectChance.get() * lv);
+        return Math.min(1.0, effectChanceConfig.get() * lv);
     }
 
     @Override

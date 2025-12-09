@@ -22,7 +22,7 @@ public class BlankingDagger extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Blanking Dagger Damage Bonus",
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Blanking Dagger Damage Bonus",
             0.1, "Blanking Dagger: Increase attack damage when attacking from behind");
 
     @SubscribeTooltip(id = "blanking_dagger")
@@ -30,12 +30,12 @@ public class BlankingDagger extends UpgradeableMelee implements AttackConfig {
             "Increases damage by %s when attacking mobs from behind");
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         if (EntityUtils.isLookingBehindTarget(cache.getAttackTarget(), attacker.getEyePosition())) {
-            cache.addHurtModifier(DamageModifier.multBase(damageBonus.floatMax() * lv));
+            cache.addHurtModifier(DamageModifier.multBase(dmgConfig.floatMax() * lv));
         }
     }
 }

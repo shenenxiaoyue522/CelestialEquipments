@@ -22,7 +22,7 @@ public class ShadyDeap extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Shady Deap Damage Bonus", 0.07,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Shady Deap Damage Bonus", 0.07,
             "Shady Deap: Increase the attack on targets without armor");
 
     @SubscribeTooltip(id = "shady_deap")
@@ -35,13 +35,13 @@ public class ShadyDeap extends UpgradeableMelee implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 
     @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         if (EntityUtils.nullArmor(cache.getAttackTarget())) {
-            cache.addHurtModifier(DamageModifier.multBase(damageBonus.floatValue() * lv));
+            cache.addHurtModifier(DamageModifier.multBase(dmgConfig.floatValue() * lv));
         }
     }
 }

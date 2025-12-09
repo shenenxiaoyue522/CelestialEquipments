@@ -21,15 +21,17 @@ import java.util.List;
 public interface ICEquipment {
 
     @SubscribeTooltip(id = "item_cooldown")
-    TooltipEntry itemCooldownInfo = TooltipEntry.define("Cooldown time: %s seconds");
+    TooltipEntry itemCooldownTooltip = TooltipEntry.define("Cooldown time: %s seconds");
 
     @SubscribeTooltip(id = "shift_down")
-    TooltipEntry shiftDownInfo = TooltipEntry.define("Press [%s] to display equipment info details");
+    TooltipEntry shiftDownTooltip = TooltipEntry.define("Press [%s] to display equipment info details");
 
     @SubscribeTooltip(id = "item_ban")
-    TooltipEntry itemBanInfo = TooltipEntry.define("This item is disabled");
+    TooltipEntry itemBanTooltip = TooltipEntry.define("This item is disabled");
 
-    Item self();
+    default Item self() {
+        return (Item) this;
+    }
 
     default boolean isUpgradeable() {
         return !this.self().getDefaultInstance().is(CETagGen.NOT_UPGRADEABLE);
@@ -47,7 +49,7 @@ public interface ICEquipment {
     default void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
         if (!Screen.hasShiftDown()) {
-            list.add(shiftDownInfo.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
+            list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         } else {
             EquipmentUtils.addExpTooltips(list, stack);
             if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
@@ -58,7 +60,7 @@ public interface ICEquipment {
     }
 
     default void addBaseTooltips(ItemStack stack, List<Component> list) {
-        this.addBaseTooltips(stack, list, false);
+        this.addBaseTooltips(stack, list, !isUpgradeable());
     }
 
     default void addEquipmentTooltips(ItemStack stack, List<Component> list) {

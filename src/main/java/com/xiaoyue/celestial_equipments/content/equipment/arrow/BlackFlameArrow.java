@@ -24,12 +24,12 @@ public class BlackFlameArrow extends GenericArrowItem {
     }
 
     @ConfigHolderEntry(category = "arrow")
-    public static IntConfigEntry burnTime = IntConfigEntry.define("Black Flame Arrow Burn Time",
+    public static IntConfigEntry burnTimeConfig = IntConfigEntry.define("Black Flame Arrow Burn Time",
             60, 20, 1000, "Black Flame Arrow: Burn time");
 
     @SubscribeTooltip(id = "black_flame_arrow")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "Upon impact, the target is plunged into a %s seconds black flame burn", TooltipEntry.num(burnTime.get() / 20));
+            "Upon impact, the target is plunged into a %s seconds black flame burn", TooltipEntry.num(burnTimeConfig.get() / 20));
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
@@ -37,7 +37,7 @@ public class BlackFlameArrow extends GenericArrowItem {
 
     private static void onHitEntity(GenericArrowEntity arrow, Entity target) {
         if (target instanceof LivingEntity entity) {
-            EntityUtils.setBlackFlameTime(entity, burnTime.get());
+            EntityUtils.setBlackFlameTime(entity, burnTimeConfig.get());
         }
     }
 }

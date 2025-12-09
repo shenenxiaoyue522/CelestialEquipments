@@ -26,7 +26,7 @@ public class BrightProphecy extends UpgradeableBow {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Bright Prophecy Damage Bonus", 0.02,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Bright Prophecy Damage Bonus", 0.02,
             "Bright Prophecy: Damage that can be increased by each light level");
 
     @SubscribeTooltip(id = "bright_prophecy")
@@ -40,8 +40,8 @@ public class BrightProphecy extends UpgradeableBow {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
-        list.add(drawingEffect.withGray(CCLangData.eff(MobEffects.NIGHT_VISION)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
+        list.add(drawingEffectTooltip.withGray(CCLangData.eff(MobEffects.NIGHT_VISION)));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class BrightProphecy extends UpgradeableBow {
     @Override
     protected void onConfigShoot(ItemStack bow, Player shooter, ArrowItem arrowItem, AbstractArrow arrow, float pull, int lv) {
         int light = CCUtils.getLight(shooter.level(), shooter.getOnPos());
-        float toAdd = light * damageBonus.floatValue() * lv;
+        float toAdd = light * dmgConfig.floatValue() * lv;
         this.mulArrowBaseDamage(arrow, toAdd);
     }
 }

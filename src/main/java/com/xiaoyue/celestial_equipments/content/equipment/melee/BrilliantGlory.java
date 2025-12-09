@@ -28,11 +28,11 @@ public class BrilliantGlory extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry critDmgBonus = DoubleConfigEntry.defineSmallRange("Brilliant Glory Crit Damage Bonus",
+    public static DoubleConfigEntry critDmgConfig = DoubleConfigEntry.defineSmallRange("Brilliant Glory Crit Damage Bonus",
             0.2, "Brilliant Glory: The health recovered when killing the target");
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry effectDmgBonus = DoubleConfigEntry.defineFromZero("Brilliant Glory Effect Damage Bonus",
+    public static DoubleConfigEntry effectDmgConfig = DoubleConfigEntry.defineFromZero("Brilliant Glory Effect Damage Bonus",
             0.05, 10, "Brilliant Glory: Improve the attack according to the positive effect");
 
     @SubscribeTooltip(id = "brilliant_glory")
@@ -41,18 +41,18 @@ public class BrilliantGlory extends UpgradeableMelee implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(effectDmgBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(effectDmgConfig.get() * lv)));
     }
 
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (selected && lv >= 3) {
-            modify.put(L2DamageTracker.CRIT_DMG.get(), ItemUtils.addMod("brilliant_glory", critDmgBonus.get(), 0));
+            modify.put(L2DamageTracker.CRIT_DMG.get(), ItemUtils.addMod("brilliant_glory", critDmgConfig.get(), 0));
         }
     }
 
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
-        float toAdd = effectDmgBonus.floatValue() * lv * EntityUtils.getBeneficialEffect(attacker);
+        float toAdd = effectDmgConfig.floatValue() * lv * EntityUtils.getBeneficialEffect(attacker);
         cache.addHurtModifier(DamageModifier.multBase(toAdd));
     }
 }

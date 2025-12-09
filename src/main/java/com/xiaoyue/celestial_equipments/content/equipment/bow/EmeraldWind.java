@@ -28,7 +28,7 @@ public class EmeraldWind extends UpgradeableBow {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry luckBonus = DoubleConfigEntry.define("Emerald Wind Luck Bonus", 2, 1, 100,
+    public static DoubleConfigEntry luckConfig = DoubleConfigEntry.define("Emerald Wind Luck Bonus", 2, 1, 100,
             "Emerald Wind: Luck bonus");
 
     @SubscribeTooltip(id = "emerald_wind")
@@ -48,7 +48,7 @@ public class EmeraldWind extends UpgradeableBow {
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (lv >= 2 && selected) {
             AttributeAdder.builder().attr(Attributes.LUCK).nameWithUUID(CelestialEquipments.loc("emerald_wind"))
-                    .value(luckBonus.get()).toMap(modify);
+                    .value(luckConfig.get()).toMap(modify);
         }
     }
 

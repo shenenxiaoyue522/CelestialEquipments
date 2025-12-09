@@ -25,30 +25,30 @@ public class SunFlame extends UpgradeableBow implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static IntConfigEntry burnTime = IntConfigEntry.define("Sun Flame Burn Time", 60, 1, 1000,
+    public static IntConfigEntry burnTimeConfig = IntConfigEntry.define("Sun Flame Burn Time", 60, 1, 1000,
             "Sun Flame: The burn time the target is stuck into");
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Sun Flame Damage Bonus", 0.05,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Sun Flame Damage Bonus", 0.05,
             "Sun Flame: Attack the target in the fire and increase the attack");
 
     @SubscribeTooltip(id = "sun_flame")
     public static TooltipEntry tooltip = TooltipEntry.define("Increases damage by %s when attacking burning targets");
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
-        list.add(burnTimeText.withGray(TooltipEntry.num((burnTime.get() / 20) * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
+        list.add(burnTimeTooltip.withGray(TooltipEntry.num((burnTimeConfig.get() / 20) * lv)));
     }
 
     @Override
     protected void onConfigShoot(ItemStack bow, Player shooter, ArrowItem arrowItem, AbstractArrow arrow, float pull, int lv) {
-        arrow.setSecondsOnFire(arrow.getRemainingFireTicks() + burnTime.get() * lv);
+        arrow.setSecondsOnFire(arrow.getRemainingFireTicks() + burnTimeConfig.get() * lv);
     }
 
     @Override
     public void onProjectileHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         if (cache.getAttackTarget().isOnFire()) {
-            cache.addHurtModifier(DamageModifier.multBase(damageBonus.floatValue() * lv));
+            cache.addHurtModifier(DamageModifier.multBase(dmgConfig.floatValue() * lv));
         }
     }
 }

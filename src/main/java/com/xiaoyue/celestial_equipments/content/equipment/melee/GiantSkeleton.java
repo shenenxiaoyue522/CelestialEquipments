@@ -29,11 +29,11 @@ public class GiantSkeleton extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static IntConfigEntry reachBonus = IntConfigEntry.define("Giant Skeleton Entity Reach Bonus", 2, 1, 100,
+    public static IntConfigEntry reachConfig = IntConfigEntry.define("Giant Skeleton Entity Reach Bonus", 2, 1, 100,
             "Giant Skeleton: Entity reach bonus");
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineFromZero("Giant Skeleton Damage Bonus", 0.005,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromZero("Giant Skeleton Damage Bonus", 0.005,
             1, "Giant Skeleton: Increase the attack according to the maximum life of the target");
 
     @SubscribeTooltip(id = "giant_skeleton")
@@ -42,20 +42,20 @@ public class GiantSkeleton extends UpgradeableMelee implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * (float)lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * (float)lv)));
     }
 
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (selected && lv >= 3) {
             AttributeAdder.builder().attr(ForgeMod.ENTITY_REACH.get())
-                    .nameWithUUID(CelestialEquipments.loc("giant_skeleton")).value(reachBonus.get()).toMap(modify);
+                    .nameWithUUID(CelestialEquipments.loc("giant_skeleton")).value(reachConfig.get()).toMap(modify);
         }
     }
 
     @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
-        float toAdd = damageBonus.floatValue() * lv * cache.getAttackTarget().getMaxHealth();
+        float toAdd = dmgConfig.floatValue() * lv * cache.getAttackTarget().getMaxHealth();
         cache.addHurtModifier(DamageModifier.add(toAdd));
     }
 }

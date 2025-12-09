@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "celestial_equipments:item/crossbow/sonic_crossbow/crossbow_pulling_2"
+  }
+}

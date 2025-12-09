@@ -18,12 +18,14 @@ public class CETagGen {
     public static final TagKey<Item> CELESTIAL_BOW = ItemTags.create(CelestialEquipments.loc("celestial_bow"));
     public static final TagKey<Item> CELESTIAL_CROSSBOW = ItemTags.create(CelestialEquipments.loc("celestial_crossbow"));
     public static final TagKey<Item> CELESTIAL_ARMORS = ItemTags.create(CelestialEquipments.loc("celestial_armors"));
+    public static final TagKey<Item> CELESTIAL_UPGRADEABLE_DIGGER = ItemTags.create(CelestialEquipments.loc("celestial_upgradeable_digger"));
 
     public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
         pvd.addTag(CELESTIAL_MELEE);
         pvd.addTag(CELESTIAL_BOW);
         pvd.addTag(CELESTIAL_CROSSBOW);
         pvd.addTag(CELESTIAL_ARMORS);
+        pvd.addTag(CELESTIAL_UPGRADEABLE_DIGGER);
     }
 
     public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {

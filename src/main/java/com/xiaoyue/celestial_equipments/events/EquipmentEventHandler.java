@@ -22,7 +22,7 @@ public class EquipmentEventHandler {
             ItemStack stack = player.getMainHandItem();
             int lv = EquipmentUtils.getLevel(stack);
             if (stack.is(CEItems.AVARICE_BLADE.get())) {
-                event.setDroppedExperience((int) (event.getDroppedExperience() * (1f + AvariceBlade.expDropBonus.get() * (float)lv)));
+                event.setDroppedExperience((int) (event.getDroppedExperience() * (1f + AvariceBlade.expBonusConfig.get() * (float)lv)));
             }
         }
     }

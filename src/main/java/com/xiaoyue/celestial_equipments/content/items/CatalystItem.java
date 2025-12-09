@@ -26,16 +26,16 @@ public class CatalystItem extends Item {
     }
 
     @SubscribeTooltip(id = "upgrade_stone_info")
-    public static TooltipEntry upgradeStoneInfo = TooltipEntry.define(
+    public static TooltipEntry upgradeStoneTooltip = TooltipEntry.define(
             "When the equipment experience is maxed, forge with the item on the anvil to upgrade the equipment");
 
     @SubscribeTooltip(id = "upgrade_stone_condition")
-    public static TooltipEntry upgradeStoneConditionInfo = TooltipEntry.define("Scope of application: below %s level");
+    public static TooltipEntry upgradeStoneConditionTooltip = TooltipEntry.define("Scope of application: below %s level");
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-        list.add(upgradeStoneInfo.withGray());
-        list.add(upgradeStoneConditionInfo.withGray(TooltipEntry.num(this.type.getCondition())));
+        list.add(upgradeStoneTooltip.withGray());
+        list.add(upgradeStoneConditionTooltip.withGray(TooltipEntry.num(this.type.getCondition())));
     }
 
     public enum Type {
@@ -50,12 +50,12 @@ public class CatalystItem extends Item {
         }
 
         @ConfigHolderEntry(category = "misc")
-        public static final DoubleConfigEntry upgradeConditionScale = DoubleConfigEntry.define("Upgrade Condition Scale",
+        public static final DoubleConfigEntry upgradeConditionScaleConfig = DoubleConfigEntry.define("Upgrade Condition Scale",
                 1, 0, 10000, "Luck bonus");
 
 
         public int getCondition() {
-            return (int) (baseCondition * upgradeConditionScale.get());
+            return (int) (baseCondition * upgradeConditionScaleConfig.get());
         }
     }
 }

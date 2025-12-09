@@ -26,17 +26,17 @@ public class VirtualGoldArrow extends GenericArrowItem {
     }
 
     @ConfigHolderEntry(category = "arrow")
-    public static DoubleConfigEntry baseDamageMultiplier = DoubleConfigEntry.defineSmallRange(
+    public static DoubleConfigEntry baseDmgConfig = DoubleConfigEntry.defineSmallRange(
             "Virtual Gold Arrow Base Damage Multiplier", 0.05, "Virtual Gold Arrow: Base damage multiplier");
 
     @ConfigHolderEntry(category = "arrow")
-    public static DoubleConfigEntry damageMultiplierInFire = DoubleConfigEntry.defineFromMinUsable(
+    public static DoubleConfigEntry inFireDmgConfig = DoubleConfigEntry.defineFromMinUsable(
             "Virtual Gold Arrow Damage Multiplier In Fire", 0.1, 100, "Virtual Gold Arrow: Damage multiplier when burning");
 
     @SubscribeTooltip(id = "virtual_gold_arrow")
     public static TooltipEntry tooltip = TooltipEntry.define(
             "When the target is hit, it deals 1 magic damage equal to %s of arrow damage every 1 second, for a total of 10 times, and if the target is burning, the damage becomes %s",
-            TooltipEntry.per(baseDamageMultiplier.get()), TooltipEntry.per(damageMultiplierInFire.get()));
+            TooltipEntry.per(baseDmgConfig.get()), TooltipEntry.per(inFireDmgConfig.get()));
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
@@ -45,7 +45,7 @@ public class VirtualGoldArrow extends GenericArrowItem {
     private static void onHitEntity(GenericArrowEntity arrow, Entity target) {
         Entity entity = arrow.getOwner();
         if (entity instanceof LivingEntity owner) {
-            float damage = (float)(target.isOnFire() ? arrow.getBaseDamage() * damageMultiplierInFire.get() : arrow.getBaseDamage() * baseDamageMultiplier.get());
+            float damage = (float)(target.isOnFire() ? arrow.getBaseDamage() * inFireDmgConfig.get() : arrow.getBaseDamage() * baseDmgConfig.get());
             DelayUtils.schedule(CelestialEquipments.loc("virtual_gold_arrow"), 20, 10, () -> target.hurt(CCDamageTypes.magic(owner), damage));
         }
 

@@ -86,7 +86,7 @@
   "celestial_equipments.tooltip.draw_speed": "拉弓时间 %s 秒",
   "celestial_equipments.tooltip.arrow_speed": "箭矢速度 %s",
   "celestial_equipments.tooltip.item_ban": "这个物品被禁用了",
-  "celestial_equipments.tooltip.shift_down": "§7按[%s]查看武器信息详情",
+  "celestial_equipments.tooltip.shift_down": "按[%s]查看武器信息详情",
   "block.celestial_equipments.assembly_table": "装备组装台",
   "jei.ce_forge_recipe.is_upgrade_recipe": "这是一个装备升级配方",
   "jei.ce_forge_recipe.upgrade_recipe_condition": "适用于等级低于%s级时的装备",
@@ -97,5 +97,13 @@
   "celestial_equipments.tooltip.sakura_bloom_2": "分裂的箭矢拥有原箭矢%s伤害同时能够无限穿透生物",
   "celestial_equipments.tooltip.virtual_gold_crossbow_0": "拥有多重射击附魔时在装弹完成后会立刻开火",
   "celestial_equipments.tooltip.virtual_gold_crossbow_1": "拥有快速装填附魔时装填速度会极大幅度缩短",
-  "celestial_equipments.tooltip.virtual_gold_crossbow_2": "拥有穿透附魔时能够提升护甲穿透属性"
+  "celestial_equipments.tooltip.virtual_gold_crossbow_2": "拥有穿透附魔时能够提升护甲穿透属性",
+  "item.celestial_equipments.ender_throwing_axe": "末影飞斧",
+  "entity.celestial_equipments.ender_throwing_axe": "末影飞斧",
+  "celestial_equipments.tooltip.ender_throwing_axe_0": "右键能够将斧头投掷出去",
+  "celestial_equipments.tooltip.ender_throwing_axe_1": "投掷出的斧头击中生物或方块时会立即回到你的手中",
+  "celestial_equipments.tooltip.ender_throwing_axe_2": "击中生物时对其造成攻击伤害属性%s点攻击伤害",
+  "celestial_equipments.tooltip.sonic_crossbow_0": "射击时额外发射一道音爆攻击你前方的生物",
+  "celestial_equipments.tooltip.sonic_crossbow_1": "发射的音爆会造成基础伤害%s点攻击伤害",
+  "item.celestial_equipments.sonic_crossbow": "音爆弩"
 }

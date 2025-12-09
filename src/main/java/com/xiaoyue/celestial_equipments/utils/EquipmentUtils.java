@@ -18,36 +18,36 @@ public class EquipmentUtils {
     public static final String LEVEL = "CelestialEquipments_Level";
 
     @SubscribeTooltip(id = "equipment_level")
-    public static TooltipEntry equipmentLevelInfo = TooltipEntry.define("Equipment's rank: %s");
+    public static TooltipEntry levelTooltip = TooltipEntry.define("Equipment's rank: %s");
 
     @SubscribeTooltip(id = "equipment_exp")
-    public static TooltipEntry equipmentExpInfo = TooltipEntry.define("Equipment's experience: %s / %s");
+    public static TooltipEntry expTooltip = TooltipEntry.define("Equipment's experience: %s / %s");
 
     @ConfigHolderEntry(category = "misc")
-    public static IntConfigEntry maxLevel = IntConfigEntry.define("Equipment Max Level", 20, 1, 1000,
+    public static IntConfigEntry maxLevelConfig = IntConfigEntry.define("Equipment Max Level", 20, 1, 1000,
             "Equipment max level");
 
     @ConfigHolderEntry(category = "misc")
-    public static IntConfigEntry maxExp = IntConfigEntry.define("Equipment Max Exp", 500, 1, 9999999,
+    public static IntConfigEntry maxExpConfig = IntConfigEntry.defineFromZero("Equipment Max Exp", 500, Integer.MAX_VALUE,
             "Equipment max exp");
 
     public static void addExpTooltips(List<Component> list, ItemStack stack) {
-        list.add(equipmentLevelInfo.withGray(TooltipEntry.num(getLevel(stack))));
-        list.add(equipmentExpInfo.withGray(TooltipEntry.num(getExp(stack)), TooltipEntry.num(getMaxExp())));
+        list.add(levelTooltip.withGray(TooltipEntry.num(getLevel(stack))));
+        list.add(expTooltip.withGray(TooltipEntry.num(getExp(stack)), TooltipEntry.num(getMaxExp())));
     }
 
     public static void addBowStatsTooltips(List<Component> list, float damage, float drawSpeed, float arrowSpeed) {
-        list.add(UpgradeableBow.bowDamageInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
-        list.add(UpgradeableBow.drawSpeedInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));
-        list.add(UpgradeableBow.arrowSpeedInfo.withColor(ChatFormatting.BLUE, TooltipEntry.chance(arrowSpeed)));
+        list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
+        list.add(UpgradeableBow.drawSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));
+        list.add(UpgradeableBow.arrowSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.chance(arrowSpeed)));
     }
 
     public static int getMaxExp() {
-        return maxExp.get();
+        return maxExpConfig.get();
     }
 
     public static int getMaxLevel() {
-        return maxLevel.get();
+        return maxLevelConfig.get();
     }
 
     public static void upGear(ItemStack stack) {

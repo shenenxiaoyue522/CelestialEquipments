@@ -22,7 +22,7 @@ public class ElvenBow extends UpgradeableBow implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Elven Bow Damage Bonus", 0.07,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Elven Bow Damage Bonus", 0.07,
             "Elven Bow: Increased attack when the target is not wearing armor");
 
     @SubscribeTooltip(id = "elven_bow")
@@ -35,13 +35,13 @@ public class ElvenBow extends UpgradeableBow implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 
     @Override
     public void onProjectileHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         if (EntityUtils.nullArmor(cache.getAttackTarget())) {
-            float toAdd = damageBonus.floatValue() * lv;
+            float toAdd = dmgConfig.floatValue() * lv;
             cache.addHurtModifier(DamageModifier.multBase(toAdd));
         }
     }

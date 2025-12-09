@@ -8,7 +8,9 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipment.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipment.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipment.crossbow.SakuraBloom;
+import com.xiaoyue.celestial_equipments.content.equipment.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipment.crossbow.VirtualGoldCrossbow;
+import com.xiaoyue.celestial_equipments.content.equipment.digger.EnderThrowingAxe;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.GravediggersHelper;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipment.melee.*;
@@ -70,13 +72,16 @@ public class CEItems {
 
     public static final ItemEntry<SakuraBloom> SAKURA_BLOOM = crossbow("sakura_bloom", SakuraBloom::new);
     public static final ItemEntry<VirtualGoldCrossbow> VIRTUAL_GOLD_CROSSBOW = crossbow("virtual_gold_crossbow", VirtualGoldCrossbow::new);
+    public static final ItemEntry<SonicCrossbow> SONIC_CROSSBOW = crossbow("sonic_crossbow", SonicCrossbow::new);
 
     public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", p -> new CelestialTridentItem(p.durability(2000)));
 
     public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = digger("gravediggers_helper", GravediggersHelper::new,
-            ItemTags.PICKAXES);
+            ItemTags.PICKAXES, ItemTags.TOOLS);
     public static final ItemEntry<RadiantTreasure> RADIANT_TREASURE = digger("radiant_treasure", RadiantTreasure::new,
-            ItemTags.PICKAXES);
+            ItemTags.PICKAXES, ItemTags.TOOLS);
+    public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = digger("ender_throwing_axe", EnderThrowingAxe::new,
+            ItemTags.AXES, ItemTags.TOOLS, CETagGen.CELESTIAL_UPGRADEABLE_DIGGER);
 
     public static final ItemEntry<GenericArrowItem> TRAINING_ARROW = arrow("training_arrow", p ->
             new GenericArrowItem(p.rarity(Rarity.RARE), 1f));

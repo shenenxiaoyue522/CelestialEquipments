@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
@@ -33,7 +32,7 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
     public void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
         if (!Screen.hasShiftDown()) {
-            list.add(shiftDownInfo.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
+            list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         } else {
             EquipmentUtils.addExpTooltips(list, stack);
             if (!getSetArmors().isEmpty()) {
@@ -51,13 +50,8 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
         this.addBaseTooltips(stack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
-    }
-
-    @Override
-    public Item self() {
-        return this;
     }
 
     public void onDeath(ItemStack stack, LivingEntity entity, LivingDeathEvent event, int lv) {

@@ -20,7 +20,7 @@ public class BloodBinding extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry healMultiplier = DoubleConfigEntry.defineFromZero("Blood Binding Heal Multiplier",
+    public static DoubleConfigEntry healConfig = DoubleConfigEntry.defineFromZero("Blood Binding Heal Multiplier",
             0.15, 5, "Blood Binding: The health recovered when killing the target");
 
     @SubscribeTooltip(id = "blood_binding")
@@ -32,11 +32,11 @@ public class BloodBinding extends UpgradeableMelee implements AttackConfig {
     }
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(healMultiplier.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(healConfig.get() * lv)));
     }
 
     public void onMeleeKill(ItemStack stack, LivingEntity attacker, LivingDeathEvent event, int lv) {
-        float heal = healMultiplier.floatValue() * lv * (attacker.getMaxHealth() - attacker.getHealth());
+        float heal = healConfig.floatValue() * lv * (attacker.getMaxHealth() - attacker.getHealth());
         attacker.heal(heal);
     }
 }

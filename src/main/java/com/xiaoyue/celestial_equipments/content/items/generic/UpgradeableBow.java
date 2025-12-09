@@ -35,19 +35,19 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
     }
 
     @SubscribeTooltip(id = "bow_damage")
-    public static TooltipEntry bowDamageInfo = TooltipEntry.define("Base damage %s");
+    public static TooltipEntry bowDamageTooltip = TooltipEntry.define("Base damage %s");
 
     @SubscribeTooltip(id = "draw_speed")
-    public static TooltipEntry drawSpeedInfo = TooltipEntry.define("Draw time %s seconds");
+    public static TooltipEntry drawSpeedTooltip = TooltipEntry.define("Draw time %s seconds");
 
     @SubscribeTooltip(id = "arrow_speed")
-    public static TooltipEntry arrowSpeedInfo = TooltipEntry.define("Arrow speed %s");
+    public static TooltipEntry arrowSpeedTooltip = TooltipEntry.define("Arrow speed %s");
 
     @SubscribeTooltip(id = "drawing_effect")
-    public static TooltipEntry drawingEffectInfo = TooltipEntry.define("Gain %s when the bow is drawn");
+    public static TooltipEntry drawingEffectTooltip = TooltipEntry.define("Gain %s when the bow is drawn");
 
     @SubscribeTooltip(id = "burn_time")
-    public static TooltipEntry burnTimeInfo = TooltipEntry.define("Causes the target to burn in %s seconds when it hits");
+    public static TooltipEntry burnTimeTooltip = TooltipEntry.define("Causes the target to burn in %s seconds when it hits");
 
     @Override
     public float getDrawSpeed(LivingEntity user, ItemStack bow) {
@@ -81,7 +81,7 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
         list.add(this.type.getLang().withStyle(ChatFormatting.BLUE));
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
         if (stack.isEnchanted()) {
             list.add(Component.empty());
@@ -136,10 +136,5 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
     @Override
     public int getEnchantmentValue(ItemStack stack) {
         return 15;
-    }
-
-    @Override
-    public Item self() {
-        return this;
     }
 }

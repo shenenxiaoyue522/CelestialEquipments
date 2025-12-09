@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:celestial_upgradeable_digger"
+  },
+  "isUpgrade": true,
+  "levelCondition": 20,
+  "materials": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:redstone_block"
+    },
+    {
+      "item": "celestial_core:light_fragment"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ]
+}

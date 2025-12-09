@@ -1,0 +1,25 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:celestial_upgradeable_digger"
+  },
+  "isUpgrade": true,
+  "levelCondition": 5,
+  "materials": [
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:flint"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ]
+}

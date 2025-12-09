@@ -43,7 +43,7 @@ public class UpgradeableMelee extends Item implements ICEquipment {
     }
 
     @SubscribeTooltip(id = "sweep_range_bonus")
-    public static TooltipEntry sweepBonusInfo = TooltipEntry.define("Sweep range increased by %s");
+    public static TooltipEntry sweepBonusTooltip = TooltipEntry.define("Sweep range increased by %s");
 
     public float getAttack(int lv) {
         return 0f;
@@ -65,7 +65,7 @@ public class UpgradeableMelee extends Item implements ICEquipment {
         list.add(this.type.getLang().withStyle(ChatFormatting.BLUE));
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
         if (stack.isEnchanted()) {
             list.add(Component.empty());
@@ -143,9 +143,5 @@ public class UpgradeableMelee extends Item implements ICEquipment {
     @Override
     public Rarity getRarity(ItemStack pStack) {
         return this.getGearRarity(EquipmentUtils.getLevel(pStack));
-    }
-
-    public Item self() {
-        return this;
     }
 }

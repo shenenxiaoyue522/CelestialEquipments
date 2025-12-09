@@ -30,15 +30,14 @@ public class VirtualGoldCrossbow extends UpgradeableCrossbow {
     }
 
     @ConfigHolderEntry(category = "crossbow")
-    public static DoubleConfigEntry armorPenetration = DoubleConfigEntry.defineSmallRange("Virtual Gold Crossbow Penetration Bonus",
+    public static DoubleConfigEntry penetrationConfig = DoubleConfigEntry.defineSmallRange("Virtual Gold Crossbow Penetration Bonus",
             0.1, "Each level of the Piercing enchantment increases armor penetration");
 
     @SubscribeTooltip(id = "virtual_gold_crossbow")
     public static TooltipHolder tooltips = TooltipHolder.define(
             TooltipEntry.define("When you have the Multishot enchantment, it will fire immediately after reloading"),
             TooltipEntry.define("When you have a Quick Charge enchantment, the charge speed is greatly reduced"),
-            TooltipEntry.define("When you have the Piercing enchantment, you can increase your armor penetration attribute")
-    );
+            TooltipEntry.define("When you have the Piercing enchantment, you can increase your armor penetration attribute"));
 
     @Override
     public float getAttack(int lv) {
@@ -68,7 +67,7 @@ public class VirtualGoldCrossbow extends UpgradeableCrossbow {
         if (slot.equals(EquipmentSlot.MAINHAND) && EquipmentUtils.getLevel(stack) > 0) {
             int piercing = stack.getEnchantmentLevel(Enchantments.PIERCING);
             AttributeAdder.builder().attr(CCAttributes.ARMOR_PENETRATION.get()).nameWithUUID(CelestialEquipments.loc("virtual_gold_crossbow"))
-                    .value(piercing * armorPenetration.get()).toMap(map);
+                    .value(piercing * penetrationConfig.get()).toMap(map);
         }
         return map;
     }

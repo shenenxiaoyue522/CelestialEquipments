@@ -13,11 +13,6 @@ import java.util.List;
 public interface IGenericDigger extends ICEquipment {
 
     @Override
-    default void addBaseTooltips(ItemStack stack, List<Component> list) {
-        this.addBaseTooltips(stack, list, true);
-    }
-
-    @Override
     default boolean isUpgradeable() {
         return false;
     }
@@ -37,15 +32,15 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEquipmentTooltips(pStack, list);
+            if (isUpgradeable()) {
+                addBaseTooltips(pStack, list);
+            } else {
+                addEquipmentTooltips(pStack, list);
+            }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBanInfo.withGray());
+                list.add(itemBanTooltip.withGray());
             }
-        }
-
-        public Item self() {
-            return this;
         }
     }
 
@@ -61,15 +56,15 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEquipmentTooltips(pStack, list);
+            if (isUpgradeable()) {
+                addBaseTooltips(pStack, list);
+            } else {
+                addEquipmentTooltips(pStack, list);
+            }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBanInfo.withGray());
+                list.add(itemBanTooltip.withGray());
             }
-        }
-
-        public Item self() {
-            return this;
         }
     }
 
@@ -85,15 +80,15 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEquipmentTooltips(pStack, list);
+            if (isUpgradeable()) {
+                addBaseTooltips(pStack, list);
+            } else {
+                addEquipmentTooltips(pStack, list);
+            }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBanInfo.withGray());
+                list.add(itemBanTooltip.withGray());
             }
-        }
-
-        public Item self() {
-            return this;
         }
     }
 
@@ -109,15 +104,15 @@ public interface IGenericDigger extends ICEquipment {
 
         @Override
         public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-            this.addEquipmentTooltips(pStack, list);
+            if (isUpgradeable()) {
+                addBaseTooltips(pStack, list);
+            } else {
+                addEquipmentTooltips(pStack, list);
+            }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
-                list.add(itemBanInfo.withGray());
+                list.add(itemBanTooltip.withGray());
             }
-        }
-
-        public Item self() {
-            return this;
         }
     }
 }

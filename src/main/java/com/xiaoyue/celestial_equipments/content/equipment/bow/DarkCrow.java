@@ -28,11 +28,11 @@ public class DarkCrow extends UpgradeableBow {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry speedBonus = DoubleConfigEntry.defineSmallRange("Dark Crow Speed Bonus", 0.05,
+    public static DoubleConfigEntry speedConfig = DoubleConfigEntry.defineSmallRange("Dark Crow Speed Bonus", 0.05,
             "Dark Crow: Movement speed bonus");
 
     @ConfigHolderEntry(category = "bow")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Dark Crow Damage Bonus", 0.02,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Dark Crow Damage Bonus", 0.02,
             "Dark Crow: Increase the attack every 1 point below the maximum light level");
 
     @SubscribeTooltip(id = "dark_crow")
@@ -45,20 +45,20 @@ public class DarkCrow extends UpgradeableBow {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (lv >= 1 && slot.getType().equals(Type.HAND)) {
-            modify.put(Attributes.MOVEMENT_SPEED, ItemUtils.addMod("dark_crow", speedBonus.get(), 1));
+            modify.put(Attributes.MOVEMENT_SPEED, ItemUtils.addMod("dark_crow", speedConfig.get(), 1));
         }
     }
 
     @Override
     protected void onConfigShoot(ItemStack bow, Player shooter, ArrowItem arrowItem, AbstractArrow arrow, float pull, int lv) {
         int light = CCUtils.getLight(shooter.level(), shooter.getOnPos());
-        float toAdd = (15 - light) * damageBonus.floatValue() * lv;
+        float toAdd = (15 - light) * dmgConfig.floatValue() * lv;
         this.mulArrowBaseDamage(arrow, toAdd);
     }
 }

@@ -20,7 +20,7 @@ public class FrozenInvasion extends UpgradeableBow implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "bow")
-    public static IntConfigEntry frozenTime = IntConfigEntry.define("Frozen Invasion Frozen Time", 60, 10, 1000,
+    public static IntConfigEntry frozenTimeConfig = IntConfigEntry.define("Frozen Invasion Frozen Time", 60, 10, 1000,
             "Frozen Invasion: The value of time the target is frozen in");
 
     @SubscribeTooltip(id = "frozen_invasion")
@@ -28,13 +28,13 @@ public class FrozenInvasion extends UpgradeableBow implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.num(frozenTime.get() / 20)));
+        list.add(tooltip.withGray(TooltipEntry.num(frozenTimeConfig.get() / 20)));
     }
 
     @Override
     public void onProjectileHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         if (lv > 0) {
-            cache.getAttackTarget().setTicksFrozen(frozenTime.get());
+            cache.getAttackTarget().setTicksFrozen(frozenTimeConfig.get());
         }
     }
 }

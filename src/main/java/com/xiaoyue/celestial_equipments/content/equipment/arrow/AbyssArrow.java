@@ -25,12 +25,12 @@ public class AbyssArrow extends GenericArrowItem {
     }
 
     @ConfigHolderEntry(category = "arrow")
-    public static DoubleConfigEntry damageMultiplier = DoubleConfigEntry.defineFromMinUsable("Abyss Arrow Damage Multiplier",
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromMinUsable("Abyss Arrow Damage Multiplier",
             0.5, 100, "Abyss Arrow: Damage multiplier");
 
     @SubscribeTooltip(id = "abyss_arrow")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "Inflicts additional %s Abyss damage to the target on impact", TooltipEntry.per(damageMultiplier.get()));
+            "Inflicts additional %s Abyss damage to the target on impact", TooltipEntry.per(dmgConfig.get()));
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
@@ -39,7 +39,7 @@ public class AbyssArrow extends GenericArrowItem {
     private static void onHitEntity(GenericArrowEntity arrow, Entity target) {
         Entity entity = arrow.getOwner();
         if (entity instanceof LivingEntity owner) {
-            GeneralEventHandler.schedule(() -> target.hurt(CCDamageTypes.abyss(owner), (float) (arrow.getBaseDamage() * damageMultiplier.get())));
+            GeneralEventHandler.schedule(() -> target.hurt(CCDamageTypes.abyss(owner), (float) (arrow.getBaseDamage() * dmgConfig.get())));
         }
     }
 }

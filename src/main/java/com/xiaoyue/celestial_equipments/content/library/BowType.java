@@ -39,16 +39,16 @@ public enum BowType {
     }
 
     @SubscribeTooltip(id = "bow_type_long")
-    public static final TooltipEntry longBowInfo = TooltipEntry.define("Bow type: long bow");
+    public static final TooltipEntry longBowTooltip = TooltipEntry.define("Bow type: long bow");
 
     @SubscribeTooltip(id = "bow_type_short")
-    public static final TooltipEntry shortBowInfo = TooltipEntry.define("Bow type: short bow");
+    public static final TooltipEntry shortBowTooltip = TooltipEntry.define("Bow type: short bow");
 
     public MutableComponent getLang() {
         MutableComponent text;
         switch (this) {
-            case LONG_BOW -> text = longBowInfo.withColor(ChatFormatting.BLUE);
-            case SHORT_BOW -> text = shortBowInfo.withColor(ChatFormatting.BLUE);
+            case LONG_BOW -> text = longBowTooltip.withColor(ChatFormatting.BLUE);
+            case SHORT_BOW -> text = shortBowTooltip.withColor(ChatFormatting.BLUE);
             default -> throw new IncompatibleClassChangeError();
         }
         return text;

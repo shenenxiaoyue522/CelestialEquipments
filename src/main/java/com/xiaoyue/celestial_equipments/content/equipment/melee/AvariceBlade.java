@@ -17,7 +17,7 @@ public class AvariceBlade extends UpgradeableMelee {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry expDropBonus = DoubleConfigEntry.defineSmallRange("Avarice Blade Exp Drop Bonus",
+    public static DoubleConfigEntry expBonusConfig = DoubleConfigEntry.defineSmallRange("Avarice Blade Exp Drop Bonus",
             0.04, "Avarice Blade: Extra experience drop by this value");
 
     @SubscribeTooltip(id = "avarice_blade")
@@ -29,6 +29,6 @@ public class AvariceBlade extends UpgradeableMelee {
     }
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(expDropBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(expBonusConfig.get() * lv)));
     }
 }

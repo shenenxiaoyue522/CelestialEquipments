@@ -21,7 +21,7 @@ public class UndeadSword extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry damageBonus = DoubleConfigEntry.defineSmallRange("Undead Sword Damage Bonus", 0.05,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Undead Sword Damage Bonus", 0.05,
             "Undead Sword: Increase the attack according to the loss of life");
 
     @SubscribeTooltip(id = "undead_sword")
@@ -29,13 +29,13 @@ public class UndeadSword extends UpgradeableMelee implements AttackConfig {
 
     @Override
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltip.withGray(TooltipEntry.per(damageBonus.get() * lv)));
+        list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 
     @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         float missHp = attacker.getMaxHealth() - attacker.getHealth();
-        float toAdd = missHp * damageBonus.floatValue() * lv;
+        float toAdd = missHp * dmgConfig.floatValue() * lv;
         cache.addHurtModifier(DamageModifier.multBase(toAdd));
     }
 }

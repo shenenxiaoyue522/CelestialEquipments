@@ -3,7 +3,6 @@ package com.xiaoyue.celestial_equipments.content.items.generic;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -25,15 +24,10 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
         if (pStack.isEnchanted()) {
             list.add(Component.empty());
         }
-    }
-
-    @Override
-    public Item self() {
-        return this;
     }
 }

@@ -191,6 +191,10 @@ public class CERecipeGen {
                 .material(Items.OBSIDIAN).material(CCItems.VIRTUAL_GOLD_INGOT).material(Items.NETHERITE_SCRAP)
                 .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.CROSSBOW)
                 .save(pvd, getID(CEItems.VIRTUAL_GOLD_CROSSBOW));
+        unlock(pvd, new CEForgeRecipeBuilder(Items.CROSSBOW, CEItems.SONIC_CROSSBOW.asStack())
+                .material(Items.OBSIDIAN).material(Items.ECHO_SHARD).material(CCItems.MIDNIGHT_FRAGMENT)
+                .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.CROSSBOW)
+                .save(pvd, getID(CEItems.SONIC_CROSSBOW));
         // upgrade
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_CROSSBOW, ItemStack.EMPTY)
                 .material(Items.BOOK).material(Items.STRING).material(Items.COPPER_INGOT)
@@ -198,13 +202,13 @@ public class CERecipeGen {
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_5"));
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_CROSSBOW, ItemStack.EMPTY)
                 .material(Items.LAPIS_LAZULI).material(Items.PAPER).material(Items.GOLD_BLOCK)
-                .material(Items.MAGENTA_BANNER)::unlockedBy, Items.LAPIS_LAZULI).isUpgrade(10)
+                .material(Items.GHAST_TEAR)::unlockedBy, Items.LAPIS_LAZULI).isUpgrade(10)
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_10"));
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_CROSSBOW, ItemStack.EMPTY)
                 .material(Items.ENDER_PEARL).material(Items.AMETHYST_SHARD).material(CCItems.MIDNIGHT_FRAGMENT)
                 .material(Items.PHANTOM_MEMBRANE)::unlockedBy, Items.AMETHYST_SHARD).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_20"));
-        // pickaxe
+        // digger
         unlock(pvd, new CEForgeRecipeBuilder(Items.STONE_PICKAXE, CEItems.GRAVEDIGGERS_HELPER.asStack())
                 .material(Items.ENDER_PEARL).material(Items.IRON_INGOT).material(Items.REDSTONE)::unlockedBy, Items.STONE_PICKAXE)
                 .save(pvd, getID(CEItems.GRAVEDIGGERS_HELPER));
@@ -212,6 +216,23 @@ public class CERecipeGen {
                 .material(Items.GOLD_BLOCK).material(Items.DIAMOND).material(Items.EXPERIENCE_BOTTLE)
                 .material(CCItems.LIGHT_FRAGMENT)::unlockedBy, Items.GOLDEN_PICKAXE)
                 .save(pvd, getID(CEItems.RADIANT_TREASURE));
+        unlock(pvd, new CEForgeRecipeBuilder(Items.NETHERITE_AXE, CEItems.ENDER_THROWING_AXE.asStack())
+                .material(Items.ENDER_PEARL).material(Items.CHORUS_FRUIT).material(Items.EXPERIENCE_BOTTLE)
+                .material(CCItems.MIDNIGHT_FRAGMENT)::unlockedBy, Items.NETHERITE_AXE)
+                .save(pvd, getID(CEItems.ENDER_THROWING_AXE));
+        // upgrade
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+                .material(Items.STONE_BRICKS).material(Items.COAL).material(Items.COPPER_INGOT)
+                .material(Items.FLINT).material(Items.GUNPOWDER)::unlockedBy, Items.COPPER_INGOT).isUpgrade(5)
+                .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_5"));
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+                .material(Items.REDSTONE_BLOCK).material(Items.BRICK).material(Items.BLACKSTONE)
+                .material(Items.BLAZE_POWDER)::unlockedBy, Items.REDSTONE_BLOCK).isUpgrade(10)
+                .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_10"));
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.CELESTIAL_UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+                .material(Items.DIAMOND).material(Items.REDSTONE_BLOCK).material(CCItems.LIGHT_FRAGMENT)
+                .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.DIAMOND).isUpgrade(20)
+                .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_20"));
     }
 
     public static ResourceLocation getID(ItemLike item, String path) {

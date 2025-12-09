@@ -25,7 +25,7 @@ public class HeavenGift extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry sweepReachBonus = DoubleConfigEntry.defineSmallRange("Heaven Gift Sweep Reach Bonus",
+    public static DoubleConfigEntry sweepReachConfig = DoubleConfigEntry.defineSmallRange("Heaven Gift Sweep Reach Bonus",
             0.5, "Heaven Gift: Sweep reach bonus");
 
     @SubscribeTooltip(id = "heaven_gift")
@@ -37,11 +37,11 @@ public class HeavenGift extends UpgradeableMelee implements AttackConfig {
 
     public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
-        list.add(sweepBonusText.withGray(TooltipEntry.per(sweepReachBonus.get())));
+        list.add(sweepBonusTooltip.withGray(TooltipEntry.per(sweepReachConfig.get())));
     }
 
     public @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
-        double toAdd = (double) 1f + sweepReachBonus.get();
+        double toAdd = (double) 1f + sweepReachConfig.get();
         return target.getBoundingBox().inflate(1f * toAdd, 0.25f, 1f * toAdd);
     }
 

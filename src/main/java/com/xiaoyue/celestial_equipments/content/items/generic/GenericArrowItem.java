@@ -59,7 +59,7 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
-        list.add(UpgradeableBow.bowDamageInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num((int) this.builder.damage)));
+        list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num((int) this.builder.damage)));
         if (this.builder.pierce != 0) {
             list.add(pierceLevelInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.pierce)));
         }
@@ -72,15 +72,10 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
         this.addEquipmentTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
-            list.add(itemBanInfo.withGray());
+            list.add(itemBanTooltip.withGray());
         }
     }
 
     public void onCreateSource(GenericArrowItem arrow, CreateSourceEvent event) {
-    }
-
-    @Override
-    public Item self() {
-        return this;
     }
 }
