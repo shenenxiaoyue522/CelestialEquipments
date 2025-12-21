@@ -20,7 +20,7 @@ public class BloodBinding extends UpgradeableMelee implements AttackConfig {
     }
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry healConfig = DoubleConfigEntry.defineFromZero("Blood Binding Heal Multiplier",
+    public static DoubleConfigEntry healConfig = DoubleConfigEntry.defineFromZero("Blood Binding Heal Factor",
             0.15, 5, "Blood Binding: The health recovered when killing the target");
 
     @SubscribeTooltip(id = "blood_binding")

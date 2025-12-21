@@ -27,7 +27,7 @@ public class AbyssWhisper extends UpgradeableMelee implements AttackConfig {
             100, 1, 1000000, "Abyss Whisper: Cooldown time");
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Abyss Whisper Damage Multiplier",
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Abyss Whisper Damage Factor",
             0.05, "Abyss Whisper: Additional damage multiplier");
 
     @SubscribeTooltip(id = "abyss_whisper")

@@ -1,10 +1,8 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -23,11 +21,6 @@ public class CEAttackListener implements AttackListener {
         ItemStack stack = event.getAttacker().getMainHandItem();
         if (stack.getItem() instanceof AttackConfig attack) {
             attack.onCreateSource(stack, event.getAttacker(), event, EquipmentUtils.getLevel(stack));
-        }
-        if (event.getDirect() instanceof GenericArrowEntity entity) {
-            if (entity.arrow.getItem() instanceof GenericArrowItem arrow) {
-                arrow.onCreateSource(arrow, event);
-            }
         }
     }
 

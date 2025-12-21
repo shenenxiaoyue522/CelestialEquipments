@@ -1,7 +1,7 @@
 {
   "type": "celestial_equipments:ce_forge_recipe",
   "input": {
-    "tag": "celestial_equipments:celestial_upgradeable_digger"
+    "tag": "celestial_equipments:upgradeable_upgradeable_digger"
   },
   "isUpgrade": true,
   "levelCondition": 20,

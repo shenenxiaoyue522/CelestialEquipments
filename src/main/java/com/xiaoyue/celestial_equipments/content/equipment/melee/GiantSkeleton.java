@@ -33,7 +33,7 @@ public class GiantSkeleton extends UpgradeableMelee implements AttackConfig {
             "Giant Skeleton: Entity reach bonus");
 
     @ConfigHolderEntry(category = "melee")
-    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromZero("Giant Skeleton Damage Bonus", 0.005,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromZero("Giant Skeleton Damage Factor", 0.005,
             1, "Giant Skeleton: Increase the attack according to the maximum life of the target");
 
     @SubscribeTooltip(id = "giant_skeleton")

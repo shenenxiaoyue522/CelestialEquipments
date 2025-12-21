@@ -11,6 +11,12 @@
     },
     {
       "item": "celestial_core:treasure_fragment"
+    },
+    {
+      "item": "minecraft:coal_block"
+    },
+    {
+      "item": "celestial_core:midnight_fragment"
     }
   ],
   "output": {

@@ -1,7 +1,7 @@
 {
   "type": "celestial_equipments:ce_forge_recipe",
   "input": {
-    "tag": "celestial_equipments:celestial_melee"
+    "tag": "celestial_equipments:upgradeable_melee"
   },
   "isUpgrade": true,
   "levelCondition": 20,
@@ -13,7 +13,7 @@
       "item": "minecraft:amethyst_shard"
     },
     {
-      "item": "celestial_core:death_essence"
+      "item": "minecraft:bone_block"
     },
     {
       "item": "minecraft:netherite_scrap"

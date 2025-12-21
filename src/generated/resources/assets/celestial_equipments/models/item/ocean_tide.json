@@ -1,5 +1,7 @@
 {
   "parent": "celestial_invoker:item/spear",
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
   "overrides": [
     {
       "model": "celestial_equipments:item/ocean_tide_using",
@@ -8,6 +10,14 @@
       }
     }
   ],
+  "perspectives": {
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "celestial_equipments:item/trident/3d/ocean_tide"
+      }
+    }
+  },
   "textures": {
     "layer0": "celestial_equipments:item/trident/ocean_tide"
   }

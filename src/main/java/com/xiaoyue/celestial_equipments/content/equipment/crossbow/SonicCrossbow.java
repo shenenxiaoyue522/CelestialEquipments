@@ -34,7 +34,7 @@ public class SonicCrossbow extends UpgradeableCrossbow {
     }
 
     @ConfigHolderEntry(category = "crossbow")
-    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineBigRange("Sonic Crossbow Sonic Damage", 1.6,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineBigRange("Sonic Crossbow Sonic Damage Factor", 1.6,
             "The extent to which base damage affects sonic boom damage");
 
     @SubscribeTooltip(id = "sonic_crossbow")

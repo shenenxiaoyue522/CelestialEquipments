@@ -28,6 +28,8 @@
   "item.celestial_equipments.sakura_bloom": "绽樱",
   "item.celestial_equipments.virtual_gold_crossbow": "虚金弩",
   "item.celestial_equipments.ocean_tide": "海潮",
+  "celestial_equipments.tooltip.ocean_tide_0": "自带激流效果",
+  "celestial_equipments.tooltip.ocean_tide_1": "能够在任何时候触发激流",
   "item.celestial_equipments.gravediggers_helper": "掘墓者的帮手",
   "item.celestial_equipments.radiant_treasure": "辉光宝藏",
   "item.celestial_equipments.abyss_arrow": "深渊箭矢",
@@ -65,7 +67,6 @@
   "celestial_equipments.tooltip.guardian_arrow": "击中目标时使其周围除攻击者外的生物陷入%s效果和%s效果",
   "celestial_equipments.tooltip.ocean_arrow": "箭矢能够在水中飞行",
   "celestial_equipments.tooltip.virtual_gold_arrow": "击中目标时接下来每1秒对目标造成1次相当于箭矢伤害%s的魔法伤害，共计造成10次，如果目标处于燃烧则伤害变为%s",
-  "celestial_equipments.tooltip.sakura_echoes_set": "樱色回响",
   "celestial_equipments.tooltip.pierce_level": "穿透等级: %s",
   "celestial_equipments.tooltip.knockback_ability": "击退能力: %s",
   "celestial_equipments.tooltip.exp_bottle_info": "在铁砧上与武器锻造增加该武器%s点经验",
@@ -105,5 +106,7 @@
   "celestial_equipments.tooltip.ender_throwing_axe_2": "击中生物时对其造成攻击伤害属性%s点攻击伤害",
   "celestial_equipments.tooltip.sonic_crossbow_0": "射击时额外发射一道音爆攻击你前方的生物",
   "celestial_equipments.tooltip.sonic_crossbow_1": "发射的音爆会造成基础伤害%s点攻击伤害",
-  "item.celestial_equipments.sonic_crossbow": "音爆弩"
+  "item.celestial_equipments.sonic_crossbow": "音爆弩",
+  "celestial_equipments.tooltip.repair_kit": "为装备恢复%s点耐久",
+  "item.celestial_equipments.repair_kit": "修补工具"
 }

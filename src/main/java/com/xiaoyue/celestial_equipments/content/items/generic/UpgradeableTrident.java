@@ -1,9 +1,11 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -20,6 +22,11 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
     }
 
     @Override
+    public Component getName(ItemStack pStack) {
+        return getItemName(pStack);
+    }
+
+    @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
@@ -29,5 +36,10 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
         if (pStack.isEnchanted()) {
             list.add(Component.empty());
         }
+    }
+
+    @Override
+    public Rarity getRarity(ItemStack pStack) {
+        return getGearRarity(EquipmentUtils.getLevel(pStack));
     }
 }

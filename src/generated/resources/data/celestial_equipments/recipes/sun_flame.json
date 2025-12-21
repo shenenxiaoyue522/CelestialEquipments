@@ -13,10 +13,13 @@
       "item": "celestial_core:fire_essence"
     },
     {
-      "item": "minecraft:observer"
+      "item": "minecraft:obsidian"
     },
     {
       "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:lava_bucket"
     }
   ],
   "output": {

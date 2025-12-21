@@ -13,13 +13,14 @@
       "item": "celestial_core:treasure_fragment"
     },
     {
-      "item": "minecraft:ender_eye"
+      "item": "celestial_core:virtual_gold_nugget"
     },
     {
       "tag": "minecraft:coals"
     }
   ],
   "output": {
-    "item": "celestial_equipments:abyss_arrow"
+    "item": "celestial_equipments:abyss_whisper",
+    "nbt": "{Damage:0}"
   }
 }

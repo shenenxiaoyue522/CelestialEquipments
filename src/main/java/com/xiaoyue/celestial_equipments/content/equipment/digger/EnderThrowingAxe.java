@@ -28,7 +28,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
     }
 
     @ConfigHolderEntry(category = "digger")
-    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineBigRange("Ender Throwing Axe Throw Damage", 0.05,
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineBigRange("Ender Throwing Axe Throw Damage Factor", 0.05,
             "Increased throw damage per level");
 
     @ConfigHolderEntry(category = "digger")
@@ -51,7 +51,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
                 list.add(tooltip.withGray());
             }
         }
-        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get())));
+        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }
 
     @Override
@@ -60,8 +60,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
         int lv = EquipmentUtils.getLevel(stack);
         if (lv > 0 && noCooldown(player)) {
             stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(pUsedHand));
-            EnderThrowingAxeEntity thrownEntity = new EnderThrowingAxeEntity(player, pLevel);
-            thrownEntity.setWeapon(stack);
+            EnderThrowingAxeEntity thrownEntity = new EnderThrowingAxeEntity(player, pLevel, stack);
             thrownEntity.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE) * (1 + dmgConfig.get() * lv));
             thrownEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, 5f, 1f);
             pLevel.addFreshEntity(thrownEntity);

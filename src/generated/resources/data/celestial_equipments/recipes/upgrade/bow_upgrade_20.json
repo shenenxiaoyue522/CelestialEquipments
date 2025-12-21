@@ -1,7 +1,7 @@
 {
   "type": "celestial_equipments:ce_forge_recipe",
   "input": {
-    "tag": "celestial_equipments:celestial_bow"
+    "tag": "celestial_equipments:upgradeable_bow"
   },
   "isUpgrade": true,
   "levelCondition": 20,

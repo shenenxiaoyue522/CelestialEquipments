@@ -13,7 +13,13 @@
       "item": "celestial_core:sakura_steel"
     },
     {
+      "item": "minecraft:vine"
+    },
+    {
       "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:gold_nugget"
     }
   ],
   "output": {

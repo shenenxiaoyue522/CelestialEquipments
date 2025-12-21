@@ -2,6 +2,7 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.ItemUtils;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
+import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
 import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
@@ -30,6 +31,10 @@ public class CGeneralEventHandler {
     public static void onRecipe(AnvilUpdateEvent event) {
         ItemStack stack = event.getLeft().copy();
         ItemStack meta = event.getRight();
+        if (meta.is(CEItems.REPAIR_KIT.get()) && stack.isDamaged()) {
+            ItemUtils.repairStack(stack, RepairKitItem.repairConfig.get());
+            ItemUtils.defaultAnvilOutput(event, stack, 15);
+        }
         if (stack.getItem() instanceof ICEquipment gear) {
             if (gear.isUpgradeable()) {
                 if (meta.is(CEItems.CREATIVE_UP_STONE.get())) {

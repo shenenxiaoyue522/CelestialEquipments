@@ -2,11 +2,13 @@ package com.xiaoyue.celestial_equipments.compat;
 
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.container.CEForgeTableScreen;
+import com.xiaoyue.celestial_equipments.register.CEBlocks;
 import com.xiaoyue.celestial_equipments.register.CERecipes;
 import dev.xkmc.l2library.util.Proxy;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.resources.ResourceLocation;
@@ -33,6 +35,11 @@ public class CEJeiPlugin implements IModPlugin {
         Level level = Proxy.getClientWorld();
         assert level != null;
         registration.addRecipes(CE_FORGE.getRecipeType(), level.getRecipeManager().getAllRecipesFor(CERecipes.RT_CE_FORGE.get()));
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addRecipeCatalyst(CEBlocks.ASSEMBLY_TABLE.asStack(), CE_FORGE.getRecipeType());
     }
 
     @Override

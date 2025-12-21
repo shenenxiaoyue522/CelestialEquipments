@@ -13,6 +13,9 @@
       "item": "minecraft:book"
     },
     {
+      "item": "minecraft:glow_ink_sac"
+    },
+    {
       "item": "celestial_core:treasure_fragment"
     }
   ],

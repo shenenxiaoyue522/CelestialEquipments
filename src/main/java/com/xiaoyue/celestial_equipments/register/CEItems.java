@@ -14,7 +14,9 @@ import com.xiaoyue.celestial_equipments.content.equipment.digger.EnderThrowingAx
 import com.xiaoyue.celestial_equipments.content.equipment.digger.GravediggersHelper;
 import com.xiaoyue.celestial_equipments.content.equipment.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipment.melee.*;
+import com.xiaoyue.celestial_equipments.content.equipment.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
+import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_invoker.content.ancillary.helper.IRegistrateHelper;
@@ -40,6 +42,8 @@ public class CEItems {
             p -> new Item(p.rarity(Rarity.EPIC)));
     public static final ItemEntry<Item> GEAR_ESSENCE_PLATE = register("gear_essence_plate",
             p -> new Item(p.rarity(Rarity.RARE)));
+    public static final ItemEntry<Item> REPAIR_KIT = register("repair_kit",
+            p -> new RepairKitItem(p.rarity(Rarity.RARE)));
 
     public static final ItemEntry<ExpBottleItem> EXP_BOTTLE_SMALL = register("misc", "exp_bottle_small",
             p -> new ExpBottleItem(p.rarity(Rarity.RARE), 100));
@@ -74,14 +78,14 @@ public class CEItems {
     public static final ItemEntry<VirtualGoldCrossbow> VIRTUAL_GOLD_CROSSBOW = crossbow("virtual_gold_crossbow", VirtualGoldCrossbow::new);
     public static final ItemEntry<SonicCrossbow> SONIC_CROSSBOW = crossbow("sonic_crossbow", SonicCrossbow::new);
 
-    public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", p -> new CelestialTridentItem(p.durability(2000)));
+    public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", OceanTide::new);
 
     public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = digger("gravediggers_helper", GravediggersHelper::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);
     public static final ItemEntry<RadiantTreasure> RADIANT_TREASURE = digger("radiant_treasure", RadiantTreasure::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);
     public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = digger("ender_throwing_axe", EnderThrowingAxe::new,
-            ItemTags.AXES, ItemTags.TOOLS, CETagGen.CELESTIAL_UPGRADEABLE_DIGGER);
+            ItemTags.AXES, ItemTags.TOOLS, CETagGen.UPGRADEABLE_DIGGER);
 
     public static final ItemEntry<GenericArrowItem> TRAINING_ARROW = arrow("training_arrow", p ->
             new GenericArrowItem(p.rarity(Rarity.RARE), 1f));
@@ -119,7 +123,7 @@ public class CEItems {
     public static <T extends Item> ItemEntry<T> melee(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
         return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model((ctx, pvd) -> pvd.handheld(ctx, pvd.modLoc("item/melee/" + ctx.getName())))
-                .tag(ItemTags.SWORDS, CETagGen.CELESTIAL_MELEE).register();
+                .tag(ItemTags.SWORDS, CETagGen.UPGRADEABLE_MELEE).register();
     }
 
     @SafeVarargs
@@ -132,18 +136,19 @@ public class CEItems {
     public static <T extends Item> ItemEntry<T> bow(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
         return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createBowModel)
-                .tag(CETagGen.CELESTIAL_BOW).register();
+                .tag(CETagGen.UPGRADEABLE_BOW).register();
     }
 
     public static <T extends Item> ItemEntry<T> crossbow(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
         return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createCrossbowModel)
-                .tag(CETagGen.CELESTIAL_CROSSBOW).register();
+                .tag(CETagGen.UPGRADEABLE_CROSSBOW).register();
     }
 
-    public static <T extends Item> ItemEntry<T> trident(String id, NonNullFunction<Item.Properties, T> factory) {
+    public static <T extends Item> ItemEntry<T> trident(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
-        return CelestialEquipments.REGISTRATE.item(id, factory).model(ItemModelHelper::createTridentModel).register();
+        return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createTridentModel)
+                .tag(CETagGen.UPGRADEABLE_TRIDENTS).register();
     }
 
     public static <T extends Item> Map<ArmorItem.Type, ItemEntry<T>> armors(IRegistrateHelper.ArmorNameCallback name, String path, IRegistrateHelper.ArmorTypeCallback<T> item) {

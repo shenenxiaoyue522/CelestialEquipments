@@ -17,6 +17,9 @@
     },
     {
       "item": "celestial_core:ocean_essence"
+    },
+    {
+      "item": "minecraft:string"
     }
   ],
   "output": {

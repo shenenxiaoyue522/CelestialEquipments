@@ -5,7 +5,6 @@ import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
-import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -74,8 +73,5 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
         }
-    }
-
-    public void onCreateSource(GenericArrowItem arrow, CreateSourceEvent event) {
     }
 }
