@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:upgradeable_tridents"
+  },
+  "isUpgrade": true,
+  "levelCondition": 10,
+  "materials": [
+    {
+      "item": "minecraft:tropical_fish"
+    },
+    {
+      "item": "minecraft:iron_block"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:glass"
+    }
+  ]
+}

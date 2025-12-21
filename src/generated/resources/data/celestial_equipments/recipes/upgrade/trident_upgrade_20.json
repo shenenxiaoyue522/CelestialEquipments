@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:upgradeable_tridents"
+  },
+  "isUpgrade": true,
+  "levelCondition": 20,
+  "materials": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:sandstone"
+    },
+    {
+      "item": "minecraft:nautilus_shell"
+    }
+  ]
+}

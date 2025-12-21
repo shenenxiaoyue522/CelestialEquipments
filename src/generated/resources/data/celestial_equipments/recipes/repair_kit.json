@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:quartz"
+    },
+    "C": {
+      "item": "celestial_core:treasure_fragment"
+    },
+    "X": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "CX",
+    "XB"
+  ],
+  "result": {
+    "item": "celestial_equipments:repair_kit"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "celestial_equipments:ce_forge_recipe",
+  "input": {
+    "tag": "celestial_equipments:upgradeable_tridents"
+  },
+  "isUpgrade": true,
+  "levelCondition": 5,
+  "materials": [
+    {
+      "item": "minecraft:pufferfish"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:flint"
+    }
+  ]
+}
