@@ -110,6 +110,6 @@
   "celestial_equipments.tooltip.repair_kit": "为装备恢复%s点耐久",
   "item.celestial_equipments.repair_kit": "修补工具",
   "celestial_equipments.tooltip.throw_damage": "投掷伤害: %s",
-  "celestial_equipments.tooltip.throw_speed": "投掷时间: %s秒",
+  "celestial_equipments.tooltip.throw_speed": "投掷时间: %s 秒",
   "entity.celestial_equipments.simple_trident": "三叉戟"
 }
