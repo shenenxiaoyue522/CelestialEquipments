@@ -25,10 +25,10 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
     }
 
     @SubscribeTooltip(id = "throw_speed")
-    public static TooltipEntry throwSpeedTooltip = TooltipEntry.define("Throw speed: ");
+    public static TooltipEntry throwSpeedTooltip = TooltipEntry.define("Throw time: %s seconds");
 
     @SubscribeTooltip(id = "throw_damage")
-    public static TooltipEntry throwDamageTooltip = TooltipEntry.define("Throw damage: ");
+    public static TooltipEntry throwDamageTooltip = TooltipEntry.define("Throw damage: %s");
 
     public int getChargeTime(int lv) {
         return 10;
@@ -42,7 +42,7 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         list.add(Component.empty());
-        EquipmentUtils.addTridentStatsTooltips(list, 1f, getChargeTime(EquipmentUtils.getLevel(pStack)));
+        EquipmentUtils.addTridentStatsTooltips(list, 1f, getChargeTime(EquipmentUtils.getLevel(pStack)) / 20f);
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());

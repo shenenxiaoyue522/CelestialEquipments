@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.utils;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
+import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -37,8 +38,8 @@ public class EquipmentUtils {
     }
 
     public static void addTridentStatsTooltips(List<Component> list, float damage, float throwSpeed) {
-        list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.per(damage)));
-        list.add(UpgradeableBow.arrowSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(throwSpeed)));
+        list.add(UpgradeableTrident.throwDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.per(damage)));
+        list.add(UpgradeableTrident.throwSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(throwSpeed)));
     }
 
     public static void addBowStatsTooltips(List<Component> list, float damage, float drawSpeed, float arrowSpeed) {
