@@ -1,5 +1,10 @@
 {
-  "parent": "celestial_invoker:item/spear",
+  "base": {
+    "parent": "celestial_invoker:item/spear",
+    "textures": {
+      "layer0": "celestial_equipments:item/trident/ocean_tide"
+    }
+  },
   "gui_light": "front",
   "loader": "forge:separate_transforms",
   "overrides": [
@@ -17,8 +22,5 @@
         "layer0": "celestial_equipments:item/trident/3d/ocean_tide"
       }
     }
-  },
-  "textures": {
-    "layer0": "celestial_equipments:item/trident/ocean_tide"
   }
 }

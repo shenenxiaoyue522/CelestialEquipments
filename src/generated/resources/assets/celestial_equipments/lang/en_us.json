@@ -57,6 +57,8 @@
   "celestial_equipments.tooltip.sweep_range_bonus": "Sweep range increased by %s",
   "celestial_equipments.tooltip.terra_broadsword_0": "Fires an Earth Blade forward while swinging",
   "celestial_equipments.tooltip.terra_broadsword_1": "Sprint forward while crouching and right-clicking",
+  "celestial_equipments.tooltip.throw_damage": "Throw damage: ",
+  "celestial_equipments.tooltip.throw_speed": "Throw speed: ",
   "celestial_equipments.tooltip.undead_sword": "Damage is increased by %s for every 1 less life on attack",
   "celestial_equipments.tooltip.upgrade_stone_condition": "Scope of application: below %s level",
   "celestial_equipments.tooltip.upgrade_stone_info": "When the equipment experience is maxed, forge with the item on the anvil to upgrade the equipment",

@@ -39,7 +39,9 @@ public class OceanTide extends UpgradeableTrident {
 
     @Override
     protected AbstractArrow getThrownEntity(Level level, Player player, ItemStack trident) {
-        return new SimpleTridentEntity(player, level, trident);
+        SimpleTridentEntity entity = new SimpleTridentEntity(player, level, trident);
+        entity.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        return entity;
     }
 
     @Override

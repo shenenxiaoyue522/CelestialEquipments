@@ -1,7 +1,7 @@
-// 1.20.1	2025-12-21T23:52:08.4640078	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2025-12-27T19:22:30.9669949	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-8b8a30dbecec01dcc39df1443160bd11a9cb2cd1 assets/celestial_equipments/lang/en_ud.json
-05f365460f9e9433233d57e89633f57af197df0f assets/celestial_equipments/lang/en_us.json
+fbad3325394f2e88e18eb22954ecd2e9c78e3292 assets/celestial_equipments/lang/en_ud.json
+a4bb42449af9dd494ee19872716d4e53c388df0d assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json
@@ -71,7 +71,7 @@ d3127ae8657a6cdf9c0f7f901aa24bfdec20e879 assets/celestial_equipments/models/item
 f4f719890037509029eb20c5f9a00882d28eb01c assets/celestial_equipments/models/item/heaven_gift.json
 4472141aabf53f864cb09d40f9bcf7cc1900b0c3 assets/celestial_equipments/models/item/jazz_dagger.json
 c0fc5c8ebd31f4c8b885eedf3229ec3df355a624 assets/celestial_equipments/models/item/ocean_arrow.json
-d8741d1624a979a94219e5c382e57ea5779f1172 assets/celestial_equipments/models/item/ocean_tide.json
+03d37daa1f959a16d9efdbd3cb9d4bdef499f740 assets/celestial_equipments/models/item/ocean_tide.json
 7f95fc233b6e6025139e103f68bdb35b1d2c713c assets/celestial_equipments/models/item/ocean_tide_using.json
 317642cd0ba4322c079faf7fb07790a9b7316b8d assets/celestial_equipments/models/item/polar_shadow.json
 3a35ddd21464777b5154668c5af500b32c546e8f assets/celestial_equipments/models/item/radiant_treasure.json
@@ -145,7 +145,7 @@ b27109c5ef3a277cf353aee3a701428b1ad7e735 data/celestial_equipments/advancements/
 a4f780d6db21761f1d9070c9b35c9ecc63bdb7b7 data/celestial_equipments/recipes/assembly_table.json
 b8cf586b64e6c2309bee7559db07fcbe98702ef9 data/celestial_equipments/recipes/avarice_blade.json
 568d516b7d07fb11885e0061e6222cd1a1a523f8 data/celestial_equipments/recipes/black_flame_arrow.json
-f642e6efe79cc1864ce9ddad9639c178547f0c3b data/celestial_equipments/recipes/blanking_dagger.json
+12234f6088a202c9494247d98dc408a93f5f16ff data/celestial_equipments/recipes/blanking_dagger.json
 ed3401f3f0d97eefe1292c5cb0a45f1f2627fc5d data/celestial_equipments/recipes/blood_binding.json
 ed769df83a95a7cd4c8fd23d1e17ed7ce2c6a188 data/celestial_equipments/recipes/bright_prophecy.json
 de1d0cc81e6ff41b7b1a387b7f58412fc8875a9f data/celestial_equipments/recipes/crystal_sword.json

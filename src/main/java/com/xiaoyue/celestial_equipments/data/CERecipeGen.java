@@ -93,7 +93,7 @@ public class CERecipeGen {
                 .save(pvd, getID(CEItems.UNDEAD_SWORD));
         unlock(pvd, new CEForgeRecipeBuilder(Items.IRON_SWORD, CEItems.BLANKING_DAGGER.asStack())
                 .material(Items.CHARCOAL).material(Items.LAPIS_LAZULI).material(Items.ENDER_PEARL)
-                .material(Items.OBSERVER).material(Items.IRON_INGOT)::unlockedBy, Items.IRON_SWORD)
+                .material(Items.OBSIDIAN).material(Items.IRON_INGOT)::unlockedBy, Items.IRON_SWORD)
                 .save(pvd, getID(CEItems.BLANKING_DAGGER));
         unlock(pvd, new CEForgeRecipeBuilder(Items.STONE_SWORD, CEItems.ABYSS_WHISPER.asStack())
                 .material(Items.NETHERITE_SCRAP).material(CCItems.TREASURE_FRAGMENT).material(CCItems.VIRTUAL_GOLD_NUGGET)

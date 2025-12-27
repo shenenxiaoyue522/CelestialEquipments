@@ -108,5 +108,8 @@
   "celestial_equipments.tooltip.sonic_crossbow_1": "发射的音爆会造成基础伤害%s点攻击伤害",
   "item.celestial_equipments.sonic_crossbow": "音爆弩",
   "celestial_equipments.tooltip.repair_kit": "为装备恢复%s点耐久",
-  "item.celestial_equipments.repair_kit": "修补工具"
+  "item.celestial_equipments.repair_kit": "修补工具",
+  "celestial_equipments.tooltip.throw_damage": "投掷伤害: ",
+  "celestial_equipments.tooltip.throw_speed": "投掷速度: ",
+  "entity.celestial_equipments.simple_trident": "三叉戟"
 }

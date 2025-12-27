@@ -36,6 +36,11 @@ public class EquipmentUtils {
         list.add(expTooltip.withGray(TooltipEntry.num(getExp(stack)), TooltipEntry.num(getMaxExp())));
     }
 
+    public static void addTridentStatsTooltips(List<Component> list, float damage, float throwSpeed) {
+        list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.per(damage)));
+        list.add(UpgradeableBow.arrowSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(throwSpeed)));
+    }
+
     public static void addBowStatsTooltips(List<Component> list, float damage, float drawSpeed, float arrowSpeed) {
         list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
         list.add(UpgradeableBow.drawSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));

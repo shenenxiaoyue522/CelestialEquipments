@@ -59,10 +59,6 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
         }
     }
 
-    private ModuleSlot slot(Container inv, int slot, int x, int y) {
-        return new ModuleSlot(this, inv, slot, x, y);
-    }
-
     private void crafting(Level level) {
         if (!level.isClientSide()) {
             ItemStack result = ItemStack.EMPTY;
