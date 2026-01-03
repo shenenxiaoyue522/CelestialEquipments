@@ -41,7 +41,7 @@ public class VirtualGoldCrossbow extends UpgradeableCrossbow {
 
     @Override
     public float getAttack(int lv) {
-        return 1 + 0.3f * lv;
+        return 1 + 0.8f * lv;
     }
 
     @Override
