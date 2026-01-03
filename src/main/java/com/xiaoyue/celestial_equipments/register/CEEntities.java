@@ -5,7 +5,7 @@ import com.tterrag.registrate.util.entry.EntityEntry;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.entities.EnderThrowingAxeEntity;
 import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
-import com.xiaoyue.celestial_invoker.content.client.entity.ThrownEntityRender;
+import com.xiaoyue.celestial_invoker.content.entities.render.ThrownEntityRender;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.phys.Vec3;
 

@@ -70,8 +70,6 @@
   "celestial_equipments.tooltip.pierce_level": "穿透等级: %s",
   "celestial_equipments.tooltip.knockback_ability": "击退能力: %s",
   "celestial_equipments.tooltip.exp_bottle_info": "在铁砧上与武器锻造增加该武器%s点经验",
-  "celestial_equipments.tooltip.upgrade_stone_info": "装备经验值到达上限时在铁砧上与该物品锻造来升级装备",
-  "celestial_equipments.tooltip.upgrade_stone_condition": "适用范围: %s级以下",
   "celestial_equipments.tooltip.drawing_effect": "拉弓时获得%s效果",
   "celestial_equipments.tooltip.burn_time": "击中目标时使目标陷入%s秒燃烧",
   "celestial_equipments.tooltip.item_cooldown": "冷却时间: %s秒",

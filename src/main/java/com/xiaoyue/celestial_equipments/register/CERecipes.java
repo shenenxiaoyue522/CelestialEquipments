@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.register;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.content.recipe.CEForgeRecipe;
+import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
 import dev.xkmc.l2library.serial.recipe.BaseRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.ForgeRegistries;

@@ -1,7 +1,7 @@
-// 1.20.1	2025-12-27T19:22:30.9669949	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2026-01-03T22:02:57.627722	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-fbad3325394f2e88e18eb22954ecd2e9c78e3292 assets/celestial_equipments/lang/en_ud.json
-a4bb42449af9dd494ee19872716d4e53c388df0d assets/celestial_equipments/lang/en_us.json
+d567a8c1ea4fe0f1d47c34752d6004fadcda4112 assets/celestial_equipments/lang/en_ud.json
+159b4025547c22fb534eb6199d73b7599cda2c21 assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json

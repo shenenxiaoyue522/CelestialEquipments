@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.compat;
 
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.container.CEForgeTableScreen;
-import com.xiaoyue.celestial_equipments.content.recipe.CEForgeRecipe;
+import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;

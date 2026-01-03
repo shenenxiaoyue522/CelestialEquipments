@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
-import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
+import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -19,7 +19,7 @@ public class CEAttackListener implements AttackListener {
     @Override
     public void onCreateSource(CreateSourceEvent event) {
         ItemStack stack = event.getAttacker().getMainHandItem();
-        if (stack.getItem() instanceof AttackConfig attack) {
+        if (stack.getItem() instanceof IAttackConfig attack) {
             attack.onCreateSource(stack, event.getAttacker(), event, EquipmentUtils.getLevel(stack));
         }
     }
@@ -31,11 +31,11 @@ public class CEAttackListener implements AttackListener {
         Entity entity = event.getSource().getEntity();
         if (entity instanceof LivingEntity attacker) {
             ItemStack mainItem = attacker.getMainHandItem();
-            if (AttackConfig.isMelee(event.getSource()) && mainItem.getItem() instanceof AttackConfig attack) {
+            if (IAttackConfig.isMelee(event.getSource()) && mainItem.getItem() instanceof IAttackConfig attack) {
                 attack.onMeleeHurt(mainItem, attacker, cache, EquipmentUtils.getLevel(mainItem));
             }
             ItemStack useItem = attacker.getUseItem();
-            if (AttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof AttackConfig attack) {
+            if (IAttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof IAttackConfig attack) {
                 attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
             }
         }

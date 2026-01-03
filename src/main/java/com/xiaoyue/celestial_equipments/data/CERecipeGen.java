@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.data;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.xiaoyue.celestial_core.register.CCItems;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.content.recipe.CEForgeRecipeBuilder;
+import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipeBuilder;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import net.minecraft.data.recipes.RecipeBuilder;
@@ -179,15 +179,15 @@ public class CERecipeGen {
                 .material(CCItems.OCEAN_ESSENCE).material(Items.STRING)::unlockedBy, Items.BOW)
                 .save(pvd, getID(CEItems.FROZEN_INVASION));
         // upgrade
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW)
                 .material(Items.BOOK).material(Items.GOLD_INGOT).material(Items.QUARTZ)
                 .material(Items.FLINT).material(Items.GUNPOWDER)::unlockedBy, Items.GOLD_INGOT).isUpgrade(5)
                 .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_5"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW)
                 .material(Items.DIAMOND).material(Items.REDSTONE_BLOCK).material(Items.EXPERIENCE_BOTTLE)
                 .material(Items.BOOK).material(Items.BLAZE_POWDER)::unlockedBy, Items.IRON_INGOT).isUpgrade(10)
                 .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_10"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_BOW)
                 .material(Items.ENDER_PEARL).material(Items.AMETHYST_SHARD).material(CCItems.HEART_FRAGMENT)
                 .material(Items.NETHERITE_SCRAP)::unlockedBy, Items.GOLD_INGOT).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_20"));
@@ -205,15 +205,15 @@ public class CERecipeGen {
                 .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.CROSSBOW)
                 .save(pvd, getID(CEItems.SONIC_CROSSBOW));
         // upgrade
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW)
                 .material(Items.BOOK).material(Items.STRING).material(Items.COPPER_INGOT)
                 .material(Items.FLINT).material(Items.GUNPOWDER)::unlockedBy, Items.COPPER_INGOT).isUpgrade(5)
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_5"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW)
                 .material(Items.LAPIS_LAZULI).material(Items.PAPER).material(Items.GOLD_BLOCK)
                 .material(Items.GHAST_TEAR)::unlockedBy, Items.LAPIS_LAZULI).isUpgrade(10)
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_10"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_CROSSBOW)
                 .material(Items.ENDER_PEARL).material(Items.AMETHYST_SHARD).material(CCItems.MIDNIGHT_FRAGMENT)
                 .material(Items.PHANTOM_MEMBRANE)::unlockedBy, Items.AMETHYST_SHARD).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/crossbow_upgrade_20"));
@@ -231,15 +231,15 @@ public class CERecipeGen {
                 .material(CCItems.MIDNIGHT_FRAGMENT)::unlockedBy, Items.NETHERITE_AXE)
                 .save(pvd, getID(CEItems.ENDER_THROWING_AXE));
         // upgrade
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER)
                 .material(Items.STONE_BRICKS).material(Items.COAL).material(Items.COPPER_INGOT)
                 .material(Items.FLINT).material(Items.GUNPOWDER)::unlockedBy, Items.COPPER_INGOT).isUpgrade(5)
                 .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_5"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER)
                 .material(Items.REDSTONE_BLOCK).material(Items.BRICK).material(Items.BLACKSTONE)
                 .material(Items.BLAZE_POWDER)::unlockedBy, Items.REDSTONE_BLOCK).isUpgrade(10)
                 .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_10"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_DIGGER)
                 .material(Items.DIAMOND).material(Items.REDSTONE_BLOCK).material(CCItems.LIGHT_FRAGMENT)
                 .material(Items.EXPERIENCE_BOTTLE)::unlockedBy, Items.DIAMOND).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/digger_upgrade_20"));
@@ -249,15 +249,15 @@ public class CERecipeGen {
                 .material(Items.ENCHANTED_BOOK)::unlockedBy, Items.IRON_INGOT)
                 .save(pvd, getID(CEItems.OCEAN_TIDE));
         // upgrade
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS)
                 .material(Items.PUFFERFISH).material(Items.IRON_INGOT).material(Items.SUGAR)
                 .material(Items.FLINT)::unlockedBy, Items.PUFFERFISH).isUpgrade(5)
                 .save(pvd, CelestialEquipments.loc("upgrade/trident_upgrade_5"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS)
                 .material(Items.TROPICAL_FISH).material(Items.IRON_BLOCK).material(Items.GOLD_INGOT)
                 .material(Items.GLASS)::unlockedBy, Items.TROPICAL_FISH).isUpgrade(10)
                 .save(pvd, CelestialEquipments.loc("upgrade/trident_upgrade_10"));
-        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS, ItemStack.EMPTY)
+        unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_TRIDENTS)
                 .material(Items.DIAMOND).material(Items.BOOK).material(Items.SANDSTONE)
                 .material(Items.NAUTILUS_SHELL)::unlockedBy, Items.DIAMOND).isUpgrade(20)
                 .save(pvd, CelestialEquipments.loc("upgrade/trident_upgrade_20"));

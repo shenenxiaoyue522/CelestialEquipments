@@ -1,10 +1,9 @@
 package com.xiaoyue.celestial_equipments.content.container;
 
-import com.xiaoyue.celestial_equipments.content.recipe.CEForgeRecipe;
+import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
 import com.xiaoyue.celestial_equipments.register.CEMenus;
 import com.xiaoyue.celestial_equipments.register.CERecipes;
 import com.xiaoyue.celestial_invoker.content.generic.shared.IControlSlotMenu;
-import com.xiaoyue.celestial_invoker.content.generic.shared.ModuleSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;

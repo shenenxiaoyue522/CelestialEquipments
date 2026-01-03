@@ -5,7 +5,7 @@ import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
-import com.xiaoyue.celestial_equipments.content.library.AttackConfig;
+import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
@@ -62,8 +62,8 @@ public class CGeneralEventHandler {
                     EquipmentUtils.addExp(weapon, (int) (entity.getMaxHealth() / 20.0F));
                 }
             }
-            if (AttackConfig.isMelee(event.getSource())) {
-                if (weapon.getItem() instanceof AttackConfig attack) {
+            if (IAttackConfig.isMelee(event.getSource())) {
+                if (weapon.getItem() instanceof IAttackConfig attack) {
                     attack.onMeleeKill(weapon, attacker, event, EquipmentUtils.getLevel(weapon));
                 }
             }

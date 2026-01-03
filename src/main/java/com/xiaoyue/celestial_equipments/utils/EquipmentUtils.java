@@ -45,7 +45,7 @@ public class EquipmentUtils {
     public static void addBowStatsTooltips(List<Component> list, float damage, float drawSpeed, float arrowSpeed) {
         list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(damage)));
         list.add(UpgradeableBow.drawSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(drawSpeed)));
-        list.add(UpgradeableBow.arrowSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.chance(arrowSpeed)));
+        list.add(UpgradeableBow.arrowSpeedTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.per(arrowSpeed)));
     }
 
     public static int getMaxExp() {
