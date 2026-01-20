@@ -1,8 +1,8 @@
 {
   "itemGroup.celestial_equipments.tab": "星月装备",
-  "item.celestial_equipments.exp_bottle_big": "大型武器经验瓶",
-  "item.celestial_equipments.exp_bottle_base": "中型武器经验瓶",
-  "item.celestial_equipments.exp_bottle_small": "小型武器经验瓶",
+  "item.celestial_equipments.exp_bottle_big": "大型装备经验瓶",
+  "item.celestial_equipments.exp_bottle_base": "中型装备经验瓶",
+  "item.celestial_equipments.exp_bottle_small": "小型装备经验瓶",
   "item.celestial_equipments.creative_up_stone": "创造模式进阶石",
   "item.celestial_equipments.gear_essence_plate": "装备精华板",
   "item.celestial_equipments.undead_sword": "亡灵之剑",
@@ -69,7 +69,7 @@
   "celestial_equipments.tooltip.virtual_gold_arrow": "击中目标时接下来每1秒对目标造成1次相当于箭矢伤害%s的魔法伤害，共计造成10次，如果目标处于燃烧则伤害变为%s",
   "celestial_equipments.tooltip.pierce_level": "穿透等级: %s",
   "celestial_equipments.tooltip.knockback_ability": "击退能力: %s",
-  "celestial_equipments.tooltip.exp_bottle_info": "在铁砧上与武器锻造增加该武器%s点经验",
+  "celestial_equipments.tooltip.exp_bottle_info": "在铁砧上与装备锻造增加该武器%s点经验",
   "celestial_equipments.tooltip.drawing_effect": "拉弓时获得%s效果",
   "celestial_equipments.tooltip.burn_time": "击中目标时使目标陷入%s秒燃烧",
   "celestial_equipments.tooltip.item_cooldown": "冷却时间: %s秒",
@@ -109,5 +109,8 @@
   "item.celestial_equipments.repair_kit": "修补工具",
   "celestial_equipments.tooltip.throw_damage": "投掷伤害: %s",
   "celestial_equipments.tooltip.throw_speed": "投掷时间: %s 秒",
-  "entity.celestial_equipments.simple_trident": "三叉戟"
+  "entity.celestial_equipments.simple_trident": "三叉戟",
+  "celestial_equipments.tooltip.fashion_scissors_0": "右键牛类生物时获得皮革",
+  "celestial_equipments.tooltip.fashion_scissors_1": "右键鸡类生物时获得羽毛",
+  "item.celestial_equipments.fashion_scissors": "时尚剪刀"
 }

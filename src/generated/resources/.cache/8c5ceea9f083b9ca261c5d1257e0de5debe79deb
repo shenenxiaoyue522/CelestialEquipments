@@ -1,7 +1,7 @@
-// 1.20.1	2026-01-03T22:02:57.627722	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2026-01-20T13:17:08.9002141	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-d567a8c1ea4fe0f1d47c34752d6004fadcda4112 assets/celestial_equipments/lang/en_ud.json
-159b4025547c22fb534eb6199d73b7599cda2c21 assets/celestial_equipments/lang/en_us.json
+3f6599fea0135f978c5d7317150186819ba68776 assets/celestial_equipments/lang/en_ud.json
+5eea28d671274c0eee3c68f69aecdd7ed1d46035 assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json
@@ -61,6 +61,7 @@ a91d5169a2f5401472915fe959e5f982e1bcb92c assets/celestial_equipments/models/item
 22cd07aed9d545f3ddeaa33bc28d80b4a0fcfe70 assets/celestial_equipments/models/item/exp_bottle_base.json
 4307fd3e8a6d4ff62c249bb5f95d426ce8d7ff73 assets/celestial_equipments/models/item/exp_bottle_big.json
 63b3298b987d6f89279d7aa9398d15c006552225 assets/celestial_equipments/models/item/exp_bottle_small.json
+caae89f551897120e51d59c985bb7df8d7dbcf66 assets/celestial_equipments/models/item/fashion_scissors.json
 0d1032b9a43579a8f082b2d9098e58135a357e44 assets/celestial_equipments/models/item/fragment_arrow.json
 96b63c2a6249e5d43d6ce950ba93a3994fb0e8cd assets/celestial_equipments/models/item/frozen_invasion.json
 dd90d8730750076aaf88d3e75b16e5edf1c56cc2 assets/celestial_equipments/models/item/gear_essence_plate.json
@@ -207,4 +208,4 @@ bb5bc37e6d8b484aa542dcee5177aced2aeea229 data/minecraft/tags/items/arrows.json
 dd9f8179dbfda3d0fb454850b359ffbedd65c570 data/minecraft/tags/items/axes.json
 684551e29d10e6fb89904ce6b9e78fc2b00c13d2 data/minecraft/tags/items/pickaxes.json
 b9c338bb523aab075b8cc89560e5878532491d8e data/minecraft/tags/items/swords.json
-e7673847b38aa19feccd3d7a45e062e247e92c7f data/minecraft/tags/items/tools.json
+15a8f965d8f32b6b698994c689fee50c958e39ab data/minecraft/tags/items/tools.json

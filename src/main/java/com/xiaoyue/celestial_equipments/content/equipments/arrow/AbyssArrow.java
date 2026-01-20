@@ -25,8 +25,8 @@ public class AbyssArrow extends GenericArrowItem {
     }
 
     @ConfigHolderEntry(category = "arrow")
-    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromMinUsable("Abyss Arrow Damage Multiplier",
-            0.5, 100, "Abyss Arrow: Damage multiplier");
+    public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromMinUsable("Abyss Arrow Damage Factor",
+            0.5, 100, "Abyss Arrow: Damage factor");
 
     @SubscribeTooltip(id = "abyss_arrow")
     public static TooltipEntry tooltip = TooltipEntry.define(

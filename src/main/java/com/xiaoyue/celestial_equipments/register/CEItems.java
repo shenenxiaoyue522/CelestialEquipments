@@ -11,6 +11,7 @@ import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.digger.EnderThrowingAxe;
+import com.xiaoyue.celestial_equipments.content.equipments.digger.FashionScissors;
 import com.xiaoyue.celestial_equipments.content.equipments.digger.GravediggersHelper;
 import com.xiaoyue.celestial_equipments.content.equipments.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
@@ -86,6 +87,8 @@ public class CEItems {
             ItemTags.PICKAXES, ItemTags.TOOLS);
     public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = digger("ender_throwing_axe", EnderThrowingAxe::new,
             ItemTags.AXES, ItemTags.TOOLS, CETagGen.UPGRADEABLE_DIGGER);
+    public static final ItemEntry<FashionScissors> FASHION_SCISSORS = digger("fashion_scissors", FashionScissors::new,
+            ItemTags.TOOLS);
 
     public static final ItemEntry<GenericArrowItem> TRAINING_ARROW = arrow("training_arrow", p ->
             new GenericArrowItem(p.rarity(Rarity.RARE), 1f));

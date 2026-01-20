@@ -16,8 +16,8 @@ public class ClientEvents {
     public static void renderTooltip(RenderTooltipEvent.Color event) {
         ItemStack itemStack = event.getItemStack();
         if (itemStack.getItem() instanceof ICEquipment) {
-            event.setBorderStart(-7876870);
-            event.setBorderEnd(-7876870);
+            event.setBorderStart(0xfff3f9ff);
+            event.setBorderEnd(0xffa6c6f3);
         }
 
     }

@@ -27,11 +27,11 @@ public class VirtualGoldArrow extends GenericArrowItem {
 
     @ConfigHolderEntry(category = "arrow")
     public static DoubleConfigEntry baseDmgConfig = DoubleConfigEntry.defineSmallRange(
-            "Virtual Gold Arrow Base Damage Multiplier", 0.05, "Virtual Gold Arrow: Base damage multiplier");
+            "Virtual Gold Arrow Base Damage Factor", 0.05, "Virtual Gold Arrow: Base damage factor");
 
     @ConfigHolderEntry(category = "arrow")
     public static DoubleConfigEntry inFireDmgConfig = DoubleConfigEntry.defineFromMinUsable(
-            "Virtual Gold Arrow Damage Multiplier In Fire", 0.1, 100, "Virtual Gold Arrow: Damage multiplier when burning");
+            "Virtual Gold Arrow Damage Factor In Fire", 0.1, 100, "Virtual Gold Arrow: Damage factor when burning");
 
     @SubscribeTooltip(id = "virtual_gold_arrow")
     public static TooltipEntry tooltip = TooltipEntry.define(
