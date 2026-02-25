@@ -8,7 +8,7 @@ import com.xiaoyue.celestial_equipments.data.CERecipeGen;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.events.CEAttackListener;
 import com.xiaoyue.celestial_equipments.register.*;
-import com.xiaoyue.celestial_invoker.content.ancillary.CelestialRegistrate;
+import com.xiaoyue.celestial_invoker.content.common.CelestialRegistrate;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderMap;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigLoader;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipLoader;

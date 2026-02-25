@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttributeAdder;
+import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.ChatFormatting;
@@ -142,6 +142,6 @@ public class UpgradeableMelee extends Item implements ICEquipment {
 
     @Override
     public Rarity getRarity(ItemStack pStack) {
-        return this.getGearRarity(EquipmentUtils.getLevel(pStack));
+        return this.getEquipmentRarity(EquipmentUtils.getLevel(pStack));
     }
 }

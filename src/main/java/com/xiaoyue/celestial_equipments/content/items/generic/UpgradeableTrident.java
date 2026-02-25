@@ -55,7 +55,7 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
 
     @Override
     public Rarity getRarity(ItemStack pStack) {
-        return getGearRarity(EquipmentUtils.getLevel(pStack));
+        return getEquipmentRarity(EquipmentUtils.getLevel(pStack));
     }
 
     @Override

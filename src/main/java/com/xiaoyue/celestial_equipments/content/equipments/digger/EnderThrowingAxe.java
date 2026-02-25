@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipments.digger;
 import com.xiaoyue.celestial_equipments.content.entities.EnderThrowingAxeEntity;
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.ToolStats;
+import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -51,7 +51,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
                 list.add(tooltip.withGray());
             }
         }
-        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }
 
     @Override

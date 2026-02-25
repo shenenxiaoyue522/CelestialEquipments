@@ -33,7 +33,7 @@ public class SakuraBloom extends UpgradeableCrossbow {
 
     @ConfigHolderEntry(category = "crossbow")
     public static DoubleConfigEntry dmgGrowthConfig = DoubleConfigEntry.defineSmallRange("Sakura Bloom Damage Growth",
-            0.05, "Sakura Bloom: Split Arrow's damage multiplier");
+            0.05, "Sakura Bloom: Split Arrow's damage factor");
 
     @SubscribeTooltip(id = "sakura_bloom")
     public static TooltipHolder tooltips = TooltipHolder.define(

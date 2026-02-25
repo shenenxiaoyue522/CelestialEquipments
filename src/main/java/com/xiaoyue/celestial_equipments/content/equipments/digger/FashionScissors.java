@@ -31,15 +31,15 @@ public class FashionScissors extends ShearsItem implements ICEquipment {
 
     @SubscribeTooltip(id = "fashion_scissors")
     public static TooltipHolder tooltips = TooltipHolder.define(
-            TooltipEntry.define("Right-click on a cow creature to gain leather"),
-            TooltipEntry.define("Right-click on a chicken creature to gain feather"));
+            TooltipEntry.define("Leather is obtained when trimming bovine creatures"),
+            TooltipEntry.define("Feathers are obtained when trimming chicken creatures"));
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }
-        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }
 
     @Override

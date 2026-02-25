@@ -7,6 +7,7 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
+import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
@@ -16,14 +17,14 @@ import com.xiaoyue.celestial_equipments.content.equipments.digger.GravediggersHe
 import com.xiaoyue.celestial_equipments.content.equipments.digger.RadiantTreasure;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
+import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
-import com.xiaoyue.celestial_invoker.content.ancillary.helper.IRegistrateHelper;
-import com.xiaoyue.celestial_invoker.content.ancillary.helper.ItemModelHelper;
+import com.xiaoyue.celestial_invoker.content.common.helper.IRegistrateHelper;
+import com.xiaoyue.celestial_invoker.content.common.helper.ItemModelHelper;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
-import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
@@ -78,8 +79,10 @@ public class CEItems {
     public static final ItemEntry<SakuraBloom> SAKURA_BLOOM = crossbow("sakura_bloom", SakuraBloom::new);
     public static final ItemEntry<VirtualGoldCrossbow> VIRTUAL_GOLD_CROSSBOW = crossbow("virtual_gold_crossbow", VirtualGoldCrossbow::new);
     public static final ItemEntry<SonicCrossbow> SONIC_CROSSBOW = crossbow("sonic_crossbow", SonicCrossbow::new);
+    public static final ItemEntry<GlintstoneResonance> GLINTSTONE_RESONANCE = crossbow("glintstone_resonance", GlintstoneResonance::new);
 
-    public static final ItemEntry<CelestialTridentItem> OCEAN_TIDE = trident("ocean_tide", OceanTide::new);
+    public static final ItemEntry<OceanTide> OCEAN_TIDE = trident("ocean_tide", OceanTide::new);
+    public static final ItemEntry<PoseidonWrath> POSEIDON_WRATH = trident("poseidon_wrath", PoseidonWrath::new);
 
     public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = digger("gravediggers_helper", GravediggersHelper::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);

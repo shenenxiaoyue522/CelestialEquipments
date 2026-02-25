@@ -33,7 +33,12 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
     @Override
     public AbstractArrow createArrow(Level pLevel, ItemStack pStack, LivingEntity pShooter) {
         GenericArrowEntity arrow = new GenericArrowEntity(pLevel, pShooter, builder);
-        arrow.setArrow(pStack);
+        if (pStack.isEmpty()) {
+            arrow.setArrow(this.getDefaultInstance());
+        } else {
+            arrow.setArrow(pStack.copyWithCount(1));
+        }
+        arrow.setBow(pShooter.getUseItem());
         return arrow;
     }
 

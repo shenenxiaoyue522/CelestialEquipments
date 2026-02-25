@@ -6,8 +6,8 @@ import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.entities.AirBladeEntity;
-import com.xiaoyue.celestial_invoker.content.generic.item.IAirBladeUser;
-import com.xiaoyue.celestial_invoker.content.generic.item.IClickInteraction;
+import com.xiaoyue.celestial_invoker.content.generic.item.api.IAirBladeUser;
+import com.xiaoyue.celestial_invoker.content.generic.item.api.IClickInteraction;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -50,7 +50,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }
-        list.add(itemCooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }
 
     @Override

@@ -7,10 +7,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +50,5 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
         }
-    }
-
-    public void onDeath(ItemStack stack, LivingEntity entity, LivingDeathEvent event, int lv) {
-
     }
 }

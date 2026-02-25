@@ -9,9 +9,9 @@ import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class CEAttackListener implements AttackListener {
@@ -25,19 +25,28 @@ public class CEAttackListener implements AttackListener {
     }
 
     @Override
+    public void postAttack(AttackCache cache, LivingAttackEvent event, ItemStack weapon) {
+        LivingEntity attacker = cache.getAttacker();
+        if (attacker == null) return;
+        ItemStack stack = attacker.getMainHandItem();
+        if (IAttackConfig.isMelee(event.getSource()) && stack.getItem() instanceof IAttackConfig attack) {
+            attack.onMeleeAttack(stack, attacker, cache.getAttackTarget(), event, EquipmentUtils.getLevel(stack));
+        }
+    }
+
+    @Override
     public void onHurt(AttackCache cache, ItemStack weapon) {
         LivingHurtEvent event = cache.getLivingHurtEvent();
         assert event != null;
-        Entity entity = event.getSource().getEntity();
-        if (entity instanceof LivingEntity attacker) {
-            ItemStack mainItem = attacker.getMainHandItem();
-            if (IAttackConfig.isMelee(event.getSource()) && mainItem.getItem() instanceof IAttackConfig attack) {
-                attack.onMeleeHurt(mainItem, attacker, cache, EquipmentUtils.getLevel(mainItem));
-            }
-            ItemStack useItem = attacker.getUseItem();
-            if (IAttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof IAttackConfig attack) {
-                attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
-            }
+        LivingEntity attacker = cache.getAttacker();
+        if (attacker == null) return;
+        ItemStack stack = attacker.getMainHandItem();
+        if (IAttackConfig.isMelee(event.getSource()) && stack.getItem() instanceof IAttackConfig attack) {
+            attack.onMeleeHurt(stack, attacker, cache, EquipmentUtils.getLevel(stack));
+        }
+        ItemStack useItem = attacker.getUseItem();
+        if (IAttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof IAttackConfig attack) {
+            attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
         }
     }
 

@@ -110,7 +110,14 @@
   "celestial_equipments.tooltip.throw_damage": "投掷伤害: %s",
   "celestial_equipments.tooltip.throw_speed": "投掷时间: %s 秒",
   "entity.celestial_equipments.simple_trident": "三叉戟",
-  "celestial_equipments.tooltip.fashion_scissors_0": "右键牛类生物时获得皮革",
-  "celestial_equipments.tooltip.fashion_scissors_1": "右键鸡类生物时获得羽毛",
-  "item.celestial_equipments.fashion_scissors": "时尚剪刀"
+  "celestial_equipments.tooltip.fashion_scissors_0": "修剪牛类生物时获得皮革",
+  "celestial_equipments.tooltip.fashion_scissors_1": "修剪鸡类生物时获得羽毛",
+  "item.celestial_equipments.fashion_scissors": "时尚剪刀",
+  "item.celestial_equipments.glintstone_resonance": "辉石长鸣",
+  "celestial_equipments.tooltip.glintstone_resonance_0": "蓄力时附近的生物会高亮显示",
+  "celestial_equipments.tooltip.glintstone_resonance_1": "射出的箭矢拥有额外%s点穿透等级",
+  "celestial_equipments.tooltip.poseidon_wrath_0": "投掷击中时召唤雷电",
+  "celestial_equipments.tooltip.poseidon_wrath_1": "对周围生物造成相当于攻击伤害属性%s点魔法伤害",
+  "item.celestial_equipments.poseidon_wrath": "海神之怒",
+  "celestial_equipments.tooltip.poseidon_wrath_2": "对主目标施加%s效果"
 }

@@ -16,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
-import static com.xiaoyue.celestial_invoker.content.ancillary.BindingHandler.unlock;
+import static com.xiaoyue.celestial_invoker.content.common.Bindings.unlock;
 
 public class CERecipeGen {
 

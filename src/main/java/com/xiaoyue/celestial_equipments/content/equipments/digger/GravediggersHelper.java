@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.content.equipments.digger;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.ToolStats;
+import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.core.BlockPos;

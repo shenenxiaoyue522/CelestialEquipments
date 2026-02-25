@@ -4,7 +4,7 @@ import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.ancillary.entry.AttributeAdder;
+import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipHolder;

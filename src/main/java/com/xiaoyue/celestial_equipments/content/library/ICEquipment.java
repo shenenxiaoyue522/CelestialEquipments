@@ -21,7 +21,7 @@ import java.util.List;
 public interface ICEquipment {
 
     @SubscribeTooltip(id = "item_cooldown")
-    TooltipEntry itemCooldownTooltip = TooltipEntry.define("Cooldown time: %s seconds");
+    TooltipEntry cooldownTooltip = TooltipEntry.define("Cooldown time: %s seconds");
 
     @SubscribeTooltip(id = "shift_down")
     TooltipEntry shiftDownTooltip = TooltipEntry.define("Press [%s] to display equipment info details");
@@ -84,7 +84,7 @@ public interface ICEquipment {
         }
     }
 
-    default Rarity getGearRarity(int level) {
+    default Rarity getEquipmentRarity(int level) {
         return switch (level) {
             case 0, 1, 2 -> Rarity.COMMON;
             case 3 -> IRarityUtils.GREEN;

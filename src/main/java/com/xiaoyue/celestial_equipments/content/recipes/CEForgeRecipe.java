@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.content.recipes;
 
 import com.xiaoyue.celestial_equipments.register.CERecipes;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import com.xiaoyue.celestial_invoker.content.ancillary.BindingHandler;
+import com.xiaoyue.celestial_invoker.content.common.Bindings;
 import dev.xkmc.l2library.serial.recipe.BaseRecipe;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.core.RegistryAccess;
@@ -39,7 +39,7 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
 
     @Override
     public boolean matches(Inv inv, Level world) {
-        return BindingHandler.checkInputs(materials, inv);
+        return Bindings.checkShapelessInputs(materials, inv);
     }
 
     public boolean matchesInput(ItemStack stack) {

@@ -91,7 +91,7 @@ public class SonicCrossbow extends UpgradeableCrossbow {
             }
         }
         for (var e : target) {
-            e.hurt(level.damageSources().sonicBoom(shooter), getAttack(EquipmentUtils.getLevel(stack)) * dmgConfig.floatValue());
+            e.hurt(level.damageSources().sonicBoom(shooter), dmgConfig.floatValue());
             double d1 = 0.5D * (1.0D - e.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
             double d0 = 2.5D * (1.0D - e.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
             e.push(dir.x() * d0, dir.y() * d1, dir.z() * d0);

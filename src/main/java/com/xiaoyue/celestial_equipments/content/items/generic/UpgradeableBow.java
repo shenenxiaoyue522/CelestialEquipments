@@ -130,7 +130,7 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
 
     @Override
     public Rarity getRarity(ItemStack pStack) {
-        return this.getGearRarity(EquipmentUtils.getLevel(pStack));
+        return this.getEquipmentRarity(EquipmentUtils.getLevel(pStack));
     }
 
     @Override
