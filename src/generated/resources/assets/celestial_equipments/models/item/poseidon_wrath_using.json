@@ -1,0 +1,6 @@
+{
+  "parent": "celestial_invoker:item/spear_using",
+  "textures": {
+    "layer0": "celestial_equipments:item/trident/poseidon_wrath"
+  }
+}
