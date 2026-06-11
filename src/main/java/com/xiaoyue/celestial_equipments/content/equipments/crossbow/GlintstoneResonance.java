@@ -39,7 +39,7 @@ public class GlintstoneResonance extends UpgradeableCrossbow {
             TooltipEntry.define("Arrows fired have an additional %s Penetration level"));
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltips.get(0).withGray());
         list.add(tooltips.get(1).withGray(TooltipEntry.num(extraPenetrationConfig.get())));
     }

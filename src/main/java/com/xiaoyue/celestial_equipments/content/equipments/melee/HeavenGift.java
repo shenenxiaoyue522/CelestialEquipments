@@ -35,7 +35,7 @@ public class HeavenGift extends UpgradeableMelee implements IAttackConfig {
         return 0.2f * lv;
     }
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
         list.add(sweepBonusTooltip.withGray(TooltipEntry.per(sweepReachConfig.get())));
     }

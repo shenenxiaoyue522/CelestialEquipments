@@ -8,6 +8,7 @@ import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.Item;
@@ -53,30 +54,35 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
     }
 
     @SubscribeTooltip(id = "pierce_level")
-    public static TooltipEntry pierceLevelInfo = TooltipEntry.define("Penetration level: %s");
+    public static TooltipEntry pierceLevelTooltip = TooltipEntry.define("Penetration level: %s");
 
     @SubscribeTooltip(id = "knockback_ability")
-    public static TooltipEntry knockbackAbilityInfo = TooltipEntry.define("Knockback ability: %s");
+    public static TooltipEntry knockbackAbilityTooltip = TooltipEntry.define("Knockback ability: %s");
 
     @SubscribeTooltip(id = "ocean_arrow")
-    public static TooltipEntry oceanArrowInfo = TooltipEntry.define("Arrows are capable of flying in water");
+    public static TooltipEntry oceanArrowTooltip = TooltipEntry.define("Arrows are capable of flying in water");
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         list.add(UpgradeableBow.bowDamageTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num((int) this.builder.damage)));
         if (this.builder.pierce != 0) {
-            list.add(pierceLevelInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.pierce)));
+            list.add(pierceLevelTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.pierce)));
         }
         if (this.builder.knock != 0) {
-            list.add(knockbackAbilityInfo.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.knock)));
+            list.add(knockbackAbilityTooltip.withColor(ChatFormatting.BLUE, TooltipEntry.num(this.builder.knock)));
         }
         if (this.builder.ignoreWater) {
-            list.add(oceanArrowInfo.withColor(ChatFormatting.BLUE));
+            list.add(oceanArrowTooltip.withColor(ChatFormatting.BLUE));
         }
-        this.addEquipmentTooltips(pStack, list);
+        this.addTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
         }
+    }
+
+    @Override
+    public boolean isInfinite(ItemStack stack, ItemStack bow, Player player) {
+        return super.isInfinite(stack, bow, player);
     }
 }

@@ -3,8 +3,6 @@ package com.xiaoyue.celestial_equipments.data;
 import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.register.CEItems;
-import com.xiaoyue.celestial_invoker.content.common.Bindings;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -30,7 +28,6 @@ public class CETagGen {
         pvd.addTag(UPGRADEABLE_ARMORS);
         pvd.addTag(UPGRADEABLE_TRIDENTS);
         pvd.addTag(UPGRADEABLE_DIGGER);
-        pvd.addTag(Bindings.CUSTOM_ATTRIBUTE_TOOLTIP).add(CEItems.BRILLIANT_GLORY.asItem());
     }
 
     public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {

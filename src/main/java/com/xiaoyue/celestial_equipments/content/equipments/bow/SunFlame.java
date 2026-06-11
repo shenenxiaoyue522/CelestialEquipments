@@ -35,7 +35,7 @@ public class SunFlame extends UpgradeableBow implements IAttackConfig {
     @SubscribeTooltip(id = "sun_flame")
     public static TooltipEntry tooltip = TooltipEntry.define("Increases damage by %s when attacking burning targets");
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
         list.add(burnTimeTooltip.withGray(TooltipEntry.num((burnTimeConfig.get() / 20) * lv)));
     }

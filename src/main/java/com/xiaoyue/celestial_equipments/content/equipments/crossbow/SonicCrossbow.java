@@ -48,7 +48,7 @@ public class SonicCrossbow extends UpgradeableCrossbow {
     }
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltips.get(0).withGray());
         list.add(tooltips.get(1).withGray(TooltipEntry.per(dmgConfig.get())));
     }

@@ -5,22 +5,22 @@ import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
+import com.xiaoyue.celestial_equipments.content.equipments.armor.CelestialWitch;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.EnderThrowingAxe;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.FashionScissors;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.GravediggersHelper;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.RadiantTreasure;
+import com.xiaoyue.celestial_equipments.content.equipments.digger.*;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
+import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
+import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_invoker.content.common.helper.IRegistrateHelper;
 import com.xiaoyue.celestial_invoker.content.common.helper.ItemModelHelper;
@@ -83,6 +83,7 @@ public class CEItems {
 
     public static final ItemEntry<OceanTide> OCEAN_TIDE = trident("ocean_tide", OceanTide::new);
     public static final ItemEntry<PoseidonWrath> POSEIDON_WRATH = trident("poseidon_wrath", PoseidonWrath::new);
+    public static final ItemEntry<AbyssalDisaster> ABYSSAL_DISASTER = trident("abyssal_disaster", AbyssalDisaster::new);
 
     public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = digger("gravediggers_helper", GravediggersHelper::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);
@@ -90,8 +91,13 @@ public class CEItems {
             ItemTags.PICKAXES, ItemTags.TOOLS);
     public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = digger("ender_throwing_axe", EnderThrowingAxe::new,
             ItemTags.AXES, ItemTags.TOOLS, CETagGen.UPGRADEABLE_DIGGER);
+    public static final ItemEntry<IGenericDigger.Hoe> LIFE_HOE = digger("life_hoe", LifeHoe::new,
+            ItemTags.HOES, ItemTags.TOOLS);
     public static final ItemEntry<FashionScissors> FASHION_SCISSORS = digger("fashion_scissors", FashionScissors::new,
             ItemTags.TOOLS);
+
+    public static final Map<ArmorItem.Type, ItemEntry<Item>> CELESTIAL_WITCH = CelestialEquipments.HELPER.armors(CelestialWitch::createName, "armor/test/",
+            type -> p -> new CelestialWitch(type));
 
     public static final ItemEntry<GenericArrowItem> TRAINING_ARROW = arrow("training_arrow", p ->
             new GenericArrowItem(p.rarity(Rarity.RARE), 1f));
@@ -158,7 +164,7 @@ public class CEItems {
     }
 
     public static <T extends Item> Map<ArmorItem.Type, ItemEntry<T>> armors(IRegistrateHelper.ArmorNameCallback name, String path, IRegistrateHelper.ArmorTypeCallback<T> item) {
-        Map<ArmorItem.Type, ItemEntry<T>> map = CelestialEquipments.REGISTRATE.armors(name, "armor/" + path + "/", item);
+        Map<ArmorItem.Type, ItemEntry<T>> map = CelestialEquipments.HELPER.armors(name, "armor/" + path + "/", item);
         map.values().forEach(ent -> ALL_EQUIPMENTS.add(ent.getId().getPath()));
         return map;
     }

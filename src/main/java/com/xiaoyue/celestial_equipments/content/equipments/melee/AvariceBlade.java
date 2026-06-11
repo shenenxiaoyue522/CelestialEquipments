@@ -28,7 +28,7 @@ public class AvariceBlade extends UpgradeableMelee {
         return 0.1f;
     }
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(expBonusConfig.get() * lv)));
     }
 }

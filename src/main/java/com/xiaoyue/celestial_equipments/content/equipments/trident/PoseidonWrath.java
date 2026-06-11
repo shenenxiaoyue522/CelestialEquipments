@@ -21,10 +21,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 
 import java.util.List;
 
@@ -44,7 +41,7 @@ public class PoseidonWrath extends UpgradeableTrident implements SimpleThrowingF
     @SubscribeTooltip(id = "poseidon_wrath")
     public static TooltipHolder tooltips = TooltipHolder.define(
             TooltipEntry.define("Summons thunder and lightning when thrown on hit"),
-            TooltipEntry.define("Deals magic damage equivalent to %s of attack damage attributes to nearby creatures"),
+            TooltipEntry.define("Deals magic damage equivalent to %s of attack damage to nearby creatures"),
             TooltipEntry.define("Apply the %s effect to the primary target"));
 
     @Override
@@ -53,7 +50,7 @@ public class PoseidonWrath extends UpgradeableTrident implements SimpleThrowingF
     }
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltips.get(0).withGray());
         list.add(tooltips.get(1).withGray(TooltipEntry.per(thunderDmgConfig.get() + thunderDmgGrowthConfig.get() * lv)));
         list.add(tooltips.get(2).withGray(TooltipEntry.eff(CCEffects.SOUL_SHATTER.get())));
@@ -69,11 +66,6 @@ public class PoseidonWrath extends UpgradeableTrident implements SimpleThrowingF
     }
 
     @Override
-    protected AbstractArrow getThrownEntity(Level level, Player player, ItemStack trident) {
-        return new SimpleTridentEntity(player, level, trident);
-    }
-
-    @Override
     public void onHitEntity(SimpleTridentEntity trident, Entity target) {
         ItemStack weapon = trident.weapon;
         Entity owner = trident.getOwner();
@@ -85,8 +77,7 @@ public class PoseidonWrath extends UpgradeableTrident implements SimpleThrowingF
                     EntityUtils.spawnThunder(target.level(), target.getOnPos(), true);
                 }
                 for (LivingEntity entity : EntityUtils.getExceptForCentralEntity(livingTarget, 5, 3)) {
-                    double baseDamage = attacker.getAttributeValue(Attributes.ATTACK_DAMAGE);
-                    double damage = baseDamage * (thunderDmgConfig.floatValue() + thunderDmgGrowthConfig.get() * lv);
+                    double damage = trident.getBaseDamage() * (thunderDmgConfig.floatValue() + thunderDmgGrowthConfig.get() * lv);
                     entity.hurt(CCDamageTypes.magic(attacker), (float) damage);
                 }
             }

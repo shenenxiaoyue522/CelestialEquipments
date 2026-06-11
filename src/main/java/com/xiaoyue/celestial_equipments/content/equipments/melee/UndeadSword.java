@@ -28,7 +28,7 @@ public class UndeadSword extends UpgradeableMelee implements IAttackConfig {
     public static TooltipEntry tooltip = TooltipEntry.define("Damage is increased by %s for every 1 less life on attack");
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
     }
 

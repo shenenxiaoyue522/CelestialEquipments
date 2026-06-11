@@ -45,7 +45,7 @@ public class VirtualGoldCrossbow extends UpgradeableCrossbow {
     }
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list) {
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }

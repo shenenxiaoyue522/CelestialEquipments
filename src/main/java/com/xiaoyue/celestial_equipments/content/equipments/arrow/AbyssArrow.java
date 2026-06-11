@@ -32,7 +32,7 @@ public class AbyssArrow extends GenericArrowItem {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Inflicts additional %s Abyss damage to the target on impact", TooltipEntry.per(dmgConfig.get()));
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 

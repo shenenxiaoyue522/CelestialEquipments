@@ -9,7 +9,6 @@ import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -23,23 +22,22 @@ import net.minecraft.world.level.block.LevelEvent;
 public class CEForgeTableMenu extends AbstractContainerMenu implements IControlSlotMenu {
 
     public final ContainerLevelAccess access;
-    public final SimpleContainer extraInv;
     public final CEForgeRecipe.Inv craftInv;
     public final Player player;
 
     public CEForgeTableMenu(int pContainerId, Inventory inv, ContainerLevelAccess access) {
         super(CEMenus.EQUIPMENT_FORGE_TABLE_MENU.get(), pContainerId);
         this.access = access;
-        this.extraInv = new SimpleContainer(2);
         this.craftInv = new CEForgeRecipe.Inv();
         this.player = inv.player;
-        addSlot(slot(extraInv, 0, 16, 36));
+        addSlot(slot(craftInv, 0, 16, 36));
+        int index = 1;
         for(int row = 0; row < 3; ++row) {
             for(int col = 0; col < 3; ++col) {
-                this.addSlot(slot(this.craftInv, row + col * 3, 59 + col * 18, 18 + row * 18));
+                this.addSlot(slot(this.craftInv, index++, 59 + col * 18, 18 + row * 18));
             }
         }
-        addSlot(slot(extraInv, 1, 143, 36));
+        addSlot(slot(craftInv, 10, 143, 36));
         addPlayerSlots(inv);
     }
 
@@ -61,14 +59,18 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
     private void crafting(Level level) {
         if (!level.isClientSide()) {
             ItemStack result = ItemStack.EMPTY;
-            var opt = level.getRecipeManager().getRecipeFor(CERecipes.RT_CE_FORGE.get(), craftInv, level);
+            CEForgeRecipe.Inv recipeInv = new CEForgeRecipe.Inv();
+            for (int i = 1; i < 9; i++) {
+                recipeInv.addItem(craftInv.getItem(i));
+            }
+            var opt = level.getRecipeManager().getRecipeFor(CERecipes.RT_CE_FORGE.get(), recipeInv, level);
             if (opt.isPresent()) {
                 CEForgeRecipe recipe = opt.get();
-                if (recipe.matchesInput(extraInv.getItem(0))) {
-                    result = recipe.assemble(extraInv.getItem(0));
+                if (recipe.matchesInput(craftInv.getItem(0))) {
+                    result = recipe.assemble(craftInv.getItem(0));
                 }
             }
-            extraInv.setItem(1, result);
+            craftInv.setItem(10, result.copy());
             var packet = new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 10, result);
             ((ServerPlayer) player).connection.send(packet);
         }
@@ -82,7 +84,7 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
     }
 
     private boolean isOutputSlot(Container inv, int slot) {
-        return inv.equals(extraInv) && slot == 1;
+        return inv.equals(craftInv) && slot == 10;
     }
 
     @Override
@@ -93,9 +95,6 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
                 invItem.shrink(1);
                 craftInv.setItem(i, invItem.copy());
             }
-            ItemStack input = extraInv.getItem(0);
-            input.shrink(1);
-            extraInv.setItem(0, input.copy());
             player.level().levelEvent(LevelEvent.SOUND_ANVIL_USED, player.getOnPos(), 0);
         }
     }
@@ -154,9 +153,7 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
     @Override
     public void removed(Player pPlayer) {
         super.removed(pPlayer);
-        SimpleContainer inv = new SimpleContainer(1);
-        inv.addItem(extraInv.getItem(0));
-        Containers.dropContents(pPlayer.level(), pPlayer.getOnPos(), inv);
+        craftInv.setItem(10, ItemStack.EMPTY);
         Containers.dropContents(pPlayer.level(), pPlayer.getOnPos(), craftInv);
     }
 }

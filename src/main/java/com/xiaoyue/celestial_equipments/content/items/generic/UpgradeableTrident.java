@@ -1,12 +1,15 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
+import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -34,6 +37,10 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
         return 10;
     }
 
+    public float getThrowDamageFactor(int lv) {
+        return 1f;
+    }
+
     @Override
     public Component getName(ItemStack pStack) {
         return getItemName(pStack);
@@ -42,7 +49,8 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
         list.add(Component.empty());
-        EquipmentUtils.addTridentStatsTooltips(list, 1f, getChargeTime(EquipmentUtils.getLevel(pStack)) / 20f);
+        int lv = EquipmentUtils.getLevel(pStack);
+        EquipmentUtils.addTridentStatsTooltips(list, getThrowDamageFactor(lv), getChargeTime(lv) / 20f);
         addBaseTooltips(pStack, list);
         if (!this.isEnabled()) {
             list.add(Component.empty());
@@ -51,6 +59,14 @@ public class UpgradeableTrident extends CelestialTridentItem implements ICEquipm
         if (pStack.isEnchanted()) {
             list.add(Component.empty());
         }
+    }
+
+    @Override
+    protected AbstractArrow getThrownEntity(Level level, Player player, ItemStack trident) {
+        SimpleTridentEntity entity = new SimpleTridentEntity(player, level, trident);
+        double baseDamage = player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+        entity.setBaseDamage(baseDamage * getThrowDamageFactor(EquipmentUtils.getLevel(trident)));
+        return entity;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.trident;
 
 import com.google.common.collect.Multimap;
-import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
@@ -14,7 +13,6 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
@@ -31,17 +29,10 @@ public class OceanTide extends UpgradeableTrident {
             TooltipEntry.define("Ability to trigger riptide at any time"));
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }
-    }
-
-    @Override
-    protected AbstractArrow getThrownEntity(Level level, Player player, ItemStack trident) {
-        SimpleTridentEntity entity = new SimpleTridentEntity(player, level, trident);
-        entity.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE));
-        return entity;
     }
 
     @Override

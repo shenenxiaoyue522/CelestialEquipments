@@ -42,7 +42,7 @@ public class SakuraBloom extends UpgradeableCrossbow {
             TooltipEntry.define("The split arrow has %s of original arrow damage and can penetrate creatures indefinitely"));
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         for (int i = 0; i < tooltips.size(); i++) {
             TooltipEntry tooltip = tooltips.get(i);
             if (i == 2) {

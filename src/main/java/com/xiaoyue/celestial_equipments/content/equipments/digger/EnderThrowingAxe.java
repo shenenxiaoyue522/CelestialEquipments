@@ -24,7 +24,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
     public static final ToolStats STAT = ToolStats.builder().durability(4000).speed(7f).attack(7).enchant(15).build();
 
     public EnderThrowingAxe() {
-        super(STAT, new Properties());
+        super(STAT);
     }
 
     @ConfigHolderEntry(category = "digger")
@@ -42,7 +42,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
             TooltipEntry.define("When hitting a creature, it deals attack damage attribute %s attack damage"));
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         for (int i = 0; i < tooltips.size(); i++) {
             TooltipEntry tooltip = tooltips.get(i);
             if (i == 2) {

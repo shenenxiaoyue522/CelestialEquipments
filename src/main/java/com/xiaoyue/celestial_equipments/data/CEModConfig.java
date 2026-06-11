@@ -14,11 +14,9 @@ public class CEModConfig {
 
     public CEModConfig(ForgeConfigSpec.Builder builder) {
         builder.push("itemToggles");
-
         for(String item : CEItems.ALL_EQUIPMENTS) {
             map.put(item, builder.define(item, true));
         }
-
         builder.pop();
     }
 

@@ -1,0 +1,26 @@
+{
+  "base": {
+    "parent": "celestial_invoker:item/spear",
+    "textures": {
+      "layer0": "celestial_equipments:item/trident/abyssal_disaster"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "overrides": [
+    {
+      "model": "celestial_equipments:item/abyssal_disaster_using",
+      "predicate": {
+        "minecraft:using": 1.0
+      }
+    }
+  ],
+  "perspectives": {
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "celestial_equipments:item/trident/3d/abyssal_disaster"
+      }
+    }
+  }
+}

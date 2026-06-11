@@ -76,7 +76,7 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
 
     public static class Inv extends SimpleContainer implements RecInv<CEForgeRecipe> {
         public Inv() {
-            super(9);
+            super(11);
         }
     }
 }

@@ -51,7 +51,8 @@
   "celestial_equipments.tooltip.heaven_gift": "全力攻击时伤害穿透护甲",
   "celestial_equipments.tooltip.avarice_blade": "杀死目标时额外掉落%s经验值",
   "celestial_equipments.tooltip.terra_broadsword_0": "挥舞时向前方发射大地气刃",
-  "celestial_equipments.tooltip.terra_broadsword_1": "下蹲右键时向前方冲刺",
+  "celestial_equipments.tooltip.terra_broadsword_1": "气刃击中目标时将造成与攻击伤害相同的魔法伤害",
+  "celestial_equipments.tooltip.terra_broadsword_2": "右键时向前方冲刺",
   "celestial_equipments.tooltip.jazz_dagger": "攻击时每次提高%s对该目标的伤害，至多提高%s伤害",
   "celestial_equipments.tooltip.elven_bow": "箭矢命中未穿戴护甲的目标伤害提高%s",
   "celestial_equipments.tooltip.sun_flame": "攻击处于燃烧中的目标时伤害提高%s",
@@ -117,7 +118,16 @@
   "celestial_equipments.tooltip.glintstone_resonance_0": "蓄力时附近的生物会高亮显示",
   "celestial_equipments.tooltip.glintstone_resonance_1": "射出的箭矢拥有额外%s点穿透等级",
   "celestial_equipments.tooltip.poseidon_wrath_0": "投掷击中时召唤雷电",
-  "celestial_equipments.tooltip.poseidon_wrath_1": "对周围生物造成相当于攻击伤害属性%s点魔法伤害",
+  "celestial_equipments.tooltip.poseidon_wrath_1": "对周围生物造成相当于攻击伤害%s点魔法伤害",
   "item.celestial_equipments.poseidon_wrath": "海神之怒",
-  "celestial_equipments.tooltip.poseidon_wrath_2": "对主目标施加%s效果"
+  "celestial_equipments.tooltip.poseidon_wrath_2": "对主目标施加%s效果",
+  "celestial_equipments.tooltip.abyssal_disaster_0": "投掷击中时对周围的生物造成攻击伤害%s点深渊伤害",
+  "celestial_equipments.tooltip.abyssal_disaster_1": "为主目标施加凋零效果",
+  "item.celestial_equipments.abyssal_disaster": "深渊灾祸",
+  "celestial_equipments.tooltip.life_hoe": "受到治疗时，这个工具会恢复%s点耐久度",
+  "item.celestial_equipments.life_hoe": "生命锄头",
+  "item.celestial_equipments.test_boots": "星月魔女靴子",
+  "item.celestial_equipments.test_chestplate": "星月魔女长袍",
+  "item.celestial_equipments.test_helmet": "星月魔女法帽",
+  "item.celestial_equipments.test_leggings": "星月魔女裙子"
 }

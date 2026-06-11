@@ -21,8 +21,8 @@ public interface IGenericDigger extends ICEquipment {
     }
 
     class Axe extends AxeItem implements IGenericDigger {
-        public Axe(Tier pTier, Item.Properties pProperties) {
-            super(pTier, 6.0F, -3.2F, pProperties);
+        public Axe(Tier pTier) {
+            super(pTier, 6.0F, -3.2F, new Properties());
         }
 
         @Override
@@ -35,7 +35,7 @@ public interface IGenericDigger extends ICEquipment {
             if (isUpgradeable()) {
                 addBaseTooltips(pStack, list);
             } else {
-                addEquipmentTooltips(pStack, list);
+                addTooltips(pStack, list);
             }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
@@ -45,8 +45,8 @@ public interface IGenericDigger extends ICEquipment {
     }
 
     class Pickaxe extends PickaxeItem implements IGenericDigger {
-        public Pickaxe(Tier pTier, Item.Properties pProperties) {
-            super(pTier, 1, -2.8F, pProperties);
+        public Pickaxe(Tier pTier) {
+            super(pTier, 1, -2.8F, new Properties());
         }
 
         @Override
@@ -59,7 +59,7 @@ public interface IGenericDigger extends ICEquipment {
             if (isUpgradeable()) {
                 addBaseTooltips(pStack, list);
             } else {
-                addEquipmentTooltips(pStack, list);
+                addTooltips(pStack, list);
             }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
@@ -69,8 +69,8 @@ public interface IGenericDigger extends ICEquipment {
     }
 
     class Shovel extends ShovelItem implements IGenericDigger {
-        public Shovel(Tier pTier, Item.Properties pProperties) {
-            super(pTier, 1.5F, -3.0F, pProperties);
+        public Shovel(Tier pTier) {
+            super(pTier, 1.5F, -3.0F, new Properties());
         }
 
         @Override
@@ -83,7 +83,7 @@ public interface IGenericDigger extends ICEquipment {
             if (isUpgradeable()) {
                 addBaseTooltips(pStack, list);
             } else {
-                addEquipmentTooltips(pStack, list);
+                addTooltips(pStack, list);
             }
             if (!this.isEnabled()) {
                 list.add(Component.empty());
@@ -93,8 +93,8 @@ public interface IGenericDigger extends ICEquipment {
     }
 
     class Hoe extends HoeItem implements IGenericDigger {
-        public Hoe(Tier pTier, Item.Properties pProperties) {
-            super(pTier, 0, -3.0F, pProperties);
+        public Hoe(Tier pTier) {
+            super(pTier, 0, -3.0F, new Properties());
         }
 
         @Override
@@ -107,7 +107,7 @@ public interface IGenericDigger extends ICEquipment {
             if (isUpgradeable()) {
                 addBaseTooltips(pStack, list);
             } else {
-                addEquipmentTooltips(pStack, list);
+                addTooltips(pStack, list);
             }
             if (!this.isEnabled()) {
                 list.add(Component.empty());

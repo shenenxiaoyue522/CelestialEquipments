@@ -40,7 +40,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
     }
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
         list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
     }

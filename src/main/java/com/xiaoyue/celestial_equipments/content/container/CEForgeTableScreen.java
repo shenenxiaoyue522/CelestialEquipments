@@ -20,6 +20,7 @@ public class CEForgeTableScreen extends AbstractContainerScreen<CEForgeTableMenu
     @Override
     protected void init() {
         super.init();
+        new CEFMenuSyncPayload().toServer();
     }
 
     @Override
@@ -35,5 +36,11 @@ public class CEForgeTableScreen extends AbstractContainerScreen<CEForgeTableMenu
         int x = this.leftPos;
         int y = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(TEXTURE, x, y, 0, 0, this.imageWidth, this.imageHeight);
+    }
+
+    @Override
+    public void onClose() {
+        super.onClose();
+        new CEFMenuSyncPayload().toServer();
     }
 }

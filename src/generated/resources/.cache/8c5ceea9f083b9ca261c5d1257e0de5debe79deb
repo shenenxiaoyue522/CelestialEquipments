@@ -1,8 +1,10 @@
-// 1.20.1	2026-02-25T17:44:29.0561028	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
+// 1.20.1	2026-06-11T18:47:45.7499997	Registrate Provider for celestial_equipments [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes)]
 84fb0cd8bf3977ce3ed1d21f04b2c689e799301b assets/celestial_equipments/blockstates/assembly_table.json
-eacec40310514770124db49d955b5702fd56d6bd assets/celestial_equipments/lang/en_ud.json
-ab963bfc102f900a68d4d4fb0bde7723f80aa207 assets/celestial_equipments/lang/en_us.json
+f8eec9e747dfb300a046de234ea3123b8ba52b91 assets/celestial_equipments/lang/en_ud.json
+7ba83be670e2d32fbc54f747d03b265822269d5c assets/celestial_equipments/lang/en_us.json
 c3a9cd623dbfb17350a15a19fa312463b2c830f3 assets/celestial_equipments/models/block/assembly_table.json
+d1b5402067d40cef56865a3d0b808c3b2b7a8700 assets/celestial_equipments/models/item/abyssal_disaster.json
+2d30d8e358898482f7c6113f4ee1d906fe120f2c assets/celestial_equipments/models/item/abyssal_disaster_using.json
 3f6d95e8118d32882074f39b0e53999f1503b772 assets/celestial_equipments/models/item/abyss_arrow.json
 f8aef6328d637d7dd5d02a12390554d911c813d0 assets/celestial_equipments/models/item/abyss_whisper.json
 206700fcf1dfef273ab56374df581efa9f03ba4d assets/celestial_equipments/models/item/assembly_table.json
@@ -77,6 +79,7 @@ aa4bdb7c2805f9b8416df9697882a33e7f36dc2f assets/celestial_equipments/models/item
 d3127ae8657a6cdf9c0f7f901aa24bfdec20e879 assets/celestial_equipments/models/item/heaven_bow.json
 f4f719890037509029eb20c5f9a00882d28eb01c assets/celestial_equipments/models/item/heaven_gift.json
 4472141aabf53f864cb09d40f9bcf7cc1900b0c3 assets/celestial_equipments/models/item/jazz_dagger.json
+12cf5516e6415ab44bc6bee278c1ffb65cd961e8 assets/celestial_equipments/models/item/life_hoe.json
 c0fc5c8ebd31f4c8b885eedf3229ec3df355a624 assets/celestial_equipments/models/item/ocean_arrow.json
 03d37daa1f959a16d9efdbd3cb9d4bdef499f740 assets/celestial_equipments/models/item/ocean_tide.json
 7f95fc233b6e6025139e103f68bdb35b1d2c713c assets/celestial_equipments/models/item/ocean_tide_using.json
@@ -90,6 +93,10 @@ be55af84905153f991029a51e126864a438e97d3 assets/celestial_equipments/models/item
 184626cd7b80e2709019e4da58c05b3f5e5cac68 assets/celestial_equipments/models/item/sonic_crossbow.json
 8fc5388f9e3cadfb2c0c608237e688fc86772e7e assets/celestial_equipments/models/item/sun_flame.json
 b90514430e30bf65a8430225ee670ca2362bfe8d assets/celestial_equipments/models/item/terra_broadsword.json
+697cd26f67fad6c4172d1501052598d0e29cf88d assets/celestial_equipments/models/item/test_boots.json
+a0fa83825901ee46db04ccf17fdc3f89f07a463e assets/celestial_equipments/models/item/test_chestplate.json
+61bba00a6ec1a469ec6d9a049e8c3d4855ed479c assets/celestial_equipments/models/item/test_helmet.json
+b00292f5e75dfbad2c175323c564a13d41b3d4d8 assets/celestial_equipments/models/item/test_leggings.json
 48ed500bb4179be6b3bc5b159ae1ed9054135059 assets/celestial_equipments/models/item/training_arrow.json
 55fc25919bbd14a7305f78a8f0c0fe4f535e9f1a assets/celestial_equipments/models/item/undead_sword.json
 81868b8ecb70353b0137f9e9c242d866f3abd622 assets/celestial_equipments/models/item/virtual_gold_arrow.json
@@ -208,12 +215,17 @@ beb568ab162ecf94701dc1ded841b697e51d202e data/celestial_equipments/recipes/virtu
 157cbf9b27d04a990ea48a396b2abc80c71ae255 data/celestial_equipments/tags/items/upgradeable_bow.json
 a408e073f96cacd7fae6c5b5187f8ccfdd976225 data/celestial_equipments/tags/items/upgradeable_crossbow.json
 b9c338bb523aab075b8cc89560e5878532491d8e data/celestial_equipments/tags/items/upgradeable_melee.json
-ee4313f7bd71b8b5f0625d9d835a2e531e8fb518 data/celestial_equipments/tags/items/upgradeable_tridents.json
+1364c84b54f73fbefbcd74781816f49224dae552 data/celestial_equipments/tags/items/upgradeable_tridents.json
 dd9f8179dbfda3d0fb454850b359ffbedd65c570 data/celestial_equipments/tags/items/upgradeable_upgradeable_digger.json
-215a004fddd1acaac24acad4f27e83640559822e data/celestial_invoker/tags/items/custom_attribute_tooltip.json
+53c5aeef96b73cfcf6436d8e358f40e07c12d3f1 data/forge/tags/items/armors.json
+6c3ff1a1a9d019f1d493263c354044137ce3dec7 data/forge/tags/items/armors/boots.json
+aefccac45211e64c4fbe277bf9b8d2b2bb591561 data/forge/tags/items/armors/chestplates.json
+79605659869ac547a01396a3843f076d779c975d data/forge/tags/items/armors/helmets.json
+8676f22314a8d4e03ac55141820c02d1968a2bbe data/forge/tags/items/armors/leggings.json
 a59b3c8af681f589900b58ed8b12b05f83feb496 data/minecraft/tags/blocks/mineable/pickaxe.json
 bb5bc37e6d8b484aa542dcee5177aced2aeea229 data/minecraft/tags/items/arrows.json
 dd9f8179dbfda3d0fb454850b359ffbedd65c570 data/minecraft/tags/items/axes.json
+6e36c0d363706adbba5249f869a1dacd670058f2 data/minecraft/tags/items/hoes.json
 684551e29d10e6fb89904ce6b9e78fc2b00c13d2 data/minecraft/tags/items/pickaxes.json
 b9c338bb523aab075b8cc89560e5878532491d8e data/minecraft/tags/items/swords.json
-15a8f965d8f32b6b698994c689fee50c958e39ab data/minecraft/tags/items/tools.json
+03757709f4599a36032369d7a59fe953f1e9b7dd data/minecraft/tags/items/tools.json

@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment {
+
     public static final List<UpgradeableArmor> ARMORS = new ArrayList<>();
+    public static final String EMPTY_MODEL_TEX = "celestial_equipments:textures/models/armor/empty_armor_model.png";
 
     public UpgradeableArmor(ArmorMaterial material, Type pType, Properties pProperties) {
         super(material, pType, pProperties);
@@ -33,22 +35,31 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
             list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         } else {
             EquipmentUtils.addExpTooltips(list, stack);
-            if (!getSetArmors().isEmpty()) {
-                list.add(Component.empty());
-            }
             if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
                 list.add(Component.empty());
-                this.addEquipmentTooltips(stack, list);
+                this.addTooltips(stack, list);
             }
+        }
+        if (!this.isEnabled()) {
+            list.add(Component.empty());
+            list.add(itemBanTooltip.withGray());
         }
     }
 
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, EquipmentSlot slot) {
         this.addBaseTooltips(stack, list);
+        if (hasArmorSetTooltip(stack)) {
+            list.add(Component.empty());
+        }
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
         }
+    }
+
+    @Override
+    public boolean hasArmorSetTooltip(ItemStack stack) {
+        return true;
     }
 }

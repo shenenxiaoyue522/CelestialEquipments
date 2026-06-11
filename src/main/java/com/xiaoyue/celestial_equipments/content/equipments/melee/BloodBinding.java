@@ -31,7 +31,7 @@ public class BloodBinding extends UpgradeableMelee implements IAttackConfig {
         return 2.5f;
     }
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(healConfig.get() * lv)));
     }
 

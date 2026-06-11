@@ -9,9 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -21,14 +19,14 @@ public class GravediggersHelper extends IGenericDigger.Pickaxe {
     public static final ToolStats STAT = ToolStats.builder().durability(5000).speed(8f).attack(5f).enchant(15).build();
 
     public GravediggersHelper() {
-        super(STAT, new Item.Properties().rarity(Rarity.RARE));
+        super(STAT);
     }
 
     @SubscribeTooltip(id = "gravediggers_helper")
     public static TooltipEntry tooltip = TooltipEntry.define("Dig extremely fast, but only mine stones and cannot obtain drops");
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 

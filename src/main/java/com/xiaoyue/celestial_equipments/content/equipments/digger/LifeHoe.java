@@ -1,0 +1,32 @@
+package com.xiaoyue.celestial_equipments.content.equipments.digger;
+
+import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
+import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
+import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
+import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
+import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
+
+public class LifeHoe extends IGenericDigger.Hoe {
+    public static ToolStats STAT = ToolStats.builder().durability(795).speed(5f).attack(4f).enchant(15).speed(2f).build();
+
+    public LifeHoe() {
+        super(STAT);
+    }
+
+    @ConfigHolderEntry(category = "digger")
+    public static IntConfigEntry durabilityRecovery = IntConfigEntry.defineFromZero("Ender Throwing Axe Cooldown", 1,
+            Integer.MAX_VALUE, "Durability restored during treatment");
+
+    @SubscribeTooltip(id = "life_hoe")
+    public static TooltipEntry tooltip = TooltipEntry.define("When healed, this tool restores %s durability");
+
+    @Override
+    public void addTooltips(ItemStack stack, List<Component> list) {
+        list.add(tooltip.withGray(TooltipEntry.num(durabilityRecovery.get())));
+    }
+}

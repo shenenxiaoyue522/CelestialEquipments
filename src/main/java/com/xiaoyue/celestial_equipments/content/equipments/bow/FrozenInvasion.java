@@ -27,7 +27,7 @@ public class FrozenInvasion extends UpgradeableBow implements IAttackConfig {
     public static TooltipEntry tooltip = TooltipEntry.define("Targets hit are frozen in %s seconds");
 
     @Override
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list, int lv) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.num(frozenTimeConfig.get() / 20)));
     }
 

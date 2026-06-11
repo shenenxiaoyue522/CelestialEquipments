@@ -27,7 +27,7 @@ public class GuardianArrow extends GenericArrowItem {
             "When it hits the target, it causes all mobs around it except the attacker to fall into %s and %s",
             TooltipEntry.eff(MobEffects.WEAKNESS), TooltipEntry.eff(MobEffects.MOVEMENT_SLOWDOWN));
 
-    public void addEquipmentTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltip.withGray());
     }
 
