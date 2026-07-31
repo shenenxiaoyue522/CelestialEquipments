@@ -21,11 +21,11 @@ public class CrystalSword extends UpgradeableMelee {
 
     @ConfigHolderEntry(category = "melee")
     public static DoubleConfigEntry effectChanceConfig = DoubleConfigEntry.defineChance("Crystal Sword Effect Chance", 0.2,
-            "Crystal Sword: How much chance does it have to increase critical hits and critical damage when attacking");
+            "Crystal Sword: After attacking, increases critical rate and damage chance");
 
     @SubscribeTooltip(id = "crystal_sword")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "When attacking, there is a %s chance to increase the caster's Critical Chance and Critical Damage");
+            "When attacking, there is a %s chance to increase the attacker's Critical Chance and Critical Damage");
 
     @Override
     public float getSpeed(int lv) {

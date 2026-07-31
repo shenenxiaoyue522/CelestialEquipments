@@ -31,20 +31,24 @@ public class HeavenGift extends UpgradeableMelee implements IAttackConfig {
     @SubscribeTooltip(id = "heaven_gift")
     public static TooltipEntry tooltip = TooltipEntry.define("Damage pierces through armor when attacking with full force");
 
+    @Override
     public float getAttack(int lv) {
         return 0.2f * lv;
     }
 
+    @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
         list.add(sweepBonusTooltip.withGray(TooltipEntry.per(sweepReachConfig.get())));
     }
 
+    @Override
     public @NotNull AABB getSweepHitBox(@NotNull ItemStack stack, @NotNull Player player, @NotNull Entity target) {
         double toAdd = (double) 1f + sweepReachConfig.get();
         return target.getBoundingBox().inflate(1f * toAdd, 0.25f, 1f * toAdd);
     }
 
+    @Override
     public void onCreateSource(ItemStack stack, LivingEntity attacker, CreateSourceEvent event, int lv) {
         if (lv > 0 && event.getDirect() != null && event.getDirect().is(event.getAttacker())) {
             event.enable(DefaultDamageState.BYPASS_ARMOR);

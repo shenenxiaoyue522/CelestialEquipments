@@ -47,9 +47,10 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
 
     @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
-        if (this.noCooldown(attacker)) {
-            float extraDamage = cache.getPreDamage() * dmgConfig.floatValue() * (float)lv;
-            GeneralEventHandler.schedule(() -> cache.getAttackTarget().hurt(CCDamageTypes.abyss(attacker), extraDamage));
+        LivingEntity target = cache.getAttackTarget();
+        if (this.noCooldown(attacker) && lv > 0) {
+            float extraDamage = cache.getPreDamage() * dmgConfig.floatValue() * (float) lv;
+            GeneralEventHandler.schedule(() -> target.hurt(CCDamageTypes.abyss(attacker), extraDamage));
             this.addCooldown(attacker, cooldownConfig.get());
         }
     }

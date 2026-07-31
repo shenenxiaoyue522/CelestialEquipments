@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "celestial_equipments:item/armor/celestial_witch/celestial_witch_hat"
+  }
+}

@@ -1,5 +1,9 @@
 {
   "values": [
-    "celestial_equipments:test_boots"
+    "celestial_equipments:celestial_witch_boots",
+    "celestial_equipments:earth_knight_boots",
+    "celestial_equipments:chasing_summer_socks",
+    "celestial_equipments:mortal_shadow_boots",
+    "celestial_equipments:deep_guardian_boots"
   ]
 }

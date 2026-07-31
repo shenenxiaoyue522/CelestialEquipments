@@ -30,6 +30,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
 
 import java.util.List;
 
@@ -96,7 +97,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
             float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
             float zr = (float) (player.getRandom().nextDouble() * 360f);
             blade.setData(player, damage, 100, zr, stack);
-            blade.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1f, 0);
+            blade.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5f, 0);
             level.addFreshEntity(blade);
         }
     }
@@ -105,6 +106,11 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     public void onHitEntity(AirBladeEntity blade, Entity target) {
         target.level().playSound(null, target.getOnPos(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.MUSIC);
         IAirBladeUser.super.onHitEntity(blade, target);
+    }
+
+    @Override
+    public Vector3f getBladeSize(AirBladeEntity blade) {
+        return new Vector3f(0.1f);
     }
 
     @Override

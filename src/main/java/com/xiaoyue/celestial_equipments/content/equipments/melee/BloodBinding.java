@@ -31,10 +31,12 @@ public class BloodBinding extends UpgradeableMelee implements IAttackConfig {
         return 2.5f;
     }
 
+    @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(healConfig.get() * lv)));
     }
 
+    @Override
     public void onMeleeKill(ItemStack stack, LivingEntity attacker, LivingDeathEvent event, int lv) {
         float heal = healConfig.floatValue() * lv * (attacker.getMaxHealth() - attacker.getHealth());
         attacker.heal(heal);

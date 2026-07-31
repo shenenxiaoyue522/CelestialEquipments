@@ -73,7 +73,7 @@ public class CERecipeGen {
                 .save(pvd);
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.GUARDIAN_ARROW, 4)::unlockedBy, Items.ARROW)
                 .pattern(" X ").pattern("XAX").pattern(" X ")
-                .define('X', CCItems.GUARDIAN_OCEAN_INGOT)
+                .define('X', CCItems.REINFORCED_OCEAN_INGOT)
                 .define('A', ItemTags.ARROWS)
                 .save(pvd);
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CEItems.VIRTUAL_GOLD_ARROW)::unlockedBy, Items.ARROW)
@@ -224,7 +224,7 @@ public class CERecipeGen {
                 .save(pvd, getID(CEItems.GRAVEDIGGERS_HELPER));
         unlock(pvd, new CEForgeRecipeBuilder(Items.GOLDEN_PICKAXE, CEItems.RADIANT_TREASURE.asStack())
                 .material(Items.GOLD_BLOCK).material(Items.DIAMOND).material(Items.EXPERIENCE_BOTTLE)
-                .material(CCItems.LIGHT_FRAGMENT)::unlockedBy, Items.GOLDEN_PICKAXE)
+                .material(CCItems.VIRTUAL_GOLD_INGOT).material(CCItems.LIGHT_FRAGMENT)::unlockedBy, Items.GOLDEN_PICKAXE)
                 .save(pvd, getID(CEItems.RADIANT_TREASURE));
         unlock(pvd, new CEForgeRecipeBuilder(Items.NETHERITE_AXE, CEItems.ENDER_THROWING_AXE.asStack())
                 .material(Items.ENDER_PEARL).material(Items.CHORUS_FRUIT).material(Items.EXPERIENCE_BOTTLE)

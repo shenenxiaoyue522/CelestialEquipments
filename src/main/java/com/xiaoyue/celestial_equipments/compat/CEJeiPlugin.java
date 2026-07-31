@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 public class CEJeiPlugin implements IModPlugin {
 
     public static final ResourceLocation ID = CelestialEquipments.loc("main");
-    public final CEForgeRecipeCategory CE_FORGE = new CEForgeRecipeCategory();
+    public final ForgeRecipeCategory CE_FORGE = new ForgeRecipeCategory();
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -34,7 +34,7 @@ public class CEJeiPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         Level level = Proxy.getClientWorld();
         assert level != null;
-        registration.addRecipes(CE_FORGE.getRecipeType(), level.getRecipeManager().getAllRecipesFor(CERecipes.RT_CE_FORGE.get()));
+        registration.addRecipes(CE_FORGE.getRecipeType(), level.getRecipeManager().getAllRecipesFor(CERecipes.RT_FORGE.get()));
     }
 
     @Override

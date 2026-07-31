@@ -31,14 +31,17 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
     @Override
     public void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
-        if (!Screen.hasShiftDown()) {
-            list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
-        } else {
-            EquipmentUtils.addExpTooltips(list, stack);
-            if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
-                list.add(Component.empty());
-                this.addTooltips(stack, list);
+        if (!singleLevel) {
+            if (!Screen.hasShiftDown()) {
+                list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
+            } else {
+                EquipmentUtils.addExpTooltips(list, stack);
+                if (EquipmentUtils.getLevel(stack) > 0) {
+                    this.addTooltips(stack, list);
+                }
             }
+        } else {
+            this.addTooltips(stack, list);
         }
         if (!this.isEnabled()) {
             list.add(Component.empty());
@@ -49,9 +52,6 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, EquipmentSlot slot) {
         this.addBaseTooltips(stack, list);
-        if (hasArmorSetTooltip(stack)) {
-            list.add(Component.empty());
-        }
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
@@ -59,7 +59,12 @@ public class UpgradeableArmor extends CelestialArmorItem implements ICEquipment 
     }
 
     @Override
-    public boolean hasArmorSetTooltip(ItemStack stack) {
-        return true;
+    public boolean requiredAltDown() {
+        return false;
+    }
+
+    @Override
+    public boolean isUpgradeable() {
+        return false;
     }
 }

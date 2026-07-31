@@ -1,10 +1,12 @@
 package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.ItemUtils;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.LifeHoe;
+import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.AvariceBlade;
+import com.xiaoyue.celestial_equipments.content.equipments.tool.LifeHoe;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
+import com.xiaoyue.celestial_invoker.event.api.LivingHealthChangeEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -37,9 +39,17 @@ public class EquipmentEventHandler {
         if (entity instanceof Player player) {
             for (ItemStack stack : player.getInventory().items) {
                 if (stack.is(CEItems.LIFE_HOE.get())) {
-                    ItemUtils.repairStack(stack, LifeHoe.durabilityRecovery.get());
+                    ItemUtils.repairStack(stack, LifeHoe.durabilityRecoveryConfig.get());
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onChangeHp(LivingHealthChangeEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (CEItems.CHASING_SUMMER.isFullSet(entity)) {
+            entity.heal(event.getNewHealth() * ChasingSummer.healConfig.floatValue());
         }
     }
 }

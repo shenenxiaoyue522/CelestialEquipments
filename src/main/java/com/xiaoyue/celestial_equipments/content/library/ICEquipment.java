@@ -48,14 +48,20 @@ public interface ICEquipment {
 
     default void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
-        if (!Screen.hasShiftDown()) {
-            list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
-        } else {
+        if (!requiredShiftDown()) {
             EquipmentUtils.addExpTooltips(list, stack);
             if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
                 list.add(Component.empty());
                 this.addTooltips(stack, list);
             }
+        } else if (Screen.hasShiftDown()) {
+            EquipmentUtils.addExpTooltips(list, stack);
+            if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
+                list.add(Component.empty());
+                this.addTooltips(stack, list);
+            }
+        } else {
+            list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         }
     }
 
@@ -68,6 +74,10 @@ public interface ICEquipment {
     }
 
     default void addTooltips(ItemStack stack, List<Component> list, int lv) {
+    }
+
+    default boolean requiredShiftDown() {
+        return true;
     }
 
     default boolean noCooldown(LivingEntity entity) {

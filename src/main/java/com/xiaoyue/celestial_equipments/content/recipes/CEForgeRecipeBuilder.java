@@ -15,21 +15,21 @@ public class CEForgeRecipeBuilder extends BaseRecipeBuilder<CEForgeRecipeBuilder
     private final List<Ingredient> materials = new ArrayList<>();
 
     public CEForgeRecipeBuilder(Item input, ItemStack output) {
-        super(CERecipes.RS_CE_FORGE.get());
+        super(CERecipes.RS_FORGE.get());
         recipe.input = Ingredient.of(input);
         recipe.output = output;
         recipe.levelCondition = -1;
     }
 
     public CEForgeRecipeBuilder(TagKey<Item> input, ItemStack output) {
-        super(CERecipes.RS_CE_FORGE.get());
+        super(CERecipes.RS_FORGE.get());
         recipe.input = Ingredient.of(input);
         recipe.output = output;
         recipe.levelCondition = -1;
     }
 
     public CEForgeRecipeBuilder(TagKey<Item> input) {
-        super(CERecipes.RS_CE_FORGE.get());
+        super(CERecipes.RS_FORGE.get());
         recipe.input = Ingredient.of(input);
         recipe.output = ItemStack.EMPTY;
         recipe.levelCondition = -1;

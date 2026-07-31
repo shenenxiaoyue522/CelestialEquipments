@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.digger;
+package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
@@ -25,7 +25,7 @@ public class FashionScissors extends ShearsItem implements ICEquipment {
         super(new Properties().rarity(Rarity.UNCOMMON).durability(622));
     }
 
-    @ConfigHolderEntry(category = "digger")
+    @ConfigHolderEntry(category = "tool")
     public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Fashion Scissors Cooldown", 100,
             Integer.MAX_VALUE, "Use cooldown");
 

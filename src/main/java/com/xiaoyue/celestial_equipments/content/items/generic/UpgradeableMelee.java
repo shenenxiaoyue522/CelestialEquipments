@@ -73,6 +73,11 @@ public class UpgradeableMelee extends Item implements ICEquipment {
     }
 
     @Override
+    public boolean requiredShiftDown() {
+        return false;
+    }
+
+    @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modify = LinkedHashMultimap.create();
         int lv = EquipmentUtils.getLevel(stack);

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "celestial_equipments:item/digger/life_hoe"
+    "layer0": "celestial_equipments:item/tool/life_hoe"
   }
 }

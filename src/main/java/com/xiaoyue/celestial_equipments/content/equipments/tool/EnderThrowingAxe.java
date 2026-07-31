@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.digger;
+package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_equipments.content.entities.EnderThrowingAxeEntity;
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
@@ -27,11 +27,11 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
         super(STAT);
     }
 
-    @ConfigHolderEntry(category = "digger")
+    @ConfigHolderEntry(category = "tool")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineBigRange("Ender Throwing Axe Throw Damage Factor", 0.05,
             "Increased throw damage per level");
 
-    @ConfigHolderEntry(category = "digger")
+    @ConfigHolderEntry(category = "tool")
     public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Ender Throwing Axe Cooldown", 100,
             Integer.MAX_VALUE, "Throw cooldown");
 

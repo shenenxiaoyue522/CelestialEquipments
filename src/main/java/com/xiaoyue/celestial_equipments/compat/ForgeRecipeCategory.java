@@ -16,18 +16,18 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
-public class CEForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, CEForgeRecipeCategory> {
-    public CEForgeRecipeCategory() {
-        super(CelestialEquipments.loc("ce_forge_recipe"), CEForgeRecipe.class);
+public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, ForgeRecipeCategory> {
+    public ForgeRecipeCategory() {
+        super(CelestialEquipments.loc("forge_recipe"), CEForgeRecipe.class);
     }
 
-    @SubscribeTooltip(key = "jei.ce_forge_recipe.is_upgrade_recipe")
+    @SubscribeTooltip(key = "jei.forge_recipe.is_upgrade_recipe")
     public static TooltipEntry upgradeRecipeTooltip = TooltipEntry.define("This is an equipment upgrade recipe");
 
-    @SubscribeTooltip(key = "jei.ce_forge_recipe.upgrade_recipe_condition")
+    @SubscribeTooltip(key = "jei.forge_recipe.upgrade_recipe_condition")
     public static TooltipEntry levelConditionTooltip = TooltipEntry.define("Applies to equipment when level is below %s level");
 
-    public CEForgeRecipeCategory init(IJeiHelpers jeiHelpers) {
+    public ForgeRecipeCategory init(IJeiHelpers jeiHelpers) {
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
         icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, CEBlocks.ASSEMBLY_TABLE.asStack());
         background = guiHelper.createDrawable(CEForgeTableScreen.TEXTURE, 5, 15, 166, 56);

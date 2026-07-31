@@ -1,9 +1,14 @@
 package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.register.CEItems;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.FogType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderTooltipEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
@@ -19,6 +24,17 @@ public class ClientEvents {
             event.setBorderStart(0xfff3f9ff);
             event.setBorderEnd(0xffa6c6f3);
         }
+    }
 
+    @SubscribeEvent
+    public static void renderFog(ViewportEvent.RenderFog event) {
+        LocalPlayer player = Minecraft.getInstance().player;
+        if (player != null && event.getType().equals(FogType.WATER)) {
+            if (CEItems.DEEP_GUARDIAN.isFullSet(player)) {
+                event.setCanceled(true);
+                event.setNearPlaneDistance(-8f);
+                event.setFarPlaneDistance(200f);
+            }
+        }
     }
 }

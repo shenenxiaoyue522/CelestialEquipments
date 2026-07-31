@@ -1,5 +1,5 @@
 {
-  "type": "celestial_equipments:ce_forge_recipe",
+  "type": "celestial_equipments:forge_recipe",
   "input": {
     "item": "minecraft:bow"
   },

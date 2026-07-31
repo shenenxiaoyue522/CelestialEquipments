@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "celestial_equipments:item/digger/fashion_scissors"
+    "layer0": "celestial_equipments:item/tool/fashion_scissors"
   }
 }

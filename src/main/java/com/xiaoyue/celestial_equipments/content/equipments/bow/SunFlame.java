@@ -26,11 +26,11 @@ public class SunFlame extends UpgradeableBow implements IAttackConfig {
 
     @ConfigHolderEntry(category = "bow")
     public static IntConfigEntry burnTimeConfig = IntConfigEntry.define("Sun Flame Burn Time", 60, 1, 1000,
-            "Sun Flame: The burn time the target is stuck into");
+            "Sun Flame: Burn duration applied on hit");
 
     @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Sun Flame Damage Bonus", 0.05,
-            "Sun Flame: Attack the target in the fire and increase the attack");
+            "Sun Flame: Increased damage when hitting burning targets");
 
     @SubscribeTooltip(id = "sun_flame")
     public static TooltipEntry tooltip = TooltipEntry.define("Increases damage by %s when attacking burning targets");

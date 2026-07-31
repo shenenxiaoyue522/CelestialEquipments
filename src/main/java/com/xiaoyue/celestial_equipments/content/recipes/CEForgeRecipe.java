@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.recipes;
 
+import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
 import com.xiaoyue.celestial_equipments.register.CERecipes;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.Bindings;
@@ -34,7 +35,7 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
     public int levelCondition;
 
     public CEForgeRecipe(ResourceLocation id) {
-        super(id, CERecipes.RS_CE_FORGE.get());
+        super(id, CERecipes.RS_FORGE.get());
     }
 
     @Override
@@ -55,7 +56,7 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
     public ItemStack assemble(ItemStack input) {
         if (isUpgrade) {
             boolean allowedLv = EquipmentUtils.getLevel(input) <= levelCondition || levelCondition == -1;
-            if (EquipmentUtils.isFullExp(input) && allowedLv)  {
+            if (EquipmentUtils.isFullExp(input) && allowedLv && input.getItem() instanceof ICEquipment equipment && equipment.isUpgradeable())  {
                 ItemStack newOutput = input.copy();
                 EquipmentUtils.upGear(newOutput);
                 return newOutput;

@@ -63,7 +63,7 @@ public class CEForgeTableMenu extends AbstractContainerMenu implements IControlS
             for (int i = 1; i < 9; i++) {
                 recipeInv.addItem(craftInv.getItem(i));
             }
-            var opt = level.getRecipeManager().getRecipeFor(CERecipes.RT_CE_FORGE.get(), recipeInv, level);
+            var opt = level.getRecipeManager().getRecipeFor(CERecipes.RT_FORGE.get(), recipeInv, level);
             if (opt.isPresent()) {
                 CEForgeRecipe recipe = opt.get();
                 if (recipe.matchesInput(craftInv.getItem(0))) {

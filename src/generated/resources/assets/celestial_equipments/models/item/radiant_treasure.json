@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "celestial_equipments:item/digger/radiant_treasure"
+    "layer0": "celestial_equipments:item/tool/radiant_treasure"
   }
 }

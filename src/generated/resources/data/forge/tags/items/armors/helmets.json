@@ -1,5 +1,9 @@
 {
   "values": [
-    "celestial_equipments:test_helmet"
+    "celestial_equipments:celestial_witch_hat",
+    "celestial_equipments:earth_knight_helmet",
+    "celestial_equipments:chasing_summer_hat",
+    "celestial_equipments:mortal_shadow_hood",
+    "celestial_equipments:deep_guardian_helmet"
   ]
 }

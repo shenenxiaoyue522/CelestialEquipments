@@ -26,7 +26,7 @@ public class ElvenBow extends UpgradeableBow implements IAttackConfig {
             "Elven Bow: Increased attack when the target is not wearing armor");
 
     @SubscribeTooltip(id = "elven_bow")
-    public static TooltipEntry tooltip = TooltipEntry.define("Increases damage from arrows hitting unarmored targets by %s");
+    public static TooltipEntry tooltip = TooltipEntry.define("Damage increased by % when attacking unarmored targets");
 
     @Override
     public float getArrowSpeed(int lv) {

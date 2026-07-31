@@ -27,11 +27,11 @@ public class BrightProphecy extends UpgradeableBow {
 
     @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Bright Prophecy Damage Bonus", 0.02,
-            "Bright Prophecy: Damage that can be increased by each light level");
+            "Bright Prophecy: Damage increases with light level");
 
     @SubscribeTooltip(id = "bright_prophecy")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "Each 1 increase in Light Level increases the base damage of arrows by %s");
+            "Each point of light level increases damage by %s");
 
     @Override
     public float getAttack(int lv) {

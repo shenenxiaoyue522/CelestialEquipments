@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.digger;
+package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.data.CETagGen;

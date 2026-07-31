@@ -24,8 +24,7 @@ public class ExpBottleItem extends Item {
     }
 
     @SubscribeTooltip(id = "exp_bottle_info")
-    public static TooltipEntry tooltip = TooltipEntry.define(
-            "Forging a equipment on an anvil increases the weapon's %s experience");
+    public static TooltipEntry tooltip = TooltipEntry.define("Forging a equipment on an anvil increases the weapon's %s experience");
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {

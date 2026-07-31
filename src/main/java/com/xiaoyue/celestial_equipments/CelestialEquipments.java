@@ -10,7 +10,7 @@ import com.xiaoyue.celestial_equipments.data.CERecipeGen;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.events.CEAttackListener;
 import com.xiaoyue.celestial_equipments.register.*;
-import com.xiaoyue.celestial_invoker.content.common.helper.IRegistrateHelper;
+import com.xiaoyue.celestial_invoker.content.common.IRegistrateExtra;
 import com.xiaoyue.celestial_invoker.content.generic.shared.NetworkHandler;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderMap;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigLoader;
@@ -37,9 +37,9 @@ public class CelestialEquipments {
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final ConfigHolderMap CONFIG = ConfigLoader.mapConfig(MODID);
     public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
-    public static final IRegistrateHelper<L2Registrate> HELPER = IRegistrateHelper.simple(REGISTRATE);
+    public static final IRegistrateExtra<L2Registrate> EXTRA = IRegistrateExtra.simple(REGISTRATE);
 
-    public static final RegistryEntry<CreativeModeTab> TAB = HELPER.buildCreativeTab("tab",
+    public static final RegistryEntry<CreativeModeTab> TAB = EXTRA.buildCreativeTab("tab",
             e -> e.icon(CEItems.BLOOD_BINDING::asStack));
 
     public CelestialEquipments() {
@@ -50,7 +50,7 @@ public class CelestialEquipments {
         CEEntities.register();
         AttackEventHandler.register(3420, new CEAttackListener());
         CONFIG.addExtra(Type.COMMON, CEModConfig::new).initCelestialConfigs(Type.COMMON);
-        HELPER.genSubscribeTooltips();
+        EXTRA.genSubscribeTooltips();
         REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, CETagGen::onItemTagGen);
         REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, CETagGen::onBlockTagGen);
         REGISTRATE.addDataGenerator(ProviderType.RECIPE, CERecipeGen::onRecipeGen);

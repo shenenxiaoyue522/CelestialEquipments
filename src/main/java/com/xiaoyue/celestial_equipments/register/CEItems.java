@@ -5,35 +5,32 @@ import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
-import com.xiaoyue.celestial_equipments.content.equipments.armor.CelestialWitch;
+import com.xiaoyue.celestial_equipments.content.equipments.armor.*;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
-import com.xiaoyue.celestial_equipments.content.equipments.digger.*;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
+import com.xiaoyue.celestial_equipments.content.equipments.tool.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
-import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
-import com.xiaoyue.celestial_invoker.content.common.helper.IRegistrateHelper;
+import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
 import com.xiaoyue.celestial_invoker.content.common.helper.ItemModelHelper;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @SuppressWarnings("unused")
 public class CEItems {
@@ -85,19 +82,18 @@ public class CEItems {
     public static final ItemEntry<PoseidonWrath> POSEIDON_WRATH = trident("poseidon_wrath", PoseidonWrath::new);
     public static final ItemEntry<AbyssalDisaster> ABYSSAL_DISASTER = trident("abyssal_disaster", AbyssalDisaster::new);
 
-    public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = digger("gravediggers_helper", GravediggersHelper::new,
+    public static final ItemEntry<GravediggersHelper> GRAVEDIGGERS_HELPER = tool("gravediggers_helper", GravediggersHelper::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);
-    public static final ItemEntry<RadiantTreasure> RADIANT_TREASURE = digger("radiant_treasure", RadiantTreasure::new,
+    public static final ItemEntry<RadiantTreasure> RADIANT_TREASURE = tool("radiant_treasure", RadiantTreasure::new,
             ItemTags.PICKAXES, ItemTags.TOOLS);
-    public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = digger("ender_throwing_axe", EnderThrowingAxe::new,
+    public static final ItemEntry<EnderThrowingAxe> ENDER_THROWING_AXE = tool("ender_throwing_axe", EnderThrowingAxe::new,
             ItemTags.AXES, ItemTags.TOOLS, CETagGen.UPGRADEABLE_DIGGER);
-    public static final ItemEntry<IGenericDigger.Hoe> LIFE_HOE = digger("life_hoe", LifeHoe::new,
+    public static final ItemEntry<LifeHoe> LIFE_HOE = tool("life_hoe", LifeHoe::new,
             ItemTags.HOES, ItemTags.TOOLS);
-    public static final ItemEntry<FashionScissors> FASHION_SCISSORS = digger("fashion_scissors", FashionScissors::new,
+    public static final ItemEntry<FinalShovel> FINAL_SHOVEL = tool("final_shovel", FinalShovel::new,
+            ItemTags.SHOVELS, ItemTags.TOOLS);
+    public static final ItemEntry<FashionScissors> FASHION_SCISSORS = tool("fashion_scissors", FashionScissors::new,
             ItemTags.TOOLS);
-
-    public static final Map<ArmorItem.Type, ItemEntry<Item>> CELESTIAL_WITCH = CelestialEquipments.HELPER.armors(CelestialWitch::createName, "armor/test/",
-            type -> p -> new CelestialWitch(type));
 
     public static final ItemEntry<GenericArrowItem> TRAINING_ARROW = arrow("training_arrow", p ->
             new GenericArrowItem(p.rarity(Rarity.RARE), 1f));
@@ -110,6 +106,17 @@ public class CEItems {
     public static final ItemEntry<EnderArrow> ENDER_ARROW = arrow("ender_arrow", EnderArrow::new);
     public static final ItemEntry<VirtualGoldArrow> VIRTUAL_GOLD_ARROW = arrow("virtual_gold_arrow", VirtualGoldArrow::new);
     public static final ItemEntry<GuardianArrow> GUARDIAN_ARROW = arrow("guardian_arrow", GuardianArrow::new);
+
+    public static final ArmorSetEntry<CelestialWitch> CELESTIAL_WITCH = CelestialEquipments.EXTRA.armors(CelestialWitch::createName,
+            "armor/celestial_witch/", type -> p -> new CelestialWitch(type));
+    public static final ArmorSetEntry<EarthKnight> EARTH_KNIGHT = CelestialEquipments.EXTRA.armors(EarthKnight::createName,
+            "armor/earth_knight/", type -> p -> new EarthKnight(type));
+    public static final ArmorSetEntry<ChasingSummer> CHASING_SUMMER = CelestialEquipments.EXTRA.armors(ChasingSummer::createName,
+            "armor/chasing_summer/", type -> p -> new ChasingSummer(type));
+    public static final ArmorSetEntry<MortalShadow> MORTAL_SHADOW = CelestialEquipments.EXTRA.armors(MortalShadow::createName,
+            "armor/mortal_shadow/", type -> p -> new MortalShadow(type));
+    public static final ArmorSetEntry<DeepGuardian> DEEP_GUARDIAN = CelestialEquipments.EXTRA.armors(DeepGuardian::createName,
+            "armor/deep_guardian/", type -> p -> new DeepGuardian(type));
 
     public static <T extends Item> ItemEntry<T> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return CelestialEquipments.REGISTRATE.item(id, factory).model((ctx, pvd) ->
@@ -139,9 +146,9 @@ public class CEItems {
     }
 
     @SafeVarargs
-    public static <T extends Item> ItemEntry<T> digger(String id, NonNullSupplier<T> factory, TagKey<Item>... tag) {
+    public static <T extends Item> ItemEntry<T> tool(String id, NonNullSupplier<T> factory, TagKey<Item>... tag) {
         ALL_EQUIPMENTS.add(id);
-        return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model((ctx, pvd) -> pvd.handheld(ctx, pvd.modLoc("item/digger/" + ctx.getName())))
+        return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model((ctx, pvd) -> pvd.handheld(ctx, pvd.modLoc("item/tool/" + ctx.getName())))
                 .tag(tag).register();
     }
 
@@ -161,12 +168,6 @@ public class CEItems {
         ALL_EQUIPMENTS.add(id);
         return CelestialEquipments.REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createTridentModel)
                 .tag(CETagGen.UPGRADEABLE_TRIDENTS).register();
-    }
-
-    public static <T extends Item> Map<ArmorItem.Type, ItemEntry<T>> armors(IRegistrateHelper.ArmorNameCallback name, String path, IRegistrateHelper.ArmorTypeCallback<T> item) {
-        Map<ArmorItem.Type, ItemEntry<T>> map = CelestialEquipments.HELPER.armors(name, "armor/" + path + "/", item);
-        map.values().forEach(ent -> ALL_EQUIPMENTS.add(ent.getId().getPath()));
-        return map;
     }
 
     public static void register() {

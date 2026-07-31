@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "celestial_equipments:item/armor/chasing_summer/chasing_summer_clothes"
+  }
+}

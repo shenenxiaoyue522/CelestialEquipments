@@ -51,6 +51,7 @@ public class BrilliantGlory extends UpgradeableMelee implements IAttackConfig {
         }
     }
 
+    @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         float toAdd = effectDmgConfig.floatValue() * lv * EntityUtils.getBeneficialEffect(attacker);
         cache.addHurtModifier(DamageModifier.multBase(toAdd));

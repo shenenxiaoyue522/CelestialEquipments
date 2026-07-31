@@ -33,7 +33,7 @@ public class DarkCrow extends UpgradeableBow {
 
     @ConfigHolderEntry(category = "bow")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Dark Crow Damage Bonus", 0.02,
-            "Dark Crow: Increase the attack every 1 point below the maximum light level");
+            "Dark Crow: Increase the damage every 1 point below the max light level");
 
     @SubscribeTooltip(id = "dark_crow")
     public static TooltipEntry tooltip = TooltipEntry.define("Increases damage by %s per 1 level lower light level");
