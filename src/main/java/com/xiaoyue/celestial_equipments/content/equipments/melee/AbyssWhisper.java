@@ -28,7 +28,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
 
     @ConfigHolderEntry(category = "melee")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Abyss Whisper Damage Factor",
-            0.05, "Abyss Whisper: Additional damage multiplier");
+            0.05, "Abyss Whisper: Additional damage factor");
 
     @SubscribeTooltip(id = "abyss_whisper")
     public static TooltipEntry tooltip = TooltipEntry.define(

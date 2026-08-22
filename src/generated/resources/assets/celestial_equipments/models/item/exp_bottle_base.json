@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "celestial_equipments:item/misc/exp_bottle_base"
+    "layer0": "celestial_equipments:item/exp_bottle_base"
   }
 }

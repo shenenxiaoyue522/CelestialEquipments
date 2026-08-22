@@ -1,7 +1,12 @@
 {
   "values": [
-    "celestial_equipments:undead_sword",
+    "celestial_equipments:sakura_blade",
+    "celestial_equipments:resonant_ruin_dagger",
+    "celestial_equipments:abyss_sacrifice_dagger",
     "celestial_equipments:blanking_dagger",
+    "celestial_equipments:jazz_dagger",
+    "celestial_equipments:undead_sword",
+    "celestial_equipments:bloodclot_sword",
     "celestial_equipments:abyss_whisper",
     "celestial_equipments:brilliant_glory",
     "celestial_equipments:shady_deap",
@@ -11,6 +16,6 @@
     "celestial_equipments:heaven_gift",
     "celestial_equipments:avarice_blade",
     "celestial_equipments:terra_broadsword",
-    "celestial_equipments:jazz_dagger"
+    "celestial_equipments:glintstone_scythe"
   ]
 }

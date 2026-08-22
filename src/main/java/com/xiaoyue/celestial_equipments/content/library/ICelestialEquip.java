@@ -18,7 +18,7 @@ import net.minecraft.world.item.Rarity;
 
 import java.util.List;
 
-public interface ICEquipment {
+public interface ICelestialEquip {
 
     @SubscribeTooltip(id = "item_cooldown")
     TooltipEntry cooldownTooltip = TooltipEntry.define("Cooldown time: %s seconds");
@@ -46,20 +46,24 @@ public interface ICEquipment {
         return !this.isEnabled() ? defaultName.withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.STRIKETHROUGH) : defaultName;
     }
 
+    default void addAbstractText(boolean singleLevel, List<Component> list, ItemStack stack, int lv) {
+        if (!singleLevel) {
+            EquipmentUtils.addExpTooltips(list, stack);
+            if (lv > 0 ) {
+                this.addTooltips(stack, list, lv);
+            }
+        } else {
+            this.addTooltips(stack, list, lv);
+        }
+    }
+
     default void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
+        int lv = EquipmentUtils.getLevel(stack);
         list.add(Component.empty());
         if (!requiredShiftDown()) {
-            EquipmentUtils.addExpTooltips(list, stack);
-            if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
-                list.add(Component.empty());
-                this.addTooltips(stack, list);
-            }
+            addAbstractText(singleLevel, list, stack, lv);
         } else if (Screen.hasShiftDown()) {
-            EquipmentUtils.addExpTooltips(list, stack);
-            if (EquipmentUtils.getLevel(stack) > 0 || singleLevel) {
-                list.add(Component.empty());
-                this.addTooltips(stack, list);
-            }
+            addAbstractText(singleLevel, list, stack, lv);
         } else {
             list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
         }
@@ -67,10 +71,6 @@ public interface ICEquipment {
 
     default void addBaseTooltips(ItemStack stack, List<Component> list) {
         this.addBaseTooltips(stack, list, !isUpgradeable());
-    }
-
-    default void addTooltips(ItemStack stack, List<Component> list) {
-        this.addTooltips(stack, list, EquipmentUtils.getLevel(stack));
     }
 
     default void addTooltips(ItemStack stack, List<Component> list, int lv) {

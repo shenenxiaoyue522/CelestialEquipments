@@ -1,7 +1,8 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_equipments.content.entities.EnderThrowingAxeEntity;
-import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
+import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -20,11 +21,11 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class EnderThrowingAxe extends IGenericDigger.Axe {
+public class EnderThrowingAxe extends GenericDiggerItem {
     public static final ToolStats STAT = ToolStats.builder().durability(4000).speed(7f).attack(7).enchant(15).build();
 
     public EnderThrowingAxe() {
-        super(STAT);
+        super(STAT, DiggerType.AXE);
     }
 
     @ConfigHolderEntry(category = "tool")
@@ -37,7 +38,7 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
 
     @SubscribeTooltip(id = "ender_throwing_axe")
     public static TooltipHolder tooltips = TooltipHolder.define(
-            TooltipEntry.define("Right-click to throw the axe out"),
+            TooltipEntry.define("Right-click: Throw the weapon"),
             TooltipEntry.define("Thrown axes will immediately return to your hand when they hit a creature or block"),
             TooltipEntry.define("When hitting a creature, it deals attack damage attribute %s attack damage"));
 
@@ -73,5 +74,10 @@ public class EnderThrowingAxe extends IGenericDigger.Axe {
     @Override
     public boolean isUpgradeable() {
         return true;
+    }
+
+    @Override
+    public boolean requiredShiftDown() {
+        return false;
     }
 }

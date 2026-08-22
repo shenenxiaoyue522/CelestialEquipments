@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
@@ -20,8 +20,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ChasingSummer extends UpgradeableArmor {
-    public static final ArmorMate MATE = ArmorMate.builder().durability(22).defense(new int[]{3, 6, 4, 3}).enchant(24).build();
+public class ChasingSummer extends GenericArmorItem {
+    public static final ArmorMate MATE = ArmorMate.builder().durability(22).defense(new int[]{3, 4, 6, 3}).enchant(24).build();
 
     public ChasingSummer(Type pType) {
         super(MATE, pType, new Properties());

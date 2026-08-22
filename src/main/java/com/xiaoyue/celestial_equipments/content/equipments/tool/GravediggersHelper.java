@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
+import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -15,18 +16,18 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class GravediggersHelper extends IGenericDigger.Pickaxe {
+public class GravediggersHelper extends GenericDiggerItem {
     public static final ToolStats STAT = ToolStats.builder().durability(5000).speed(8f).attack(5f).enchant(15).build();
 
     public GravediggersHelper() {
-        super(STAT);
+        super(STAT, DiggerType.PICKAXE);
     }
 
     @SubscribeTooltip(id = "gravediggers_helper")
     public static TooltipEntry tooltip = TooltipEntry.define("Dig extremely fast, but only mine stones and cannot obtain drops");
 
     @Override
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

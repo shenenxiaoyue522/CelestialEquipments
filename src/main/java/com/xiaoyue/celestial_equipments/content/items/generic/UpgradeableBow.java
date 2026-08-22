@@ -3,12 +3,11 @@ package com.xiaoyue.celestial_equipments.content.items.generic;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialBowItem;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
+public class UpgradeableBow extends CelestialBowItem implements ICelestialEquip {
 
     public static final List<UpgradeableBow> BOWS = new ArrayList<>();
     public final BowType type;
@@ -73,12 +72,11 @@ public class UpgradeableBow extends CelestialBowItem implements ICEquipment {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced) {
+        list.add(this.type.getLang());
         int lv = EquipmentUtils.getLevel(stack);
         list.add(Component.empty());
         EquipmentUtils.addBowStatsTooltips(list, this.type.getAttack(lv, this.getAttack(lv)), this.type.getDrawSpeed(this.getDrawSpeed(lv)), this.type.getArrowSpeed(this.getArrowSpeed(lv)));
         this.addBaseTooltips(stack, list);
-        list.add(Component.empty());
-        list.add(this.type.getLang().withStyle(ChatFormatting.BLUE));
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());

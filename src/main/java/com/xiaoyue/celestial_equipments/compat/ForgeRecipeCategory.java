@@ -4,6 +4,7 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.container.CEForgeTableScreen;
 import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
+import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import dev.xkmc.l2library.serial.recipe.BaseRecipeCategory;
@@ -11,10 +12,18 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.recipe.IFocus;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, ForgeRecipeCategory> {
     public ForgeRecipeCategory() {
@@ -41,6 +50,9 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CEForgeRecipe recipe, IFocusGroup group) {
+        if (group.getItemStackFocuses(RecipeIngredientRole.OUTPUT).findFirst().isPresent() && recipe.isUpgrade) {
+            return;
+        }
         builder.addSlot(RecipeIngredientRole.INPUT, 11, 21)
                 .setSlotName("input")
                 .addIngredients(recipe.input);
@@ -48,7 +60,7 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
         int y = 2;
         for (int i = 0; i < 9; i++) {
             if (recipe.materials.size() > i) {
-                builder.addSlot(RecipeIngredientRole.INPUT, x + 1, y + 1)
+                builder.addSlot(RecipeIngredientRole.CATALYST, x + 1, y + 1)
                         .setSlotName("input" + i)
                         .addIngredients(recipe.materials.get(i));
             }
@@ -59,15 +71,32 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
             }
         }
         if (recipe.isUpgrade) {
+            Ingredient output;
+            List<ItemStack> stacks = new ArrayList<>();
+            Optional<IFocus<ItemStack>> first = group.getItemStackFocuses(RecipeIngredientRole.INPUT).findFirst();
+            if (first.isPresent()) {
+                ItemStack stack = first.get().getTypedValue().getIngredient().copy();
+                EquipmentUtils.upLevel(stack);
+                output = Ingredient.of(stack);
+            } else {
+                for (ItemStack stack : recipe.input.getItems()) {
+                    ItemStack copy = stack.copy();
+                    EquipmentUtils.upLevel(copy);
+                    stacks.add(copy);
+                }
+                output = Ingredient.of(stacks.stream());
+            }
             builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
                     .setSlotName("output")
+                    .addIngredients(output);
+            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 138, 3)
+                    .setSlotName("upgradeable").addItemStack(Items.COMPASS.getDefaultInstance())
                     .addTooltipCallback((view, list) -> {
                         list.clear();
                         list.add(upgradeRecipeTooltip.withColor(ChatFormatting.YELLOW));
                         list.add(levelConditionTooltip.withColor(ChatFormatting.YELLOW, TooltipEntry.num(recipe.levelCondition)));
                         list.add(Component.empty());
-                    })
-                    .addIngredients(recipe.input);
+                    });
         } else {
             builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
                     .setSlotName("output")

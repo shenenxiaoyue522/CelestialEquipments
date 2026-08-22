@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpgradeableTrident extends CelestialTridentItem implements ICEquipment {
+public class UpgradeableTrident extends CelestialTridentItem implements ICelestialEquip {
     public static final List<UpgradeableTrident> TRIDENTS = new ArrayList<>();
 
     public UpgradeableTrident(Properties pProperties) {

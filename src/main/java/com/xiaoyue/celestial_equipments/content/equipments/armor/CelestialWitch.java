@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
@@ -12,10 +12,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.Nullable;
 
-public class CelestialWitch extends UpgradeableArmor {
-    public static final ArmorMate MATE = ArmorMate.builder().durability(22).defense(new int[]{3, 7, 5, 3}).toughness(2f).enchant(22).build();
+import javax.annotation.Nullable;
+
+public class CelestialWitch extends GenericArmorItem {
+    public static final ArmorMate MATE = ArmorMate.builder().durability(22).defense(new int[]{3, 5, 7, 3}).toughness(2f).enchant(22).build();
 
     public CelestialWitch(Type pType) {
         super(MATE, pType, new Properties());
@@ -40,13 +41,29 @@ public class CelestialWitch extends UpgradeableArmor {
         return setIdTooltip.withColor(0x7c69ff);
     }
 
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return EMPTY_MODEL_TEX;
-    }
+      @Override
+      public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+          // return "celestial_equipments:textures/models/armor/celestial_witch_armor.png";
+          return EMPTY_MODEL_TEX;
+      }
 
     @Override
     public ArmorSetEntry<? extends Item> getArmorSet() {
         return CEItems.CELESTIAL_WITCH;
     }
+
+    /*
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            @Override
+            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
+                EntityModelSet set = Minecraft.getInstance().getEntityModels();
+                ItemStack chest = entity.getItemBySlot(EquipmentSlot.CHEST);
+                boolean check = chest.is(CEItems.CELESTIAL_WITCH.getChestplate().get());
+                return new CelestialWitchModel(check, slot, set.bakeLayer(CEModelLayers.CELESTIAL_WITCH_ARMOR_LAYER));
+            }
+        });
+    }
+     */
 }

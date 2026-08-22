@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.recipes;
 
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.register.CERecipes;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.Bindings;
@@ -56,9 +56,9 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
     public ItemStack assemble(ItemStack input) {
         if (isUpgrade) {
             boolean allowedLv = EquipmentUtils.getLevel(input) <= levelCondition || levelCondition == -1;
-            if (EquipmentUtils.isFullExp(input) && allowedLv && input.getItem() instanceof ICEquipment equipment && equipment.isUpgradeable())  {
+            if (EquipmentUtils.isFullExp(input) && allowedLv && input.getItem() instanceof ICelestialEquip equipment && equipment.isUpgradeable())  {
                 ItemStack newOutput = input.copy();
-                EquipmentUtils.upGear(newOutput);
+                EquipmentUtils.upLevel(newOutput);
                 return newOutput;
             }
         }
@@ -73,6 +73,14 @@ public class CEForgeRecipe extends BaseRecipe<CEForgeRecipe, CEForgeRecipe, CEFo
     @Override
     public ItemStack getResultItem(RegistryAccess registryAccess) {
         return output.copy();
+    }
+
+    public boolean isUpgrade() {
+        return isUpgrade;
+    }
+
+    public boolean noUpgrade() {
+        return !isUpgrade;
     }
 
     public static class Inv extends SimpleContainer implements RecInv<CEForgeRecipe> {

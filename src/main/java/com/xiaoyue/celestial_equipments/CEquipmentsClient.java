@@ -3,6 +3,8 @@ package com.xiaoyue.celestial_equipments;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableCrossbow;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
+import com.xiaoyue.celestial_equipments.content.library.client.CEModelLayers;
+import com.xiaoyue.celestial_equipments.content.library.client.CelestialWitchModel;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
@@ -23,6 +25,7 @@ public class CEquipmentsClient {
 
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(CEModelLayers.CELESTIAL_WITCH_ARMOR_LAYER, CelestialWitchModel::createBodyLayer);
     }
 
     @SubscribeEvent

@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
@@ -14,8 +14,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-public class MortalShadow extends UpgradeableArmor {
-    public static final ArmorMate MATE = ArmorMate.builder().durability(29).defense(new int[]{3, 7, 5, 3}).toughness(1f).build();
+public class MortalShadow extends GenericArmorItem {
+    public static final ArmorMate MATE = ArmorMate.builder().durability(29).defense(new int[]{3, 5, 6, 3}).toughness(1f).build();
 
     public MortalShadow(Type pType) {
         super(MATE, pType, new Properties());

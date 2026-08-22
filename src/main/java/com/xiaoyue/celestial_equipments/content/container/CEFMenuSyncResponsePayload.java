@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.container;
 
-import com.xiaoyue.celestial_invoker.content.generic.shared.NetworkHandler;
+import com.xiaoyue.celestial_invoker.content.network.NetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;

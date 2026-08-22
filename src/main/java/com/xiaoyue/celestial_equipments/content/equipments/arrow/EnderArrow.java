@@ -15,7 +15,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -25,8 +24,8 @@ import net.minecraftforge.event.entity.EntityTeleportEvent;
 import java.util.List;
 
 public class EnderArrow extends GenericArrowItem {
-    public EnderArrow() {
-        super(new Item.Properties().rarity(IRarityUtils.DARK_GREEN), new ArrowDataBuilder()
+    public EnderArrow(Properties properties) {
+        super(properties.rarity(IRarityUtils.DARK_GREEN), new ArrowDataBuilder()
                 .hitEntity(EnderArrow::onHitEntity).hitBlock(EnderArrow::onHitBlock));
     }
 
@@ -34,7 +33,7 @@ public class EnderArrow extends GenericArrowItem {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Teleports a random target when it hits, and teleports to a block when it hits a block");
 
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

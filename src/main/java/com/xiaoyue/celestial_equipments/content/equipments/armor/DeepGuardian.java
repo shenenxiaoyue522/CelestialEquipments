@@ -1,17 +1,23 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_core.utils.EntityUtils;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
+import com.xiaoyue.celestial_equipments.register.CEEffects;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
+import com.xiaoyue.celestial_invoker.content.generic.item.api.ISetHandler;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipHolder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DeepGuardian extends UpgradeableArmor {
-    public static final ArmorMate MATE = ArmorMate.builder().durability(39).defense(new int[]{3, 7, 5, 3}).toughness(1f).build();
+public class DeepGuardian extends GenericArmorItem implements ISetHandler {
+    public static final ArmorMate MATE = ArmorMate.builder().durability(39).defense(new int[]{3, 5, 7, 3}).toughness(1f).build();
 
     public DeepGuardian(Type pType) {
         super(MATE, pType, new Properties());
@@ -37,7 +43,9 @@ public class DeepGuardian extends UpgradeableArmor {
 
     @SubscribeTooltip(id = "deep_guardian_set")
     public static TooltipHolder tooltips = TooltipHolder.define(
-            TooltipEntry.define("Enhances underwater visibility"));
+            TooltipEntry.define("Enhances underwater visibility"),
+            TooltipEntry.define("Continuously gain %s effects"),
+            TooltipEntry.define("Gradually pick up your swimming speed underwater"));
 
     @Override
     public MutableComponent getSetName() {
@@ -47,6 +55,8 @@ public class DeepGuardian extends UpgradeableArmor {
     @Override
     public void addSetTooltips(ItemStack stack, List<Component> list) {
         list.add(tooltips.get(0).withGray());
+        list.add(tooltips.get(1).withGray(TooltipEntry.eff(MobEffects.CONDUIT_POWER)));
+        list.add(tooltips.get(2).withGray());
     }
 
     @Override
@@ -57,5 +67,15 @@ public class DeepGuardian extends UpgradeableArmor {
     @Override
     public ArmorSetEntry<? extends Item> getArmorSet() {
         return CEItems.DEEP_GUARDIAN;
+    }
+
+    @Override
+    public void onSetTick(Player player) {
+        EntityUtils.addEct(player, MobEffects.CONDUIT_POWER, 20);
+        if (player.isUnderWater() && player.tickCount % 100 == 0) {
+            MobEffectInstance effect = player.getEffect(CEEffects.AQUA_FUN.get());
+            int level = effect == null ? -1 : effect.getAmplifier();
+            EntityUtils.addEct(player, CEEffects.AQUA_FUN.get(), 100, Math.min(3, level + 1));
+        }
     }
 }

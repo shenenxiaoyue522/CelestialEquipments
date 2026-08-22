@@ -30,7 +30,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.Nullable;
-import org.joml.Vector3f;
 
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     public static TooltipHolder tooltips = TooltipHolder.define(
             TooltipEntry.define("Fires an Earth Air Blade forward while swinging"),
             TooltipEntry.define("When the Air Blade hits the target, it deals the same magic damage as attack damage"),
-            TooltipEntry.define("Sprint forward while right-clicking"));
+            TooltipEntry.define("Right-click: Dash forward"));
 
     @Override
     public float getAttack(int lv) {
@@ -109,8 +108,8 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     }
 
     @Override
-    public Vector3f getBladeSize(AirBladeEntity blade) {
-        return new Vector3f(0.1f);
+    public boolean isGlow() {
+        return true;
     }
 
     @Override

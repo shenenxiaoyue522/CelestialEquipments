@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
@@ -30,8 +30,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class EarthKnight extends UpgradeableArmor implements ISetHandler {
-    public static final ArmorMate MATE = ArmorMate.builder().durability(43).defense(new int[]{4, 8, 6, 4}).toughness(1.5f).knockResist(0.1f).build();
+public class EarthKnight extends GenericArmorItem implements ISetHandler {
+    public static final ArmorMate MATE = ArmorMate.builder().durability(43).defense(new int[]{4, 6, 8, 4}).toughness(1.5f).knockResist(0.1f).build();
 
     public EarthKnight(Type pType) {
         super(MATE, pType, new Properties());
@@ -87,8 +87,18 @@ public class EarthKnight extends UpgradeableArmor implements ISetHandler {
     }
 
     @Override
-    public void onDamaged(LivingEntity entity, LivingDamageEvent event, DamageSource source) {
-        if (entity instanceof Player player && source.getEntity() instanceof LivingEntity attacker) {
+    public void onSetActivate(Player player) {
+        player.sendSystemMessage(Component.literal("a"));
+    }
+
+    @Override
+    public void onSetDeactivate(Player player) {
+        player.sendSystemMessage(Component.literal("b"));
+    }
+
+    @Override
+    public void onPlayerDamaged(Player player, LivingDamageEvent event, DamageSource source) {
+        if (source.getEntity() instanceof LivingEntity attacker) {
             ItemCooldowns cooldowns = player.getCooldowns();
             Item chest = getArmorSet().getChestplate().get();
             if (!cooldowns.isOnCooldown(chest)) {
@@ -100,10 +110,8 @@ public class EarthKnight extends UpgradeableArmor implements ISetHandler {
     }
 
     @Override
-    public void onDeath(LivingEntity entity, LivingDeathEvent event, DamageSource source) {
-        if (entity instanceof Player player) {
-            Item chest = getArmorSet().getChestplate().get();
-            player.getCooldowns().addCooldown(chest, deathCooldownConfig.get());
-        }
+    public void onPlayerDeath(Player player, LivingDeathEvent event, DamageSource source) {
+        Item chest = getArmorSet().getChestplate().get();
+        player.getCooldowns().addCooldown(chest, deathCooldownConfig.get());
     }
 }

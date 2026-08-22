@@ -39,10 +39,10 @@ public enum BowType {
     }
 
     @SubscribeTooltip(id = "bow_type_long")
-    public static final TooltipEntry longBowTooltip = TooltipEntry.define("Bow type: long bow");
+    public static final TooltipEntry longBowTooltip = TooltipEntry.define("[Long Bow]");
 
     @SubscribeTooltip(id = "bow_type_short")
-    public static final TooltipEntry shortBowTooltip = TooltipEntry.define("Bow type: short bow");
+    public static final TooltipEntry shortBowTooltip = TooltipEntry.define("[Short Bow]");
 
     public MutableComponent getLang() {
         MutableComponent text;

@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialCrossbowItem;
 import net.minecraft.network.chat.Component;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpgradeableCrossbow extends CelestialCrossbowItem implements ICEquipment {
+public class UpgradeableCrossbow extends CelestialCrossbowItem implements ICelestialEquip {
     public static final List<UpgradeableCrossbow> CROSSBOWS = new ArrayList<>();
 
     public UpgradeableCrossbow(Properties pProperties) {

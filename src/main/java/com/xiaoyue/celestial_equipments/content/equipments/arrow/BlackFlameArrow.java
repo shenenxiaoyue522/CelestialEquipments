@@ -11,15 +11,14 @@ import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 
 import java.util.List;
 
 public class BlackFlameArrow extends GenericArrowItem {
-    public BlackFlameArrow() {
-        super(new Item.Properties().rarity(Rarity.EPIC), new ArrowDataBuilder()
+    public BlackFlameArrow(Properties properties) {
+        super(properties.rarity(Rarity.EPIC), new ArrowDataBuilder()
                 .damage(4.0).hitEntity(BlackFlameArrow::onHitEntity));
     }
 
@@ -31,7 +30,7 @@ public class BlackFlameArrow extends GenericArrowItem {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Upon impact, the target is plunged into a %s seconds black flame burn", TooltipEntry.num(burnTimeConfig.get() / 20));
 
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

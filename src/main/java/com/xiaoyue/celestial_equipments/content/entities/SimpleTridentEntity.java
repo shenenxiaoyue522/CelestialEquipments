@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.entities;
 
 import com.xiaoyue.celestial_equipments.content.library.SimpleThrowingFactory;
+import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.register.CEEntities;
 import com.xiaoyue.celestial_invoker.content.entities.SimpleThrowEntity;
 import com.xiaoyue.celestial_invoker.content.entities.render.ThrownEntityRender;
@@ -53,8 +54,13 @@ public class SimpleTridentEntity extends SimpleThrowEntity {
 
     public static class Render extends ThrownEntityRender<SimpleTridentEntity> {
         public Render(EntityRendererProvider.Context context) {
-            super(context, new Vec3(0.85f, 0.85f, 0.85f), 0.1f,
-                    (p, e) -> p.scale(4f, 2f, 4f));
+            super(context, new Vec3(0.85f, 0.85f, 0.85f), 0.1f, (p, e) -> {
+                if (e.weapon.is(CETagGen.SMALL_THROWING)) {
+                    p.scale(2.5f, 1.25f, 2.5f);
+                } else {
+                    p.scale(4f, 2f, 4f);
+                }
+            });
         }
     }
 }

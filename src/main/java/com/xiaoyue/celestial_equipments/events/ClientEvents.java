@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -20,7 +20,7 @@ public class ClientEvents {
     @SubscribeEvent
     public static void renderTooltip(RenderTooltipEvent.Color event) {
         ItemStack itemStack = event.getItemStack();
-        if (itemStack.getItem() instanceof ICEquipment) {
+        if (itemStack.getItem() instanceof ICelestialEquip) {
             event.setBorderStart(0xfff3f9ff);
             event.setBorderEnd(0xffa6c6f3);
         }

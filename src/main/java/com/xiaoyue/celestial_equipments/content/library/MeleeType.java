@@ -42,13 +42,13 @@ public enum MeleeType {
     }
 
     @SubscribeTooltip(id = "melee_type_broad")
-    public static final TooltipEntry meleeTypeBroadTooltip = TooltipEntry.define("Melee type: broad");
+    public static final TooltipEntry meleeTypeBroadTooltip = TooltipEntry.define("[Broad]");
 
     @SubscribeTooltip(id = "melee_type_generic")
-    public static final TooltipEntry meleeTypeGenericTooltip = TooltipEntry.define("Melee type: generic");
+    public static final TooltipEntry meleeTypeGenericTooltip = TooltipEntry.define("[Generic]");
 
     @SubscribeTooltip(id = "melee_type_small")
-    public static final TooltipEntry meleeTypeSmallTooltip = TooltipEntry.define("Melee type: small");
+    public static final TooltipEntry meleeTypeSmallTooltip = TooltipEntry.define("[Small]");
 
     public MutableComponent getLang() {
         MutableComponent text;

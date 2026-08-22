@@ -1,26 +1,20 @@
 package com.xiaoyue.celestial_equipments.content.container;
 
-import com.xiaoyue.celestial_invoker.content.generic.shared.NetworkHandler;
+import com.xiaoyue.celestial_equipments.CelestialEquipments;
+import dev.xkmc.l2serial.network.SerialPacketBase;
+import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.core.NonNullList;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkEvent;
 
-import java.util.function.Supplier;
+@SerialClass
+public class CEFMenuSyncPayload extends SerialPacketBase {
 
-public class CEFMenuSyncPayload {
-
-    public void encode(FriendlyByteBuf buf) {
-    }
-
-    public static CEFMenuSyncPayload decode(FriendlyByteBuf buf) {
-        return new CEFMenuSyncPayload();
-    }
-
-    public void handle(Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> {
-            ServerPlayer player = ctx.get().getSender();
+    @Override
+    public void handle(NetworkEvent.Context ctx) {
+        ctx.enqueueWork(() -> {
+            ServerPlayer player = ctx.getSender();
             if (player != null && player.containerMenu instanceof CEForgeTableMenu menu) {
                 NonNullList<ItemStack> items = NonNullList.create();
                 for (int i = 0; i < menu.slots.size(); i++) {
@@ -29,10 +23,10 @@ public class CEFMenuSyncPayload {
                 new CEFMenuSyncResponsePayload(menu.containerId, items).sendTo(player);
             }
         });
-        ctx.get().setPacketHandled(true);
+        ctx.setPacketHandled(true);
     }
 
     public void toServer() {
-        NetworkHandler.INSTANCE.sendToServer(this);
+        CelestialEquipments.HANDLER.toServer(this);
     }
 }

@@ -10,15 +10,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 
 import java.util.List;
 
 public class GuardianArrow extends GenericArrowItem {
-    public GuardianArrow() {
-        super(new Item.Properties().rarity(Rarity.RARE).fireResistant(), new ArrowDataBuilder()
+    public GuardianArrow(Properties properties) {
+        super(properties.rarity(Rarity.RARE).fireResistant(), new ArrowDataBuilder()
                 .damage(5.5).ignoreWater().hitEntity(GuardianArrow::onHitEntity));
     }
 
@@ -27,7 +26,7 @@ public class GuardianArrow extends GenericArrowItem {
             "When it hits the target, it causes all mobs around it except the attacker to fall into %s and %s",
             TooltipEntry.eff(MobEffects.WEAKNESS), TooltipEntry.eff(MobEffects.MOVEMENT_SLOWDOWN));
 
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

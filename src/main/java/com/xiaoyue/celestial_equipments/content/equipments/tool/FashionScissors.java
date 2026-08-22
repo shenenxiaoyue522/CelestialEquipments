@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FashionScissors extends ShearsItem implements ICEquipment {
+public class FashionScissors extends ShearsItem implements ICelestialEquip {
     public FashionScissors() {
         super(new Properties().rarity(Rarity.UNCOMMON).durability(622));
     }

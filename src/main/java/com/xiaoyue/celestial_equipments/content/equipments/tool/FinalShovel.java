@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
+import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -13,11 +14,11 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import java.util.List;
 
-public class FinalShovel extends IGenericDigger.Shovel {
+public class FinalShovel extends GenericDiggerItem {
     public static ToolStats STAT = ToolStats.builder().durability(4500).speed(7.5f).attack(5f).enchant(12).build();
 
     public FinalShovel() {
-        super(STAT);
+        super(STAT, DiggerType.SHOVEL);
     }
 
     @ConfigHolderEntry(category = "tool")
@@ -39,7 +40,7 @@ public class FinalShovel extends IGenericDigger.Shovel {
     }
 
     @Override
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(bonusConfig.get()), TooltipEntry.per(hpConditionConfig.get())));
     }
 }

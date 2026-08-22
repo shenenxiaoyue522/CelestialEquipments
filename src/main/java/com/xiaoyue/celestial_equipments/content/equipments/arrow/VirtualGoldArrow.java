@@ -13,15 +13,14 @@ import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 
 import java.util.List;
 
 public class VirtualGoldArrow extends GenericArrowItem {
-    public VirtualGoldArrow() {
-        super(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), new ArrowDataBuilder()
+    public VirtualGoldArrow(Properties properties) {
+        super(properties.rarity(Rarity.EPIC).fireResistant(), new ArrowDataBuilder()
                 .damage(6.0).hitEntity(VirtualGoldArrow::onHitEntity));
     }
 
@@ -38,7 +37,7 @@ public class VirtualGoldArrow extends GenericArrowItem {
             "When the target is hit, it deals 1 magic damage equal to %s of arrow damage every 1 second, for a total of 10 times, and if the target is burning, the damage becomes %s",
             TooltipEntry.per(baseDmgConfig.get()), TooltipEntry.per(inFireDmgConfig.get()));
 
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

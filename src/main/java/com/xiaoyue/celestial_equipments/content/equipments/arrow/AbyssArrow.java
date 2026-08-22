@@ -13,14 +13,13 @@ import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
 public class AbyssArrow extends GenericArrowItem {
-    public AbyssArrow() {
-        super(new Item.Properties().rarity(IRarityUtils.DARK_AQUA), new ArrowDataBuilder()
+    public AbyssArrow(Properties properties) {
+        super(properties.rarity(IRarityUtils.DARK_AQUA), new ArrowDataBuilder()
                 .damage(4.0).hitEntity(AbyssArrow::onHitEntity));
     }
 
@@ -32,7 +31,7 @@ public class AbyssArrow extends GenericArrowItem {
     public static TooltipEntry tooltip = TooltipEntry.define(
             "Inflicts additional %s Abyss damage to the target on impact", TooltipEntry.per(dmgConfig.get()));
 
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray());
     }
 

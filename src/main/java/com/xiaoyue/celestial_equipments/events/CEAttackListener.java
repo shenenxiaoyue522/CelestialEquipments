@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
-import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableArmor;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
@@ -67,7 +67,7 @@ public class CEAttackListener implements AttackListener {
     public void onDamage(AttackCache cache, ItemStack weapon) {
         LivingEntity entity = cache.getAttackTarget();
         entity.getArmorSlots().forEach((stack) -> {
-            if (stack.getItem() instanceof UpgradeableArmor armor) {
+            if (stack.getItem() instanceof GenericArmorItem armor) {
                 if (entity.getRandom().nextDouble() <= armorExpGetChance.get() && armor.isEnabled()) {
                     EquipmentUtils.addExp(stack, armorExpGet.get());
                 }

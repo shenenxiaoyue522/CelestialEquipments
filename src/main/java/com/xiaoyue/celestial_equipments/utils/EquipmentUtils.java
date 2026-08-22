@@ -2,15 +2,20 @@ package com.xiaoyue.celestial_equipments.utils;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotResult;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class EquipmentUtils {
@@ -56,13 +61,13 @@ public class EquipmentUtils {
         return maxLevelConfig.get();
     }
 
-    public static void upGear(ItemStack stack) {
+    public static void upLevel(ItemStack stack) {
         addLevel(stack);
         removeExp(stack);
     }
 
     public static int getLevel(ItemStack stack) {
-        return stack.getItem() instanceof ICEquipment ? stack.getOrCreateTag().getInt(LEVEL) : 0;
+        return stack.getItem() instanceof ICelestialEquip ? stack.getOrCreateTag().getInt(LEVEL) : 0;
     }
 
     public static void addLevel(ItemStack stack) {
@@ -73,25 +78,35 @@ public class EquipmentUtils {
     }
 
     public static int getExp(ItemStack stack) {
-        return stack.getItem() instanceof ICEquipment ? stack.getOrCreateTag().getInt(EXP) : 0;
+        return stack.getItem() instanceof ICelestialEquip ? stack.getOrCreateTag().getInt(EXP) : 0;
     }
 
     public static void addExp(ItemStack stack, int amount) {
         int exp = getExp(stack);
-        if (stack.getItem() instanceof ICEquipment && exp < getMaxExp()) {
+        if (stack.getItem() instanceof ICelestialEquip && exp < getMaxExp()) {
             int toAdd = Math.min(getMaxExp(), exp + amount);
             stack.getOrCreateTag().putInt(EXP, toAdd);
         }
     }
 
     public static void removeExp(ItemStack stack) {
-        if (stack.getItem() instanceof ICEquipment) {
+        if (stack.getItem() instanceof ICelestialEquip) {
             stack.getOrCreateTag().putInt(EXP, 0);
         }
     }
 
     public static boolean isFullExp(ItemStack stack) {
         return getExp(stack) == getMaxExp();
+    }
+
+    @Nullable
+    public static SlotResult getCurio(LivingEntity entity, Item item) {
+        var opt = CuriosApi.getCuriosInventory(entity).resolve();
+        return opt.map(handler -> handler.findFirstCurio(item).get()).orElse(null);
+    }
+
+    public static boolean hasCurio(LivingEntity entity, Item item) {
+        return getCurio(entity, item) != null;
     }
 }
 

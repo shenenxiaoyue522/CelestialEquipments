@@ -2,13 +2,13 @@ package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_core.utils.EntityUtils;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class UpgradeableMelee extends Item implements ICEquipment {
+public class UpgradeableMelee extends Item implements ICelestialEquip {
     public final MeleeType type;
 
     public UpgradeableMelee(MeleeType type) {
@@ -60,9 +60,8 @@ public class UpgradeableMelee extends Item implements ICEquipment {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag pIsAdvanced) {
+        list.add(this.type.getLang());
         this.addBaseTooltips(stack, list);
-        list.add(Component.empty());
-        list.add(this.type.getLang().withStyle(ChatFormatting.BLUE));
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());
@@ -96,7 +95,9 @@ public class UpgradeableMelee extends Item implements ICEquipment {
 
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        this.attacked(pStack, pTarget, pAttacker, EquipmentUtils.getLevel(pStack));
+        if (!(pAttacker instanceof Player player) || EntityUtils.isFullCharged(player)) {
+            this.attacked(pStack, pTarget, pAttacker, EquipmentUtils.getLevel(pStack));
+        }
         pStack.hurtAndBreak(2, pAttacker, e -> e.broadcastBreakEvent(InteractionHand.MAIN_HAND));
         return true;
     }

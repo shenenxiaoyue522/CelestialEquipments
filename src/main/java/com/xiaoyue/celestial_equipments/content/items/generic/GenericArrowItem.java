@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
-import com.xiaoyue.celestial_equipments.content.library.ICEquipment;
+import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GenericArrowItem extends ArrowItem implements ICEquipment {
+public class GenericArrowItem extends ArrowItem implements ICelestialEquip {
     public final ArrowDataBuilder builder;
 
     public GenericArrowItem(Properties pProperties, ArrowDataBuilder builder) {
@@ -74,7 +74,7 @@ public class GenericArrowItem extends ArrowItem implements ICEquipment {
         if (this.builder.ignoreWater) {
             list.add(oceanArrowTooltip.withColor(ChatFormatting.BLUE));
         }
-        this.addTooltips(pStack, list);
+        this.addTooltips(pStack, list, 0);
         if (!this.isEnabled()) {
             list.add(Component.empty());
             list.add(itemBanTooltip.withGray());

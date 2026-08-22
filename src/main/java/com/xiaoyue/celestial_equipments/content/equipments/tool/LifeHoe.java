@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
-import com.xiaoyue.celestial_equipments.content.items.generic.IGenericDigger;
+import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
+import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_invoker.content.common.entry.ToolStats;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
@@ -11,11 +12,11 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class LifeHoe extends IGenericDigger.Hoe {
+public class LifeHoe extends GenericDiggerItem {
     public static ToolStats STAT = ToolStats.builder().durability(795).speed(5f).attack(4f).enchant(15).build();
 
     public LifeHoe() {
-        super(STAT);
+        super(STAT, DiggerType.HOE);
     }
 
     @ConfigHolderEntry(category = "tool")
@@ -26,7 +27,7 @@ public class LifeHoe extends IGenericDigger.Hoe {
     public static TooltipEntry tooltip = TooltipEntry.define("When healed, this tool restores %s durability");
 
     @Override
-    public void addTooltips(ItemStack stack, List<Component> list) {
+    public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.num(durabilityRecoveryConfig.get())));
     }
 }

@@ -38,7 +38,7 @@ public class GiantSkeleton extends UpgradeableMelee implements IAttackConfig {
 
     @SubscribeTooltip(id = "giant_skeleton")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "Increases the target's %s max health damage when attacking with full force");
+            "Increases the target's %s maximum health damage when attacking with full force");
 
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
