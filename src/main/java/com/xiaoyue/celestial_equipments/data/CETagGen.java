@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 public class CETagGen {
 
     public static final TagKey<Block> GRAVEDIGGERS_HELPER_MINABLE = BlockTags.create(CelestialEquipments.loc("gravediggers_helper_minable"));
+
     public static final TagKey<Item> SMALL_THROWING = ItemTags.create(CelestialEquipments.loc("small_throwing"));
 
     public static final TagKey<Item> NOT_UPGRADEABLE = ItemTags.create(CelestialEquipments.loc("not_upgradeable"));
@@ -25,6 +26,7 @@ public class CETagGen {
 
     public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
         pvd.addTag(SMALL_THROWING).add(CEItems.SAKURA_BLADE.asItem());
+        pvd.addTag(NOT_UPGRADEABLE).add(CEItems.SAKURA_BLADE.asItem(), CEItems.RESONANT_RUIN_DAGGER.asItem(), CEItems.ABYSS_SACRIFICE_DAGGER.asItem());
         pvd.addTag(UPGRADEABLE_MELEE);
         pvd.addTag(UPGRADEABLE_BOW);
         pvd.addTag(UPGRADEABLE_CROSSBOW);

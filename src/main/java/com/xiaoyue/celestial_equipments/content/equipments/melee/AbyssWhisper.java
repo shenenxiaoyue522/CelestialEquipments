@@ -24,7 +24,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
 
     @ConfigHolderEntry(category = "melee")
     public static IntConfigEntry cooldownConfig = IntConfigEntry.define("Abyss Whisper Cooldown Time",
-            100, 1, 1000000, "Abyss Whisper: Cooldown time");
+            5, 1, 1000000, "Abyss Whisper: Cooldown time");
 
     @ConfigHolderEntry(category = "melee")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineSmallRange("Abyss Whisper Damage Factor",
@@ -42,7 +42,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
         list.add(tooltip.withGray(TooltipEntry.per(dmgConfig.get() * lv)));
-        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get())));
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
         if (this.noCooldown(attacker) && lv > 0) {
             float extraDamage = cache.getPreDamage() * dmgConfig.floatValue() * (float) lv;
             GeneralEventHandler.schedule(() -> target.hurt(CCDamageTypes.abyss(attacker), extraDamage));
-            this.addCooldown(attacker, cooldownConfig.get());
+            this.addCooldown(attacker, cooldownConfig.get() * 20);
         }
     }
 }

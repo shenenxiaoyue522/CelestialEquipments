@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.container;
 
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
+import com.xiaoyue.celestial_equipments.content.library.network.CEFMenuSyncPayload;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

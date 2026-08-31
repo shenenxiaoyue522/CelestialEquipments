@@ -3,20 +3,23 @@ package com.xiaoyue.celestial_equipments;
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.xiaoyue.celestial_equipments.content.container.CEFMenuSyncPayload;
-import com.xiaoyue.celestial_equipments.content.container.CEFMenuSyncResponsePayload;
+import com.xiaoyue.celestial_equipments.content.library.network.CEFMenuSyncPayload;
+import com.xiaoyue.celestial_equipments.content.library.network.CEFMenuSyncResponsePayload;
+import com.xiaoyue.celestial_equipments.content.library.network.AutoAttackPayload;
 import com.xiaoyue.celestial_equipments.data.CEModConfig;
 import com.xiaoyue.celestial_equipments.data.CERecipeGen;
+import com.xiaoyue.celestial_equipments.data.CESlotGen;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.events.CEAttackListener;
 import com.xiaoyue.celestial_equipments.register.*;
-import com.xiaoyue.celestial_invoker.content.common.IRegistrateExtra;
+import com.xiaoyue.celestial_invoker.content.common.RegistrateExtra;
 import com.xiaoyue.celestial_invoker.content.network.NetworkHandler;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderMap;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigLoader;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandler;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -39,9 +42,10 @@ public class CelestialEquipments {
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final ConfigHolderMap CONFIG = ConfigLoader.mapConfig(MODID);
     public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
-    public static final IRegistrateExtra<L2Registrate> EXTRA = new IRegistrateExtra<>(REGISTRATE);
+    public static final RegistrateExtra<L2Registrate> EXTRA = new RegistrateExtra<>(REGISTRATE);
     public static final PacketHandler HANDLER = new PacketHandler(loc("main"), 1,
-            e -> e.create(CEFMenuSyncPayload.class, NetworkDirection.PLAY_TO_SERVER));
+            e -> e.create(CEFMenuSyncPayload.class, NetworkDirection.PLAY_TO_SERVER),
+            e -> e.create(AutoAttackPayload.class, NetworkDirection.PLAY_TO_SERVER));
 
     public static final RegistryEntry<CreativeModeTab> TAB = EXTRA.buildCreativeTab("tab",
             e -> e.icon(CEItems.BLOOD_BINDING::asStack));
@@ -70,6 +74,9 @@ public class CelestialEquipments {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
+        DataGenerator gen = event.getGenerator();
+        boolean server = event.includeServer();
+        gen.addProvider(server, new CESlotGen(gen));
     }
 
     public static ResourceLocation loc(String id) {

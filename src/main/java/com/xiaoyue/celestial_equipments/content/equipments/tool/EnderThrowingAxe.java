@@ -33,7 +33,7 @@ public class EnderThrowingAxe extends GenericDiggerItem {
             "Increased throw damage per level");
 
     @ConfigHolderEntry(category = "tool")
-    public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Ender Throwing Axe Cooldown", 100,
+    public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Ender Throwing Axe Cooldown", 5,
             Integer.MAX_VALUE, "Throw cooldown");
 
     @SubscribeTooltip(id = "ender_throwing_axe")
@@ -52,7 +52,7 @@ public class EnderThrowingAxe extends GenericDiggerItem {
                 list.add(tooltip.withGray());
             }
         }
-        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get())));
     }
 
     @Override
@@ -66,7 +66,7 @@ public class EnderThrowingAxe extends GenericDiggerItem {
             thrownEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, 5f, 1f);
             pLevel.addFreshEntity(thrownEntity);
             player.setItemInHand(pUsedHand, ItemStack.EMPTY);
-            addCooldown(player, cooldownConfig.get());
+            addCooldown(player, cooldownConfig.get() * 20);
         }
         return InteractionResultHolder.success(stack);
     }

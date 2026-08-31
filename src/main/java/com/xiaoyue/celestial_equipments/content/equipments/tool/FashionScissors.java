@@ -26,7 +26,7 @@ public class FashionScissors extends ShearsItem implements ICelestialEquip {
     }
 
     @ConfigHolderEntry(category = "tool")
-    public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Fashion Scissors Cooldown", 100,
+    public static IntConfigEntry cooldownConfig = IntConfigEntry.defineFromZero("Fashion Scissors Cooldown", 5,
             Integer.MAX_VALUE, "Use cooldown");
 
     @SubscribeTooltip(id = "fashion_scissors")
@@ -39,7 +39,7 @@ public class FashionScissors extends ShearsItem implements ICelestialEquip {
         for (TooltipEntry tooltip : tooltips) {
             list.add(tooltip.withGray());
         }
-        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get() / 20)));
+        list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get())));
     }
 
     @Override
@@ -61,7 +61,7 @@ public class FashionScissors extends ShearsItem implements ICelestialEquip {
             for (int i = 0; i < amount; i++) {
                 EntityUtils.spawnItem(playerIn.level(), entity.getOnPos(), dropStack);
             }
-            addCooldown(playerIn, cooldownConfig.get());
+            addCooldown(playerIn, cooldownConfig.get() * 20);
             result = InteractionResult.SUCCESS;
         }
         return result;

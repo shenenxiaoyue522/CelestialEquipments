@@ -83,7 +83,7 @@ public class UpgradeableMelee extends Item implements ICelestialEquip {
         if (slot.equals(EquipmentSlot.MAINHAND)) {
             float attack = this.type.getActualAttack(lv) + this.type.getTypeAttack(this.getAttack(lv));
             float speed = this.type.getBaseSpeed() + this.getSpeed(lv);
-            AttributeAdder.builder().uuid(BASE_ATTACK_DAMAGE_UUID).value(attack).toMap(modify)
+            AttributeAdder.builder().name("Weapon modifier").uuid(BASE_ATTACK_DAMAGE_UUID).value(attack).toMap(modify)
                             .attr(Attributes.ATTACK_SPEED).uuid(BASE_ATTACK_SPEED_UUID).value(speed).toMap(modify);
         }
         this.modify(slot, stack, EquipmentUtils.getLevel(stack), slot.equals(EquipmentSlot.MAINHAND), modify);

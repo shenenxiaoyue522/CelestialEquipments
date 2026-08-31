@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_equipments.register;
 
+import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
@@ -13,6 +14,7 @@ import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
+import com.xiaoyue.celestial_equipments.content.equipments.misc.BubblingScepter;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.Senbonzakura;
 import com.xiaoyue.celestial_equipments.content.equipments.tool.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
@@ -20,16 +22,20 @@ import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
+import com.xiaoyue.celestial_equipments.content.items.curios.TalosBracer;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorSetEntry;
 import com.xiaoyue.celestial_invoker.content.common.helper.ItemModelHelper;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
+import dev.xkmc.l2library.base.L2Registrate;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import top.theillusivec4.curios.Curios;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +61,12 @@ public class CEItems {
     public static final ItemEntry<ExpBottleItem> EXP_BOTTLE_BIG = register("exp_bottle_big",
             p -> new ExpBottleItem(p.rarity(Rarity.EPIC), 200));
 
-    public static final ItemEntry<Senbonzakura> SENBONZAKURA = register("misc", "senbonzakura", Senbonzakura::new);
+    public static final ItemEntry<Senbonzakura> SENBONZAKURA = misc("senbonzakura", Senbonzakura::new);
+    public static final ItemEntry<BubblingScepter> BUBBLING_SCEPTER = misc("bubbling_scepter", BubblingScepter::new);
 
-    public static final ItemEntry<SakuraBlade> SAKURA_BLADE = noUpgradeMelee("sakura_blade", SakuraBlade::new);
-    public static final ItemEntry<ResonantRuinDagger> RESONANT_RUIN_DAGGER = noUpgradeMelee("resonant_ruin_dagger", ResonantRuinDagger::new);
-    public static final ItemEntry<AbyssSacrificeDagger> ABYSS_SACRIFICE_DAGGER = noUpgradeMelee("abyss_sacrifice_dagger", AbyssSacrificeDagger::new);
+    public static final ItemEntry<SakuraBlade> SAKURA_BLADE = melee("sakura_blade", SakuraBlade::new);
+    public static final ItemEntry<ResonantRuinDagger> RESONANT_RUIN_DAGGER = melee("resonant_ruin_dagger", ResonantRuinDagger::new);
+    public static final ItemEntry<AbyssSacrificeDagger> ABYSS_SACRIFICE_DAGGER = melee("abyss_sacrifice_dagger", AbyssSacrificeDagger::new);
     public static final ItemEntry<BlankingDagger> BLANKING_DAGGER = melee("blanking_dagger", BlankingDagger::new);
     public static final ItemEntry<JazzDagger> JAZZ_DAGGER = melee("jazz_dagger", JazzDagger::new);
     public static final ItemEntry<UndeadSword> UNDEAD_SWORD = melee("undead_sword", UndeadSword::new);
@@ -137,14 +144,22 @@ public class CEItems {
     public static final ArmorSetEntry<DeepGuardian> DEEP_GUARDIAN = CelestialEquipments.EXTRA.armors(DeepGuardian::createName,
             "armor/deep_guardian/", type -> p -> new DeepGuardian(type));
 
-    public static <T extends Item> ItemEntry<T> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
+    public static final ItemEntry<TalosBracer> TALOS_BRACER = hands("talos_bracer", TalosBracer::new);
+
+    public static <T extends Item> ItemBuilder<T, L2Registrate> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->
-                pvd.generated(ctx, pvd.modLoc("item/" + path + "/" + ctx.getName()))).register();
+                pvd.generated(ctx, pvd.modLoc("item/" + path + "/" + ctx.getName())));
     }
 
     public static <T extends Item> ItemEntry<T> register(String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->
                 pvd.generated(ctx, pvd.modLoc("item/" + ctx.getName()))).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> misc(String id,  NonNullFunction<Item.Properties, T> factory) {
+        ALL_EQUIPMENTS.add(id);
+        return REGISTRATE.item(id, factory).model((ctx, pvd)
+                -> pvd.handheld(ctx, pvd.modLoc("item/misc/" + ctx.getName()))).register();
     }
 
     public static <T extends Item> ItemEntry<T> arrow(String id, NonNullFunction<Item.Properties, T> factory) {
@@ -158,12 +173,6 @@ public class CEItems {
         ALL_EQUIPMENTS.add(id);
         return REGISTRATE.item(id, p -> factory.get()).model((ctx, pvd)
                 -> pvd.handheld(ctx, pvd.modLoc("item/melee/" + ctx.getName()))).tag(ItemTags.SWORDS, CETagGen.UPGRADEABLE_MELEE).register();
-    }
-
-    public static <T extends Item> ItemEntry<T> noUpgradeMelee(String id, NonNullSupplier<T> factory) {
-        ALL_EQUIPMENTS.add(id);
-        return REGISTRATE.item(id, p -> factory.get()).model((ctx, pvd)
-                -> pvd.handheld(ctx, pvd.modLoc("item/melee/" + ctx.getName()))).tag(ItemTags.SWORDS).register();
     }
 
     @SafeVarargs
@@ -189,6 +198,20 @@ public class CEItems {
         ALL_EQUIPMENTS.add(id);
         return REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createTridentModel)
                 .tag(CETagGen.UPGRADEABLE_TRIDENTS).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> hands(String id, NonNullFunction<Item.Properties, T> factory) {
+        ALL_EQUIPMENTS.add(id);
+        return register("curios/hands", id, factory).tag(curio("hands")).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> head(String id, NonNullFunction<Item.Properties, T> factory) {
+        ALL_EQUIPMENTS.add(id);
+        return register("curios/head", id, factory).tag(curio("head")).register();
+    }
+
+    private static TagKey<Item> curio(String id) {
+        return ItemTags.create(new ResourceLocation(Curios.MODID, id));
     }
 
     public static void register() {

@@ -1,5 +1,6 @@
-package com.xiaoyue.celestial_equipments.content.container;
+package com.xiaoyue.celestial_equipments.content.library.network;
 
+import com.xiaoyue.celestial_equipments.content.container.CEForgeTableMenu;
 import com.xiaoyue.celestial_invoker.content.network.NetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.NonNullList;

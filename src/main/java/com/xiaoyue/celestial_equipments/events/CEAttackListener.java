@@ -2,6 +2,7 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
+import com.xiaoyue.celestial_equipments.content.equipments.armor.MortalShadow;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.register.CEItems;
@@ -40,7 +41,7 @@ public class CEAttackListener implements AttackListener {
     }
 
     @Override
-    public void onHurtMaximized(AttackCache cache, ItemStack weapon) {
+    public void onHurt(AttackCache cache, ItemStack weapon) {
         LivingHurtEvent event = cache.getLivingHurtEvent();
         assert event != null;
         LivingEntity attacker = cache.getAttacker();
@@ -53,6 +54,13 @@ public class CEAttackListener implements AttackListener {
         if (IAttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof IAttackConfig attack) {
             attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
         }
+    }
+
+    @Override
+    public void onHurtMaximized(AttackCache cache, ItemStack weapon) {
+        LivingHurtEvent event = cache.getLivingHurtEvent();
+        assert event != null;
+        MortalShadow.onHurt(event, cache.getAttackTarget());
     }
 
     @ConfigHolderEntry(category = "misc")

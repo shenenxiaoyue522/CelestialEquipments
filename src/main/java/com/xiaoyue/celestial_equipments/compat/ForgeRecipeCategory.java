@@ -3,6 +3,7 @@ package com.xiaoyue.celestial_equipments.compat;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.container.CEForgeTableScreen;
 import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
+import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -50,8 +51,15 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CEForgeRecipe recipe, IFocusGroup group) {
-        if (group.getItemStackFocuses(RecipeIngredientRole.OUTPUT).findFirst().isPresent() && recipe.isUpgrade) {
-            return;
+        if (recipe.isUpgrade) {
+            for (ItemStack stack : recipe.input.getItems()) {
+                if (stack.is(CETagGen.NOT_UPGRADEABLE)) {
+                    return;
+                }
+            }
+            if (group.getItemStackFocuses(RecipeIngredientRole.OUTPUT).findFirst().isPresent()) {
+                return;
+            }
         }
         builder.addSlot(RecipeIngredientRole.INPUT, 11, 21)
                 .setSlotName("input")

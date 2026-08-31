@@ -7,6 +7,7 @@ import com.xiaoyue.celestial_invoker.content.entities.SimpleThrowEntity;
 import com.xiaoyue.celestial_invoker.content.entities.render.ThrownEntityRender;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -32,6 +33,15 @@ public class SakuraBladeEntity extends SimpleThrowEntity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        Entity owner = getOwner();
+        if (owner != null && distanceTo(owner) > 48) {
+            discard();
+        }
+    }
+
+    @Override
     protected void onHitEntity(EntityHitResult pResult) {
         if (getOwner() instanceof LivingEntity entity) {
             double damage = entity.getAttributeValue(Attributes.ATTACK_DAMAGE) * Senbonzakura.dmgConfig.floatValue();
@@ -45,6 +55,11 @@ public class SakuraBladeEntity extends SimpleThrowEntity {
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
         discard();
+    }
+
+    @Override
+    public boolean isNoGravity() {
+        return true;
     }
 
     public static class Render extends ThrownEntityRender<SakuraBladeEntity> {

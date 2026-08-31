@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "celestial_equipments:item/curios/hands/talos_bracer"
+  }
+}

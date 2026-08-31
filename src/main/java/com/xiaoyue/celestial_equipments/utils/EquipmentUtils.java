@@ -102,7 +102,8 @@ public class EquipmentUtils {
     @Nullable
     public static SlotResult getCurio(LivingEntity entity, Item item) {
         var opt = CuriosApi.getCuriosInventory(entity).resolve();
-        return opt.map(handler -> handler.findFirstCurio(item).get()).orElse(null);
+        return opt.map(handler ->
+                handler.findFirstCurio(item).isPresent() ? handler.findFirstCurio(item).get() : null).orElse(null);
     }
 
     public static boolean hasCurio(LivingEntity entity, Item item) {

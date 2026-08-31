@@ -1,6 +1,7 @@
-package com.xiaoyue.celestial_equipments.content.container;
+package com.xiaoyue.celestial_equipments.content.library.network;
 
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
+import com.xiaoyue.celestial_equipments.content.container.CEForgeTableMenu;
 import dev.xkmc.l2serial.network.SerialPacketBase;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.core.NonNullList;
