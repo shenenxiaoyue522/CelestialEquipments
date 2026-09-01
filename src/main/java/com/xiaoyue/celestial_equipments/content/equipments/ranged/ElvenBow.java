@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.bow;
+package com.xiaoyue.celestial_equipments.content.equipments.ranged;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;

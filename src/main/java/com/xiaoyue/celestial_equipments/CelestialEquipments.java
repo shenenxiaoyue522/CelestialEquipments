@@ -3,9 +3,10 @@ package com.xiaoyue.celestial_equipments;
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.xiaoyue.celestial_equipments.content.library.network.AutoAttackPayload;
 import com.xiaoyue.celestial_equipments.content.library.network.CEFMenuSyncPayload;
 import com.xiaoyue.celestial_equipments.content.library.network.CEFMenuSyncResponsePayload;
-import com.xiaoyue.celestial_equipments.content.library.network.AutoAttackPayload;
+import com.xiaoyue.celestial_equipments.content.library.network.ClickEmptyPayload;
 import com.xiaoyue.celestial_equipments.data.CEModConfig;
 import com.xiaoyue.celestial_equipments.data.CERecipeGen;
 import com.xiaoyue.celestial_equipments.data.CESlotGen;
@@ -45,7 +46,8 @@ public class CelestialEquipments {
     public static final RegistrateExtra<L2Registrate> EXTRA = new RegistrateExtra<>(REGISTRATE);
     public static final PacketHandler HANDLER = new PacketHandler(loc("main"), 1,
             e -> e.create(CEFMenuSyncPayload.class, NetworkDirection.PLAY_TO_SERVER),
-            e -> e.create(AutoAttackPayload.class, NetworkDirection.PLAY_TO_SERVER));
+            e -> e.create(AutoAttackPayload.class, NetworkDirection.PLAY_TO_SERVER),
+            e -> e.create(ClickEmptyPayload.class, NetworkDirection.PLAY_TO_SERVER));
 
     public static final RegistryEntry<CreativeModeTab> TAB = EXTRA.buildCreativeTab("tab",
             e -> e.icon(CEItems.BLOOD_BINDING::asStack));

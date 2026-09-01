@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.crossbow;
+package com.xiaoyue.celestial_equipments.content.equipments.ranged;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;

@@ -13,7 +13,6 @@ import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipHolder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -73,8 +72,7 @@ public class DeepGuardian extends GenericArmorItem implements ISetHandler {
     public void onSetTick(Player player) {
         EntityUtils.addEct(player, MobEffects.CONDUIT_POWER, 20);
         if (player.isUnderWater() && player.tickCount % 100 == 0) {
-            MobEffectInstance effect = player.getEffect(CEEffects.AQUA_FUN.get());
-            int level = effect == null ? -1 : effect.getAmplifier();
+            int level = EntityUtils.getEffectLevel(player, CEEffects.AQUA_FUN.get());
             EntityUtils.addEct(player, CEEffects.AQUA_FUN.get(), 100, Math.min(3, level + 1));
         }
     }

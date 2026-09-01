@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.bow;
+package com.xiaoyue.celestial_equipments.content.equipments.ranged;
 
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;

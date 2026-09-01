@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.equipments.crossbow;
+package com.xiaoyue.celestial_equipments.content.equipments.ranged;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableCrossbow;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;

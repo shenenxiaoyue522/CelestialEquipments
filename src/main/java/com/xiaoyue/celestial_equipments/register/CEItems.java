@@ -8,20 +8,19 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.*;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
-import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
-import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
-import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
-import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
-import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.BubblingScepter;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.Senbonzakura;
+import com.xiaoyue.celestial_equipments.content.equipments.ranged.*;
 import com.xiaoyue.celestial_equipments.content.equipments.tool.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
+import com.xiaoyue.celestial_equipments.content.items.curios.CursedVisage;
+import com.xiaoyue.celestial_equipments.content.items.curios.GaleGrip;
+import com.xiaoyue.celestial_equipments.content.items.curios.LightOfDawn;
 import com.xiaoyue.celestial_equipments.content.items.curios.TalosBracer;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.content.library.DiggerType;
@@ -144,7 +143,10 @@ public class CEItems {
     public static final ArmorSetEntry<DeepGuardian> DEEP_GUARDIAN = CelestialEquipments.EXTRA.armors(DeepGuardian::createName,
             "armor/deep_guardian/", type -> p -> new DeepGuardian(type));
 
+    public static final ItemEntry<CursedVisage> CURSED_VISAGE = head("cursed_visage", CursedVisage::new);
     public static final ItemEntry<TalosBracer> TALOS_BRACER = hands("talos_bracer", TalosBracer::new);
+    public static final ItemEntry<GaleGrip> GALE_GRIP = hands("gale_grip", GaleGrip::new);
+    public static final ItemEntry<LightOfDawn> LIGHT_OF_DAWN = hands("light_of_dawn", LightOfDawn::new);
 
     public static <T extends Item> ItemBuilder<T, L2Registrate> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->
@@ -185,13 +187,13 @@ public class CEItems {
     public static <T extends Item> ItemEntry<T> bow(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
         return REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createBowModel)
-                .tag(CETagGen.UPGRADEABLE_BOW).register();
+                .tag(CETagGen.UPGRADEABLE_RANGED).register();
     }
 
     public static <T extends Item> ItemEntry<T> crossbow(String id, NonNullSupplier<T> factory) {
         ALL_EQUIPMENTS.add(id);
         return REGISTRATE.item(id, p -> factory.get()).model(ItemModelHelper::createCrossbowModel)
-                .tag(CETagGen.UPGRADEABLE_CROSSBOW).register();
+                .tag(CETagGen.UPGRADEABLE_RANGED).register();
     }
 
     public static <T extends Item> ItemEntry<T> trident(String id, NonNullSupplier<T> factory) {
@@ -208,6 +210,11 @@ public class CEItems {
     public static <T extends Item> ItemEntry<T> head(String id, NonNullFunction<Item.Properties, T> factory) {
         ALL_EQUIPMENTS.add(id);
         return register("curios/head", id, factory).tag(curio("head")).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> feet(String id, NonNullFunction<Item.Properties, T> factory) {
+        ALL_EQUIPMENTS.add(id);
+        return register("curios/feet", id, factory).tag(curio("feet")).register();
     }
 
     private static TagKey<Item> curio(String id) {

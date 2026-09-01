@@ -9,7 +9,6 @@ import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipHolder;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -24,7 +23,6 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

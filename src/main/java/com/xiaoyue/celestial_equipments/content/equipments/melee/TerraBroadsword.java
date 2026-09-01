@@ -91,19 +91,19 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
 
     private void shootAirBlade(Level level, Player player, ItemStack stack, int lv) {
         if (lv > 0 && EntityUtils.isFullCharged(player)) {
-            player.resetAttackStrengthTicker();
             AirBladeEntity blade = new AirBladeEntity(level);
             float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
             float zr = (float) (player.getRandom().nextDouble() * 360f);
             blade.setData(player, damage, 100, zr, stack);
             blade.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5f, 0);
             level.addFreshEntity(blade);
+            player.resetAttackStrengthTicker();
         }
     }
 
     @Override
     public void onHitEntity(AirBladeEntity blade, Entity target) {
-        target.level().playSound(null, target.getOnPos(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.MUSIC);
+        target.level().playSound(null, target.getOnPos(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.PLAYERS);
         IAirBladeUser.super.onHitEntity(blade, target);
     }
 

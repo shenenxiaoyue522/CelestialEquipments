@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.equipments.armor;
 
+import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.ArmorMate;
@@ -14,8 +15,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -77,5 +81,17 @@ public class ChasingSummer extends GenericArmorItem {
     @Override
     public ArmorSetEntry<? extends Item> getArmorSet() {
         return CEItems.CHASING_SUMMER;
+    }
+
+    public static void onDamaged(LivingEntity entity, LivingDamageEvent event) {
+        EntityUtils.getExceptForCentralEntity(entity, 32, 8, e -> e instanceof Player).forEach(player -> {
+            if (CEItems.CHASING_SUMMER.isFullSet(player) && entity.getHealth() <= event.getAmount() && player.getHealth() > event.getAmount()) {
+                event.setCanceled(true);
+                player.hurt(event.getSource(), event.getAmount());
+                float hp = player.getHealth() * hpTransferConfig.floatValue();
+                player.setHealth(hp);
+                entity.setHealth(hp);
+            }
+        });
     }
 }

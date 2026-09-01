@@ -1,11 +1,11 @@
 package com.xiaoyue.celestial_equipments.events;
 
-import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.MortalShadow;
+import com.xiaoyue.celestial_equipments.content.items.curios.CursedVisage;
+import com.xiaoyue.celestial_equipments.content.items.curios.GaleGrip;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
-import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -14,7 +14,6 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -33,11 +32,7 @@ public class CEAttackListener implements AttackListener {
     @Override
     public void postAttack(AttackCache cache, LivingAttackEvent event, ItemStack weapon) {
         LivingEntity attacker = cache.getAttacker();
-        if (attacker == null) return;
-        ItemStack stack = attacker.getMainHandItem();
-        if (IAttackConfig.isMelee(event.getSource()) && stack.getItem() instanceof IAttackConfig attack) {
-            attack.onMeleeAttack(stack, attacker, cache.getAttackTarget(), event, EquipmentUtils.getLevel(stack));
-        }
+        GaleGrip.onAttack(attacker);
     }
 
     @Override
@@ -88,14 +83,7 @@ public class CEAttackListener implements AttackListener {
         LivingDamageEvent event = cache.getLivingDamageEvent();
         assert event != null;
         LivingEntity entity = cache.getAttackTarget();
-        EntityUtils.getExceptForCentralEntity(entity, 32, 8, e -> e instanceof Player).forEach(player -> {
-            if (CEItems.CHASING_SUMMER.isFullSet(player) && entity.getHealth() <= event.getAmount() && player.getHealth() > event.getAmount()) {
-                event.setCanceled(true);
-                player.hurt(event.getSource(), event.getAmount());
-                float hp = player.getHealth() * ChasingSummer.hpTransferConfig.floatValue();
-                player.setHealth(hp);
-                entity.setHealth(hp);
-            }
-        });
+        ChasingSummer.onDamaged(entity, event);
+        CursedVisage.onOtherDamaged(entity, event.getSource());
     }
 }

@@ -18,8 +18,7 @@ public class CETagGen {
 
     public static final TagKey<Item> NOT_UPGRADEABLE = ItemTags.create(CelestialEquipments.loc("not_upgradeable"));
     public static final TagKey<Item> UPGRADEABLE_MELEE = ItemTags.create(CelestialEquipments.loc("upgradeable_melee"));
-    public static final TagKey<Item> UPGRADEABLE_BOW = ItemTags.create(CelestialEquipments.loc("upgradeable_bow"));
-    public static final TagKey<Item> UPGRADEABLE_CROSSBOW = ItemTags.create(CelestialEquipments.loc("upgradeable_crossbow"));
+    public static final TagKey<Item> UPGRADEABLE_RANGED = ItemTags.create(CelestialEquipments.loc("upgradeable_ranged"));
     public static final TagKey<Item> UPGRADEABLE_ARMORS = ItemTags.create(CelestialEquipments.loc("upgradeable_armors"));
     public static final TagKey<Item> UPGRADEABLE_TRIDENTS = ItemTags.create(CelestialEquipments.loc("upgradeable_tridents"));
     public static final TagKey<Item> UPGRADEABLE_DIGGER = ItemTags.create(CelestialEquipments.loc("upgradeable_upgradeable_digger"));
@@ -28,8 +27,7 @@ public class CETagGen {
         pvd.addTag(SMALL_THROWING).add(CEItems.SAKURA_BLADE.asItem());
         pvd.addTag(NOT_UPGRADEABLE).add(CEItems.SAKURA_BLADE.asItem(), CEItems.RESONANT_RUIN_DAGGER.asItem(), CEItems.ABYSS_SACRIFICE_DAGGER.asItem());
         pvd.addTag(UPGRADEABLE_MELEE);
-        pvd.addTag(UPGRADEABLE_BOW);
-        pvd.addTag(UPGRADEABLE_CROSSBOW);
+        pvd.addTag(UPGRADEABLE_RANGED);
         pvd.addTag(UPGRADEABLE_ARMORS);
         pvd.addTag(UPGRADEABLE_TRIDENTS);
         pvd.addTag(UPGRADEABLE_DIGGER);

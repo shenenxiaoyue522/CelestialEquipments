@@ -29,7 +29,7 @@ public class TalosBracer extends CurioItem {
 
     @ConfigHolderEntry(category = "curios")
     public static DoubleConfigEntry hpBonusConfig = DoubleConfigEntry.defineFromZero("Talos Bracer Max Health Bonus",
-            10, 10000, "Talos Bracer: Max Health Bonus");
+            10, 10000, "Talos Bracer: Max health bonus");
 
     @SubscribeTooltip(id = "talos_bracer")
     public static TooltipHolder tooltips = TooltipHolder.define(
