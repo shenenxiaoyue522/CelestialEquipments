@@ -194,15 +194,15 @@ public class CERecipeGen {
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_RANGED)
                 .material(Items.BOOK).material(Items.GOLD_INGOT).material(Items.QUARTZ)
                 .material(Items.FLINT).material(Items.GUNPOWDER)::unlockedBy, Items.GOLD_INGOT).isUpgrade(5)
-                .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_5"));
+                .save(pvd, CelestialEquipments.loc("upgrade/ranged_upgrade_5"));
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_RANGED)
                 .material(Items.DIAMOND).material(Items.REDSTONE_BLOCK).material(Items.EXPERIENCE_BOTTLE)
                 .material(Items.BOOK).material(Items.BLAZE_POWDER)::unlockedBy, Items.IRON_INGOT).isUpgrade(10)
-                .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_10"));
+                .save(pvd, CelestialEquipments.loc("upgrade/ranged_upgrade_10"));
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_RANGED)
                 .material(Items.ENDER_PEARL).material(Items.AMETHYST_SHARD).material(CCItems.HEART_FRAGMENT)
                 .material(Items.NETHERITE_SCRAP)::unlockedBy, Items.GOLD_INGOT).isUpgrade(20)
-                .save(pvd, CelestialEquipments.loc("upgrade/bow_upgrade_20"));
+                .save(pvd, CelestialEquipments.loc("upgrade/ranged_upgrade_20"));
         // digger
         unlock(pvd, new CEForgeRecipeBuilder(Items.STONE_PICKAXE, CEItems.GRAVEDIGGERS_HELPER.asStack())
                 .material(Items.ENDER_PEARL).material(Items.IRON_INGOT).material(Items.REDSTONE)

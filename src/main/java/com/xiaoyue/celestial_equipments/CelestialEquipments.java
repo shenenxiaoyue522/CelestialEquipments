@@ -65,6 +65,7 @@ public class CelestialEquipments {
         REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, CETagGen::onItemTagGen);
         REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, CETagGen::onBlockTagGen);
         REGISTRATE.addDataGenerator(ProviderType.RECIPE, CERecipeGen::onRecipeGen);
+        REGISTRATE.addDataGenerator(ProviderType.ENTITY_TAGS, CETagGen::onEntityTagGen);
     }
 
     @SubscribeEvent

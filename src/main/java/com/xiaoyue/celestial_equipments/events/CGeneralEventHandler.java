@@ -1,15 +1,14 @@
 package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_core.utils.ItemUtils;
+import com.xiaoyue.celestial_equipments.content.equipments.melee.BloodBinding;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
-import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.register.CEEffects;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -54,20 +53,15 @@ public class CGeneralEventHandler {
     @SubscribeEvent
     public static void onKill(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        DamageSource source = event.getSource();
-        Entity sourceEntity = source.getEntity();
-        if (sourceEntity instanceof LivingEntity attacker) {
+        Entity source = event.getSource().getEntity();
+        if (source instanceof LivingEntity attacker) {
             ItemStack weapon = attacker.getMainHandItem();
             if (weapon.getItem() instanceof ICelestialEquip item) {
                 if (item.isEnabled()) {
                     EquipmentUtils.addExp(weapon, (int) (entity.getMaxHealth() / 20.0F));
                 }
             }
-            if (IAttackConfig.isMelee(event.getSource())) {
-                if (weapon.getItem() instanceof IAttackConfig attack) {
-                    attack.onMeleeKill(weapon, attacker, event, EquipmentUtils.getLevel(weapon));
-                }
-            }
+            BloodBinding.onMeleeKill(weapon, attacker);
         }
     }
 

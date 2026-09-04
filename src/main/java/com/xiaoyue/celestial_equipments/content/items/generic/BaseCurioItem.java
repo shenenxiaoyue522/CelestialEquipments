@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_equipments.content.items.curios;
+package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -8,8 +8,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-public class CurioItem extends Item implements ICurioItem {
-    public CurioItem(Properties properties) {
+public class BaseCurioItem extends Item implements ICurioItem {
+    public BaseCurioItem(Properties properties) {
         super(properties.stacksTo(1).rarity(Rarity.EPIC));
     }
 

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "celestial_equipments:upgrade/bow_upgrade_5"
+        "recipe": "celestial_equipments:upgrade/ranged_upgrade_5"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "celestial_equipments:upgrade/bow_upgrade_5"
+      "celestial_equipments:upgrade/ranged_upgrade_5"
     ]
   },
   "sends_telemetry_event": true

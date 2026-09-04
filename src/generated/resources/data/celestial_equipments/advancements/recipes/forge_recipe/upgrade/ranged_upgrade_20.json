@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_ingot": {
+    "has_gold_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_ingot"
+              "minecraft:gold_ingot"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "celestial_equipments:upgrade/bow_upgrade_10"
+        "recipe": "celestial_equipments:upgrade/ranged_upgrade_20"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_iron_ingot",
+      "has_gold_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "celestial_equipments:upgrade/bow_upgrade_10"
+      "celestial_equipments:upgrade/ranged_upgrade_20"
     ]
   },
   "sends_telemetry_event": true

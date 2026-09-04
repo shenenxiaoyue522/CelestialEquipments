@@ -219,5 +219,13 @@
   "celestial_equipments.tooltip.light_of_dawn_0": "挥舞装备等阶大于%s的近战类武器时",
   "celestial_equipments.tooltip.light_of_dawn_1": "额外向前发射1道光辉气刃",
   "celestial_equipments.tooltip.light_of_dawn_2": "光辉气刃造成攻击伤害%s的伤害",
-  "item.celestial_equipments.light_of_dawn": "破晓之光"
+  "item.celestial_equipments.light_of_dawn": "破晓之光",
+  "item.celestial_equipments.sovereign_crown": "至高王冠",
+  "celestial_equipments.tooltip.bladebiter_gauntlets_0": "气刃造成的伤害提高%s",
+  "celestial_equipments.tooltip.bladebiter_gauntlets_1": "近战伤害降低%s",
+  "item.celestial_equipments.bladebiter_gauntlets": "噬刃手套",
+  "celestial_equipments.tooltip.affliction_reborn_0": "锁定你最近攻击的生物",
+  "celestial_equipments.tooltip.affliction_reborn_1": "当穿戴者恢复生命时",
+  "celestial_equipments.tooltip.affliction_reborn_2": "改为对锁定的目标造成恢复量%s的攻击伤害",
+  "item.celestial_equipments.affliction_reborn": "苦难的再临"
 }

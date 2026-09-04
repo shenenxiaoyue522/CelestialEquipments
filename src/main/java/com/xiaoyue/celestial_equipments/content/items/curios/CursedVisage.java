@@ -2,6 +2,7 @@ package com.xiaoyue.celestial_equipments.content.items.curios;
 
 import com.xiaoyue.celestial_core.data.CCDamageTypes;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
+import com.xiaoyue.celestial_equipments.content.items.generic.BaseCurioItem;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.helper.FindTargetHelper;
@@ -24,7 +25,7 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class CursedVisage extends CurioItem {
+public class CursedVisage extends BaseCurioItem {
     public CursedVisage(Properties properties) {
         super(properties);
     }

@@ -2,6 +2,7 @@ package com.xiaoyue.celestial_equipments.content.items.curios;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
+import com.xiaoyue.celestial_equipments.content.items.generic.BaseCurioItem;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LightOfDawn extends CurioItem implements IAirBladeUser {
+public class LightOfDawn extends BaseCurioItem implements IAirBladeUser {
     public LightOfDawn(Properties properties) {
         super(properties);
     }
@@ -35,7 +36,7 @@ public class LightOfDawn extends CurioItem implements IAirBladeUser {
 
     @ConfigHolderEntry(category = "curios")
     public static DoubleConfigEntry dmgConfig = DoubleConfigEntry.defineFromMinUsable("Light Of Dawn Damage Factor",
-            0.45f, 1000, "Light Of Dawn: Damage dealt by the Blade is based on your attack damage");
+            0.45, 1000, "Light Of Dawn: Damage dealt by the Blade is based on your attack damage");
 
     @SubscribeTooltip(id = "light_of_dawn")
     public static TooltipHolder tooltips = TooltipHolder.define(

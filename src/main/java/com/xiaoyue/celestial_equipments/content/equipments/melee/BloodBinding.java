@@ -3,6 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipments.melee;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableMelee;
 import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.content.library.MeleeType;
+import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -10,7 +11,6 @@ import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import java.util.List;
 
@@ -36,8 +36,8 @@ public class BloodBinding extends UpgradeableMelee implements IAttackConfig {
         list.add(tooltip.withGray(TooltipEntry.per(healConfig.get() * lv)));
     }
 
-    @Override
-    public void onMeleeKill(ItemStack stack, LivingEntity attacker, LivingDeathEvent event, int lv) {
+    public static void onMeleeKill(ItemStack stack, LivingEntity attacker) {
+        int lv = EquipmentUtils.getLevel(stack);
         float heal = healConfig.floatValue() * lv * (attacker.getMaxHealth() - attacker.getHealth());
         attacker.heal(heal);
     }

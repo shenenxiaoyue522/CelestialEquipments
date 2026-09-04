@@ -5,6 +5,7 @@ import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.AvariceBlade;
 import com.xiaoyue.celestial_equipments.content.equipments.tool.LifeHoe;
+import com.xiaoyue.celestial_equipments.content.items.curios.AfflictionReborn;
 import com.xiaoyue.celestial_equipments.content.items.curios.LightOfDawn;
 import com.xiaoyue.celestial_equipments.content.library.network.ClickEmptyPayload;
 import com.xiaoyue.celestial_equipments.register.CEItems;
@@ -49,6 +50,7 @@ public class EquipmentEventHandler {
                 }
             }
         }
+        AfflictionReborn.onHeal(entity, event);
     }
 
     @SubscribeEvent

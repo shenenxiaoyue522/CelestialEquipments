@@ -2,6 +2,7 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.MortalShadow;
+import com.xiaoyue.celestial_equipments.content.items.curios.BladebiterGauntlets;
 import com.xiaoyue.celestial_equipments.content.items.curios.CursedVisage;
 import com.xiaoyue.celestial_equipments.content.items.curios.GaleGrip;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
@@ -13,6 +14,7 @@ import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import dev.xkmc.l2damagetracker.contents.attack.AttackCache;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -42,17 +44,20 @@ public class CEAttackListener implements AttackListener {
         LivingEntity attacker = cache.getAttacker();
         if (attacker == null) return;
         ItemStack stack = attacker.getMainHandItem();
-        if (IAttackConfig.isMelee(event.getSource()) && stack.getItem() instanceof IAttackConfig attack) {
+        DamageSource source = event.getSource();
+        if (IAttackConfig.isMelee(source) && stack.getItem() instanceof IAttackConfig attack) {
             attack.onMeleeHurt(stack, attacker, cache, EquipmentUtils.getLevel(stack));
         }
         ItemStack useItem = attacker.getUseItem();
-        if (IAttackConfig.isProjectile(event.getSource()) && useItem.getItem() instanceof IAttackConfig attack) {
+        if (IAttackConfig.isProjectile(source) && useItem.getItem() instanceof IAttackConfig attack) {
             attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
         }
+        BladebiterGauntlets.onHurtTarget(attacker, source, cache);
     }
 
     @Override
     public void onHurtMaximized(AttackCache cache, ItemStack weapon) {
+        LivingEntity attacker = cache.getAttacker();
         LivingHurtEvent event = cache.getLivingHurtEvent();
         assert event != null;
         MortalShadow.onHurt(event, cache.getAttackTarget());

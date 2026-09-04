@@ -52,8 +52,8 @@ public class JazzDagger extends UpgradeableMelee implements IAttackConfig {
     @Override
     protected void modify(EquipmentSlot slot, ItemStack stack, int lv, boolean selected, Multimap<Attribute, AttributeModifier> modify) {
         if (selected && lv > 2) {
-            AttributeAdder.builder().attr(Attributes.LUCK).nameWithUUID(CelestialEquipments.loc("jazz_dagger"))
-                    .value(luckConfig.get()).toMap(modify);
+            AttributeAdder.builder().attr(Attributes.LUCK)
+                    .nameWithUUID(CelestialEquipments.loc("jazz_dagger")).value(luckConfig.get()).toMap(modify);
         }
     }
 

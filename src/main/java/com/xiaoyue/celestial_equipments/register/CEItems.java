@@ -18,10 +18,7 @@ import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
-import com.xiaoyue.celestial_equipments.content.items.curios.CursedVisage;
-import com.xiaoyue.celestial_equipments.content.items.curios.GaleGrip;
-import com.xiaoyue.celestial_equipments.content.items.curios.LightOfDawn;
-import com.xiaoyue.celestial_equipments.content.items.curios.TalosBracer;
+import com.xiaoyue.celestial_equipments.content.items.curios.*;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArrowItem;
 import com.xiaoyue.celestial_equipments.content.library.DiggerType;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
@@ -143,10 +140,13 @@ public class CEItems {
     public static final ArmorSetEntry<DeepGuardian> DEEP_GUARDIAN = CelestialEquipments.EXTRA.armors(DeepGuardian::createName,
             "armor/deep_guardian/", type -> p -> new DeepGuardian(type));
 
+    public static final ItemEntry<AfflictionReborn> AFFLICTION_REBORN = head("affliction_reborn", AfflictionReborn::new);
     public static final ItemEntry<CursedVisage> CURSED_VISAGE = head("cursed_visage", CursedVisage::new);
+    public static final ItemEntry<SovereignCrown> SOVEREIGN_CROWN = head("sovereign_crown", SovereignCrown::new);
     public static final ItemEntry<TalosBracer> TALOS_BRACER = hands("talos_bracer", TalosBracer::new);
     public static final ItemEntry<GaleGrip> GALE_GRIP = hands("gale_grip", GaleGrip::new);
     public static final ItemEntry<LightOfDawn> LIGHT_OF_DAWN = hands("light_of_dawn", LightOfDawn::new);
+    public static final ItemEntry<BladebiterGauntlets> BLADEBITER_GAUNTLETS = hands("bladebiter_gauntlets", BladebiterGauntlets::new);
 
     public static <T extends Item> ItemBuilder<T, L2Registrate> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->

@@ -88,8 +88,9 @@ public class Senbonzakura extends Item implements ICelestialEquip {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modify = LinkedHashMultimap.create();
         if (slot.equals(EquipmentSlot.MAINHAND)) {
-            AttributeAdder.builder().name("Weapon modifier").uuid(BASE_ATTACK_DAMAGE_UUID).value(6).toMap(modify)
-                    .attr(Attributes.ATTACK_SPEED).uuid(BASE_ATTACK_SPEED_UUID).value(-2.4).toMap(modify);
+            AttributeAdder builder = AttributeAdder.builder().name("Weapon modifier");
+            builder.uuid(BASE_ATTACK_DAMAGE_UUID).value(6).toMap(modify);
+            builder.attr(Attributes.ATTACK_SPEED).uuid(BASE_ATTACK_SPEED_UUID).value(-2.4).toMap(modify);
         }
         return modify;
     }

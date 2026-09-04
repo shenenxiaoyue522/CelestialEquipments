@@ -6,7 +6,6 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 public interface IAttackConfig {
 
@@ -25,8 +24,5 @@ public interface IAttackConfig {
     }
 
     default void onProjectileHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
-    }
-
-    default void onMeleeKill(ItemStack stack, LivingEntity attacker, LivingDeathEvent event, int lv) {
     }
 }
