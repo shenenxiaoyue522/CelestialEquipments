@@ -110,7 +110,7 @@ dependencies {
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
     implementation fg.deobf("xiaoyue.celestial_core:celestial_core:1.6.0-slim")
-    implementation fg.deobf(jarJar("xiaoyue.celestial_invoker:celestial_invoker:[20f11c11,)"))
+    implementation fg.deobf(jarJar("xiaoyue.celestial_invoker:celestial_invoker:[20f11cd2,)"))
 
     implementation fg.deobf("dev.xkmc.l2serial:l2serial:1.2.2")
     implementation fg.deobf("dev.xkmc.l2tabs:l2tabs:0.3.1")

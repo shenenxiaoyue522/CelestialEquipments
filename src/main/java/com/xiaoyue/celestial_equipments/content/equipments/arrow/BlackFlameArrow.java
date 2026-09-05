@@ -35,7 +35,7 @@ public class BlackFlameArrow extends GenericArrowItem {
     }
 
     private static void onHitEntity(GenericArrowEntity arrow, Entity target) {
-        if (target instanceof LivingEntity entity) {
+        if (target instanceof LivingEntity entity && !EntityUtils.onBlackFlame(entity)) {
             EntityUtils.startAddBlackFlame(entity, burnTimeConfig.get());
         }
     }

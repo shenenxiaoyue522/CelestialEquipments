@@ -121,4 +121,10 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     public void onLeftClickBlock(Player player, ItemStack stack, PlayerInteractEvent.LeftClickBlock event) {
         shootAirBlade(player.level(), player, stack, EquipmentUtils.getLevel(stack));
     }
+
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
+        shootAirBlade(player.level(), player, stack, EquipmentUtils.getLevel(stack));
+        return false;
+    }
 }

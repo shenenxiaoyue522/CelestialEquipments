@@ -40,14 +40,10 @@ public class SovereignCrown extends BaseCurioItem {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> map = LinkedHashMultimap.create();
         AttributeAdder builder = AttributeAdder.builder().uuid(uuid);
-        builder.name(getModifierName("attack")).operation(1).value(attackBonusConfig.get()).toMap(map);
-        builder.attr(Attributes.ATTACK_SPEED).name(getModifierName("attack_speed")).value(attackSpeedBonusConfig.get()).toMap(map);
-        builder.attr(Attributes.MAX_HEALTH).name(getModifierName("health")).operation(0).value(healthBonusConfig.get()).toMap(map);
-        builder.attr(Attributes.ARMOR_TOUGHNESS).name(getModifierName("toughness")).value(toughnessBonusConfig.get()).toMap(map);
+        builder.name(bonusModifierName("attack")).operation(1).value(attackBonusConfig.get()).toMap(map);
+        builder.attr(Attributes.ATTACK_SPEED).name(bonusModifierName("attack_speed")).value(attackSpeedBonusConfig.get()).toMap(map);
+        builder.attr(Attributes.MAX_HEALTH).name(bonusModifierName("health")).operation(0).value(healthBonusConfig.get()).toMap(map);
+        builder.attr(Attributes.ARMOR_TOUGHNESS).name(bonusModifierName("toughness")).value(toughnessBonusConfig.get()).toMap(map);
         return map;
-    }
-
-    private String getModifierName(String attr) {
-        return "celestial_equipments:sovereign_crown_" + attr + "_bonus";
     }
 }

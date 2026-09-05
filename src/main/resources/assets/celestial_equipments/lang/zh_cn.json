@@ -227,5 +227,8 @@
   "celestial_equipments.tooltip.affliction_reborn_0": "锁定你最近攻击的生物",
   "celestial_equipments.tooltip.affliction_reborn_1": "当穿戴者恢复生命时",
   "celestial_equipments.tooltip.affliction_reborn_2": "改为对锁定的目标造成恢复量%s的攻击伤害",
-  "item.celestial_equipments.affliction_reborn": "苦难的再临"
+  "item.celestial_equipments.affliction_reborn": "苦难的再临",
+  "celestial_equipments.tooltip.cupid_arrow": "击中动物时使其进入发情状态",
+  "item.celestial_equipments.amethyst_gauntlets": "紫水晶拳套",
+  "item.celestial_equipments.cupid_arrow": "丘比特之箭"
 }

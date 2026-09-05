@@ -53,13 +53,13 @@ public class LightOfDawn extends BaseCurioItem implements IAirBladeUser {
 
     public static void onLeftClick(Player player) {
         ItemStack stack = player.getMainHandItem();
-        ItemStack curio = CEItems.LIGHT_OF_DAWN.asStack();
         int level = EquipmentUtils.getLevel(stack);
         if (level > levelConditionConfig.get() && EntityUtils.isFullCharged(player) && stack.is(CETagGen.UPGRADEABLE_MELEE)) {
             AirBladeEntity blade = new AirBladeEntity(player.level());
+            blade.setUser(CEItems.LIGHT_OF_DAWN.get());
             float damage = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE) * dmgConfig.floatValue();
             float zr = (float) (player.getRandom().nextDouble() * 360f);
-            blade.setData(player, damage, 100, zr, curio);
+            blade.setData(player, damage, 100, zr, stack);
             blade.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5f, 0);
             player.level().addFreshEntity(blade);
             player.resetAttackStrengthTicker();

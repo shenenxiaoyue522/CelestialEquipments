@@ -128,6 +128,7 @@ public class CEItems {
     public static final ItemEntry<EnderArrow> ENDER_ARROW = arrow("ender_arrow", EnderArrow::new);
     public static final ItemEntry<VirtualGoldArrow> VIRTUAL_GOLD_ARROW = arrow("virtual_gold_arrow", VirtualGoldArrow::new);
     public static final ItemEntry<GuardianArrow> GUARDIAN_ARROW = arrow("guardian_arrow", GuardianArrow::new);
+    public static final ItemEntry<CupidArrow> CUPID_ARROW = arrow("cupid_arrow", CupidArrow::new);
 
     public static final ArmorSetEntry<CelestialWitch> CELESTIAL_WITCH = CelestialEquipments.EXTRA.armors(CelestialWitch::createName,
             "armor/celestial_witch/", type -> p -> new CelestialWitch(type));
@@ -147,6 +148,7 @@ public class CEItems {
     public static final ItemEntry<GaleGrip> GALE_GRIP = hands("gale_grip", GaleGrip::new);
     public static final ItemEntry<LightOfDawn> LIGHT_OF_DAWN = hands("light_of_dawn", LightOfDawn::new);
     public static final ItemEntry<BladebiterGauntlets> BLADEBITER_GAUNTLETS = hands("bladebiter_gauntlets", BladebiterGauntlets::new);
+    public static final ItemEntry<AmethystGauntlets> AMETHYST_GAUNTLETS = hands("amethyst_gauntlets", AmethystGauntlets::new);
 
     public static <T extends Item> ItemBuilder<T, L2Registrate> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->
