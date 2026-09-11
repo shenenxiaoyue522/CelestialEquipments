@@ -17,6 +17,9 @@
     },
     {
       "item": "celestial_core:pure_nether_star"
+    },
+    {
+      "item": "celestial_equipments:artifact_design"
     }
   ],
   "output": {

@@ -1,0 +1,23 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "minecraft:shears"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:light_fragment"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:fashion_scissors",
+    "nbt": "{Damage:0}"
+  }
+}

@@ -5,7 +5,7 @@ import com.xiaoyue.celestial_equipments.content.equipments.melee.BloodBinding;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericDiggerItem;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.register.CEEffects;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;

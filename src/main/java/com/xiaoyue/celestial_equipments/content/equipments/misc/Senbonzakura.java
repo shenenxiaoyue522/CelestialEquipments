@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_equipments.content.equipments.misc;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.entities.SakuraBladeEntity;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
@@ -20,7 +20,6 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -28,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Senbonzakura extends Item implements ICelestialEquip {
+public class Senbonzakura extends ICelestialEquip.Impl {
     public Senbonzakura(Properties properties) {
         super(properties.stacksTo(1).durability(621));
     }
@@ -67,7 +66,7 @@ public class Senbonzakura extends Item implements ICelestialEquip {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pUsedHand) {
         ItemStack stack = player.getItemInHand(pUsedHand);
-        if (!pLevel.isClientSide() && noCooldown(player)) {
+        if (!pLevel.isClientSide() && cooldownReady(player)) {
             for (int i = 0; i < 5; i++) {
                 SakuraBladeEntity entity = new SakuraBladeEntity(player, pLevel, CEItems.SAKURA_BLADE.asStack());
                 entity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());

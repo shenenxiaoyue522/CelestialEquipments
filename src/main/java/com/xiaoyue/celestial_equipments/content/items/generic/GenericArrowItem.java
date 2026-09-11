@@ -1,6 +1,5 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.content.entities.GenericArrowEntity;
 import com.xiaoyue.celestial_invoker.content.generic.builder.ArrowDataBuilder;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;

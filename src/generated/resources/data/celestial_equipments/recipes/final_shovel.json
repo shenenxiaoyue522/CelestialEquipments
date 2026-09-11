@@ -1,0 +1,20 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "celestial_equipments:reinforced_grip"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:shulker_scrap"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:final_shovel",
+    "nbt": "{Damage:0}"
+  }
+}

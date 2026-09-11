@@ -24,7 +24,8 @@ public class CETagGen {
     public static final TagKey<Item> UPGRADEABLE_RANGED = ItemTags.create(CelestialEquipments.loc("upgradeable_ranged"));
     public static final TagKey<Item> UPGRADEABLE_ARMORS = ItemTags.create(CelestialEquipments.loc("upgradeable_armors"));
     public static final TagKey<Item> UPGRADEABLE_TRIDENTS = ItemTags.create(CelestialEquipments.loc("upgradeable_tridents"));
-    public static final TagKey<Item> UPGRADEABLE_DIGGER = ItemTags.create(CelestialEquipments.loc("upgradeable_upgradeable_digger"));
+    public static final TagKey<Item> UPGRADEABLE_DIGGER = ItemTags.create(CelestialEquipments.loc("upgradeable_digger"));
+    public static final TagKey<Item> UPGRADEABLE_CURIOS = ItemTags.create(CelestialEquipments.loc("upgradeable_curios"));
 
     public static final TagKey<EntityType<?>> IS_AIR_BLADE = TagKey.create(Registries.ENTITY_TYPE, CelestialEquipments.loc("is_air_blade"));
 
@@ -36,6 +37,7 @@ public class CETagGen {
         pvd.addTag(UPGRADEABLE_ARMORS);
         pvd.addTag(UPGRADEABLE_TRIDENTS);
         pvd.addTag(UPGRADEABLE_DIGGER);
+        pvd.addTag(UPGRADEABLE_CURIOS);
     }
 
     public static void onEntityTagGen(RegistrateTagsProvider.IntrinsicImpl<EntityType<?>> pvd) {

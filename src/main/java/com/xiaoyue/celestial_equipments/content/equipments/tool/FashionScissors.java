@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.tool;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -45,7 +45,7 @@ public class FashionScissors extends ShearsItem implements ICelestialEquip {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity entity, InteractionHand hand) {
         InteractionResult result = super.interactLivingEntity(stack, playerIn, entity, hand);
-        if (!noCooldown(playerIn) || !isEnabled()) {
+        if (!cooldownReady(playerIn) || !isEnabled()) {
             return InteractionResult.PASS;
         }
         ItemStack dropStack = ItemStack.EMPTY;

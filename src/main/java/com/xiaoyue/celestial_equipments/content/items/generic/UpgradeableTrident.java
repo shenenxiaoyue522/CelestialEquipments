@@ -1,7 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialTridentItem;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;

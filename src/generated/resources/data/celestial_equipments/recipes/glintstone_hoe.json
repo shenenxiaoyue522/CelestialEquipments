@@ -1,0 +1,20 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_equipments:glintstone_diamond"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:glintstone_hoe",
+    "nbt": "{Damage:0}"
+  }
+}

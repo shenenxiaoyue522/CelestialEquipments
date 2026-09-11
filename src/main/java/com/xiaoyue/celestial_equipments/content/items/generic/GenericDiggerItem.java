@@ -2,7 +2,6 @@ package com.xiaoyue.celestial_equipments.content.items.generic;
 
 import com.mojang.datafixers.util.Pair;
 import com.xiaoyue.celestial_equipments.content.library.DiggerType;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;

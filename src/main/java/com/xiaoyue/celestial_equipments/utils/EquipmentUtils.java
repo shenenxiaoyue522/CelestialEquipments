@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.utils;
 
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
@@ -97,6 +97,10 @@ public class EquipmentUtils {
 
     public static boolean isFullExp(ItemStack stack) {
         return getExp(stack) == getMaxExp();
+    }
+
+    public static boolean isUpgradable(Item item) {
+        return item instanceof ICelestialEquip equip && equip.isUpgradeable();
     }
 
     @Nullable

@@ -1,0 +1,20 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "minecraft:golden_hoe"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:heart_fragment"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:life_hoe",
+    "nbt": "{Damage:0}"
+  }
+}

@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_equipments.content.entities;
 
-import com.xiaoyue.celestial_equipments.content.library.SimpleThrowingFactory;
+import com.xiaoyue.celestial_equipments.content.items.generic.SimpleThrowingFactory;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.register.CEEntities;
 import com.xiaoyue.celestial_invoker.content.entities.SimpleThrowEntity;

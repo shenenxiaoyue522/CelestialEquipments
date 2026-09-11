@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_sword": {
+    "has_reinforced_grip": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_sword"
+              "celestial_equipments:reinforced_grip"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_iron_sword",
+      "has_reinforced_grip",
       "has_the_recipe"
     ]
   ],

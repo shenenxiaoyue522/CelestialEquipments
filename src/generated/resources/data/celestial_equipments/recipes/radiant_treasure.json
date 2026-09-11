@@ -1,7 +1,7 @@
 {
   "type": "celestial_equipments:forge_recipe",
   "input": {
-    "item": "minecraft:golden_pickaxe"
+    "item": "celestial_equipments:artifact_design"
   },
   "isUpgrade": false,
   "levelCondition": -1,

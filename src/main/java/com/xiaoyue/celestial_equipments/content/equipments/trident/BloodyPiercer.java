@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_equipments.content.equipments.trident;
 
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
-import com.xiaoyue.celestial_equipments.content.library.SimpleThrowingFactory;
+import com.xiaoyue.celestial_equipments.content.items.generic.SimpleThrowingFactory;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import net.minecraft.world.entity.EquipmentSlot;

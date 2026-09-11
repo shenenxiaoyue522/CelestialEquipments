@@ -32,7 +32,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
 
     @SubscribeTooltip(id = "abyss_whisper")
     public static TooltipEntry tooltip = TooltipEntry.define(
-            "After attacking, deal an additional amount of Abyssal Damage equal to %s of original damage");
+            "Deals %s of the original damage as bonus Abyssal damage on hit");
 
     @Override
     public float getAttack(int lv) {
@@ -48,7 +48,7 @@ public class AbyssWhisper extends UpgradeableMelee implements IAttackConfig {
     @Override
     public void onMeleeHurt(ItemStack stack, LivingEntity attacker, AttackCache cache, int lv) {
         LivingEntity target = cache.getAttackTarget();
-        if (this.noCooldown(attacker) && lv > 0) {
+        if (this.cooldownReady(attacker) && lv > 0) {
             float extraDamage = cache.getPreDamage() * dmgConfig.floatValue() * (float) lv;
             GeneralEventHandler.schedule(() -> target.hurt(CCDamageTypes.abyss(attacker), extraDamage));
             this.addCooldown(attacker, cooldownConfig.get() * 20);

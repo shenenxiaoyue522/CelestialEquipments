@@ -3,7 +3,6 @@ package com.xiaoyue.celestial_equipments.content.items.generic;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_equipments.content.library.BowType;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialBowItem;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;

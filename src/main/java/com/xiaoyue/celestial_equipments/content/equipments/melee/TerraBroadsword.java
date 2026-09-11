@@ -64,7 +64,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-        if (this.noCooldown(pPlayer) && EquipmentUtils.getLevel(stack) > 0) {
+        if (this.cooldownReady(pPlayer) && EquipmentUtils.getLevel(stack) > 0) {
             Vec3 end = pPlayer.getLookAngle().scale(1.6f);
             for (int i = 0; i < 4; i++) {
                 pPlayer.setDeltaMovement(end.x, pPlayer.getDeltaMovement().y() + 0.05f, end.z);
@@ -104,7 +104,7 @@ public class TerraBroadsword extends UpgradeableMelee implements IAirBladeUser, 
     @Override
     public void onHitEntity(AirBladeEntity blade, Entity target) {
         target.level().playSound(null, target.getOnPos(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.PLAYERS);
-        IAirBladeUser.super.onHitEntity(blade, target);
+        blade.discard();
     }
 
     @Override

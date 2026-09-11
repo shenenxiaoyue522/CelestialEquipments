@@ -29,13 +29,12 @@ public class SakuraBlade extends UpgradeableMelee {
 
     @SubscribeTooltip(id = "sakura_blade")
     public static TooltipHolder tooltips = TooltipHolder.define(
-            TooltipEntry.define("Right-click: Throw the weapon"),
             TooltipEntry.define("When hitting a creature, it deals attack damage attribute %s attack damage"));
 
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
-        list.add(tooltips.get(0).withGray());
-        list.add(tooltips.get(1).withGray(TooltipEntry.per(dmgConfig.get())));
+        list.add(throwableTooltip.withGray());
+        list.add(tooltips.get(0).withGray(TooltipEntry.per(dmgConfig.get())));
     }
 
     @Override
@@ -45,7 +44,7 @@ public class SakuraBlade extends UpgradeableMelee {
         entity.setBaseDamage(pPlayer.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2);
         entity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0f, 5f, 0.85f);
         pLevel.addFreshEntity(entity);
-        pPlayer.setItemInHand(pUsedHand, ItemStack.EMPTY);
+        stack.shrink(1);
         return InteractionResultHolder.success(stack);
     }
 

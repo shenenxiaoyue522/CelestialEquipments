@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "celestial_equipments:reinforced_grip"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:death_essence"
+    },
+    {
+      "item": "minecraft:amethyst_block"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:abyssal_disaster",
+    "nbt": "{Damage:0}"
+  }
+}

@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_equipments.content.equipments.misc;
 
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.content.client.helper.SimpleParticleHelper;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -15,9 +15,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BubblingScepter extends Item implements ICelestialEquip {
+public class BubblingScepter extends ICelestialEquip.Impl {
     public BubblingScepter(Properties pProperties) {
         super(pProperties.stacksTo(1).durability(222).rarity(Rarity.RARE));
     }
@@ -62,10 +62,10 @@ public class BubblingScepter extends Item implements ICelestialEquip {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-        if (noCooldown(pPlayer)) {
+        if (cooldownReady(pPlayer)) {
             AABB aabb = EntityUtils.getAABB(pPlayer, 6, 2);
             for (LivingEntity entity : pLevel.getEntitiesOfClass(LivingEntity.class, aabb)) {
-                if (entity instanceof Player) {
+                if (isCurrentEntity(entity)) {
                     double attack = pPlayer.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     entity.heal((float) (attack * healConfig.floatValue()));
                     EntityUtils.addEct(entity, MobEffects.HEALTH_BOOST, 6000, 4);
@@ -73,10 +73,20 @@ public class BubblingScepter extends Item implements ICelestialEquip {
                 }
             }
             addCooldown(pPlayer, cooldownConfig.get() * 20);
-            stack.hurtAndBreak(1, pPlayer, e -> e.broadcastBreakEvent(pUsedHand));
+            if (!pPlayer.getAbilities().instabuild) {
+                stack.hurtAndBreak(1, pPlayer, (p) -> p.broadcastBreakEvent(pUsedHand));
+            }
             return InteractionResultHolder.success(stack);
         }
         return InteractionResultHolder.fail(stack);
+    }
+
+    private boolean isCurrentEntity(LivingEntity entity) {
+        if (entity instanceof Player) return true;
+        if (entity instanceof OwnableEntity ownable && ownable.getOwner() != null) {
+            return ownable.getOwner() == entity;
+        }
+        return false;
     }
 
     private static void spawnParticle(Level level, LivingEntity entity) {

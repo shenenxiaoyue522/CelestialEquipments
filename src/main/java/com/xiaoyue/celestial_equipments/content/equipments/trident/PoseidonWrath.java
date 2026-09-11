@@ -6,7 +6,7 @@ import com.xiaoyue.celestial_core.register.CCEffects;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.entities.SimpleTridentEntity;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
-import com.xiaoyue.celestial_equipments.content.library.SimpleThrowingFactory;
+import com.xiaoyue.celestial_equipments.content.items.generic.SimpleThrowingFactory;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;

@@ -1,7 +1,7 @@
 {
   "type": "celestial_equipments:forge_recipe",
   "input": {
-    "item": "minecraft:iron_ingot"
+    "item": "celestial_equipments:reinforced_grip"
   },
   "isUpgrade": false,
   "levelCondition": -1,

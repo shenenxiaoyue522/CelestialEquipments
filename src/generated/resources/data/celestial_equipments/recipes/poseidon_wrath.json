@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "celestial_equipments:reinforced_grip"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:lightning_rod"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:poseidon_wrath",
+    "nbt": "{Damage:0}"
+  }
+}

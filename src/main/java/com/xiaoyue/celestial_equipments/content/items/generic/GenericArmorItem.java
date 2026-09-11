@@ -1,10 +1,9 @@
 package com.xiaoyue.celestial_equipments.content.items.generic;
 
-import com.xiaoyue.celestial_equipments.content.library.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
+import com.xiaoyue.celestial_invoker.content.client.helper.ClientHelper;
 import com.xiaoyue.celestial_invoker.content.generic.item.CelestialArmorItem;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
@@ -32,7 +31,7 @@ public class GenericArmorItem extends CelestialArmorItem implements ICelestialEq
     public void addBaseTooltips(ItemStack stack, List<Component> list, boolean singleLevel) {
         list.add(Component.empty());
         if (!singleLevel) {
-            if (!Screen.hasShiftDown()) {
+            if (ClientHelper.hasShiftDown()) {
                 list.add(shiftDownTooltip.withGray(Component.literal("SHIFT").withStyle(ChatFormatting.YELLOW)));
             } else {
                 EquipmentUtils.addExpTooltips(list, stack);

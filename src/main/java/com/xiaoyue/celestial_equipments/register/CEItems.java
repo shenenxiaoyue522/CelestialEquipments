@@ -8,14 +8,21 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.*;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
+import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
+import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
+import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
+import com.xiaoyue.celestial_equipments.content.equipments.crossbow.VirtualGoldCrossbow;
 import com.xiaoyue.celestial_equipments.content.equipments.melee.*;
+import com.xiaoyue.celestial_equipments.content.equipments.misc.AbyssSacrificeDagger;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.BubblingScepter;
+import com.xiaoyue.celestial_equipments.content.equipments.misc.ResonantRuinDagger;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.Senbonzakura;
-import com.xiaoyue.celestial_equipments.content.equipments.ranged.*;
+import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.tool.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.PoseidonWrath;
+import com.xiaoyue.celestial_equipments.content.items.ArtifactDesign;
 import com.xiaoyue.celestial_equipments.content.items.ExpBottleItem;
 import com.xiaoyue.celestial_equipments.content.items.RepairKitItem;
 import com.xiaoyue.celestial_equipments.content.items.curios.*;
@@ -47,6 +54,12 @@ public class CEItems {
             p -> new Item(p.rarity(Rarity.EPIC)));
     public static final ItemEntry<Item> GEAR_ESSENCE_PLATE = register("gear_essence_plate",
             p -> new Item(p.rarity(Rarity.RARE)));
+    public static final ItemEntry<Item> ARTIFACT_DESIGN = register("artifact_design",
+            p -> new ArtifactDesign(p.rarity(Rarity.UNCOMMON)));
+    public static final ItemEntry<Item> GLINTSTONE_DIAMOND = register("glintstone_diamond",
+            p -> new Item(p.rarity(Rarity.RARE)));
+    public static final ItemEntry<Item> REINFORCED_GRIP = register("reinforced_grip",
+            p -> new Item(p.rarity(Rarity.EPIC)));
     public static final ItemEntry<Item> REPAIR_KIT = register("repair_kit",
             p -> new RepairKitItem(p.rarity(Rarity.RARE)));
 
@@ -61,6 +74,7 @@ public class CEItems {
     public static final ItemEntry<BubblingScepter> BUBBLING_SCEPTER = misc("bubbling_scepter", BubblingScepter::new);
 
     public static final ItemEntry<SakuraBlade> SAKURA_BLADE = melee("sakura_blade", SakuraBlade::new);
+    public static final ItemEntry<DeceitfulBlade> DECEITFUL_BLADE = melee("deceitful_blade", DeceitfulBlade::new);
     public static final ItemEntry<ResonantRuinDagger> RESONANT_RUIN_DAGGER = melee("resonant_ruin_dagger", ResonantRuinDagger::new);
     public static final ItemEntry<AbyssSacrificeDagger> ABYSS_SACRIFICE_DAGGER = melee("abyss_sacrifice_dagger", AbyssSacrificeDagger::new);
     public static final ItemEntry<BlankingDagger> BLANKING_DAGGER = melee("blanking_dagger", BlankingDagger::new);
@@ -83,9 +97,9 @@ public class CEItems {
     public static final ItemEntry<BrightProphecy> BRIGHT_PROPHECY = bow("bright_prophecy", BrightProphecy::new);
     public static final ItemEntry<DarkCrow> DARK_CROW = bow("dark_crow", DarkCrow::new);
     public static final ItemEntry<EmeraldWind> EMERALD_WIND = bow("emerald_wind", EmeraldWind::new);
+    public static final ItemEntry<FrozenInvasion> FROZEN_INVASION = bow("frozen_invasion", FrozenInvasion::new);
     public static final ItemEntry<PolarShadow> POLAR_SHADOW = bow("polar_shadow", PolarShadow::new);
     public static final ItemEntry<HeavenBow> HEAVEN_BOW = bow("heaven_bow", HeavenBow::new);
-    public static final ItemEntry<FrozenInvasion> FROZEN_INVASION = bow("frozen_invasion", FrozenInvasion::new);
 
     public static final ItemEntry<SakuraBloom> SAKURA_BLOOM = crossbow("sakura_bloom", SakuraBloom::new);
     public static final ItemEntry<VirtualGoldCrossbow> VIRTUAL_GOLD_CROSSBOW = crossbow("virtual_gold_crossbow", VirtualGoldCrossbow::new);

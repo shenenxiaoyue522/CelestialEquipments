@@ -1,0 +1,26 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "celestial_equipments:reinforced_grip"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:midnight_fragment"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:resonant_ruin_dagger",
+    "nbt": "{Damage:0}"
+  }
+}

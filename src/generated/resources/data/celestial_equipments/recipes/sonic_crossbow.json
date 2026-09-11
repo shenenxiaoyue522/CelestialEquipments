@@ -17,6 +17,9 @@
     },
     {
       "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "celestial_equipments:artifact_design"
     }
   ],
   "output": {

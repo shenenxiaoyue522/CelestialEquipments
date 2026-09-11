@@ -1,0 +1,23 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "celestial_equipments:reinforced_grip"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "celestial_core:sakura_steel"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:flint"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:sakura_blade",
+    "nbt": "{Damage:0}"
+  }
+}

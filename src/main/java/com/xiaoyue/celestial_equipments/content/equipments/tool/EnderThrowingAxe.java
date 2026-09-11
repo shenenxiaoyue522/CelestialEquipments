@@ -38,20 +38,14 @@ public class EnderThrowingAxe extends GenericDiggerItem {
 
     @SubscribeTooltip(id = "ender_throwing_axe")
     public static TooltipHolder tooltips = TooltipHolder.define(
-            TooltipEntry.define("Right-click: Throw the weapon"),
             TooltipEntry.define("Thrown axes will immediately return to your hand when they hit a creature or block"),
             TooltipEntry.define("When hitting a creature, it deals attack damage attribute %s attack damage"));
 
     @Override
     public void addTooltips(ItemStack stack, List<Component> list, int lv) {
-        for (int i = 0; i < tooltips.size(); i++) {
-            TooltipEntry tooltip = tooltips.get(i);
-            if (i == 2) {
-                list.add(tooltip.withGray(TooltipEntry.per(1 + dmgConfig.get() * lv)));
-            } else {
-                list.add(tooltip.withGray());
-            }
-        }
+        list.add(throwableTooltip.withGray());
+        list.add(tooltips.get(0).withGray());
+        list.add(tooltips.get(1).withGray(TooltipEntry.per(1 + dmgConfig.get() * lv)));
         list.add(cooldownTooltip.withGray(TooltipEntry.num(cooldownConfig.get())));
     }
 
@@ -59,13 +53,13 @@ public class EnderThrowingAxe extends GenericDiggerItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pUsedHand) {
         ItemStack stack = player.getItemInHand(pUsedHand);
         int lv = EquipmentUtils.getLevel(stack);
-        if (lv > 0 && noCooldown(player)) {
+        if (lv > 0 && cooldownReady(player)) {
             stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(pUsedHand));
             EnderThrowingAxeEntity thrownEntity = new EnderThrowingAxeEntity(player, pLevel, stack);
             thrownEntity.setBaseDamage(player.getAttributeValue(Attributes.ATTACK_DAMAGE) * (1 + dmgConfig.get() * lv));
             thrownEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, 5f, 1f);
             pLevel.addFreshEntity(thrownEntity);
-            player.setItemInHand(pUsedHand, ItemStack.EMPTY);
+            stack.shrink(1);
             addCooldown(player, cooldownConfig.get() * 20);
         }
         return InteractionResultHolder.success(stack);

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stone_pickaxe": {
+    "has_reinforced_grip": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stone_pickaxe"
+              "celestial_equipments:reinforced_grip"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_stone_pickaxe",
+      "has_reinforced_grip",
       "has_the_recipe"
     ]
   ],

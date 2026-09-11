@@ -2,9 +2,11 @@ package com.xiaoyue.celestial_equipments.compat;
 
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.container.CEForgeTableScreen;
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.content.recipes.CEForgeRecipe;
 import com.xiaoyue.celestial_equipments.data.CETagGen;
 import com.xiaoyue.celestial_equipments.register.CEBlocks;
+import com.xiaoyue.celestial_equipments.register.CEItems;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.TooltipEntry;
@@ -51,19 +53,60 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CEForgeRecipe recipe, IFocusGroup group) {
+        Ingredient input = recipe.input;
+        Ingredient output = Ingredient.of(recipe.output);
+        Optional<IFocus<ItemStack>> first = group.getItemStackFocuses(RecipeIngredientRole.INPUT).findFirst();
         if (recipe.isUpgrade) {
-            for (ItemStack stack : recipe.input.getItems()) {
-                if (stack.is(CETagGen.NOT_UPGRADEABLE)) {
+            if (first.isPresent()) {
+                if (first.get().getTypedValue().getIngredient().is(CETagGen.NOT_UPGRADEABLE)) {
                     return;
                 }
             }
             if (group.getItemStackFocuses(RecipeIngredientRole.OUTPUT).findFirst().isPresent()) {
                 return;
             }
+            List<ItemStack> stacks = new ArrayList<>();
+            if (first.isPresent()) {
+                ItemStack stack = first.get().getTypedValue().getIngredient().copy();
+                input = Ingredient.of(first.get().getTypedValue().getIngredient());
+                if (!stack.is(CEBlocks.ASSEMBLY_TABLE.asItem()) && recipe.levelCondition >= EquipmentUtils.getLevel(stack)) {
+                    EquipmentUtils.upLevel(stack);
+                    output = Ingredient.of(stack);
+                }
+            } else {
+                for (ItemStack stack : recipe.input.getItems()) {
+                    ItemStack copy = stack.copy();
+                    if (recipe.levelCondition > EquipmentUtils.getLevel(copy)) {
+                        EquipmentUtils.upLevel(copy);
+                        stacks.add(copy);
+                    }
+                }
+                output = Ingredient.of(stacks.stream());
+            }
+            if (output.isEmpty()) {
+                return;
+            }
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
+                    .setSlotName("output")
+                    .addIngredients(output);
+            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 138, 3)
+                    .setSlotName("upgradeable").addItemStack(Items.COMPASS.getDefaultInstance())
+                    .addTooltipCallback((view, list) -> {
+                        list.clear();
+                        list.add(upgradeRecipeTooltip.withColor(ChatFormatting.YELLOW));
+                        if (recipe.levelCondition > 0) {
+                            list.add(levelConditionTooltip.withColor(ChatFormatting.YELLOW, TooltipEntry.num(recipe.levelCondition)));
+                        }
+                        list.add(Component.empty());
+                    });
+        } else {
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
+                    .setSlotName("output")
+                    .addItemStack(recipe.output);
         }
         builder.addSlot(RecipeIngredientRole.INPUT, 11, 21)
                 .setSlotName("input")
-                .addIngredients(recipe.input);
+                .addIngredients(input);
         int x = 53;
         int y = 2;
         for (int i = 0; i < 9; i++) {
@@ -77,38 +120,6 @@ public class ForgeRecipeCategory extends BaseRecipeCategory<CEForgeRecipe, Forge
                 y -= 54;
                 x += 18;
             }
-        }
-        if (recipe.isUpgrade) {
-            Ingredient output;
-            List<ItemStack> stacks = new ArrayList<>();
-            Optional<IFocus<ItemStack>> first = group.getItemStackFocuses(RecipeIngredientRole.INPUT).findFirst();
-            if (first.isPresent()) {
-                ItemStack stack = first.get().getTypedValue().getIngredient().copy();
-                EquipmentUtils.upLevel(stack);
-                output = Ingredient.of(stack);
-            } else {
-                for (ItemStack stack : recipe.input.getItems()) {
-                    ItemStack copy = stack.copy();
-                    EquipmentUtils.upLevel(copy);
-                    stacks.add(copy);
-                }
-                output = Ingredient.of(stacks.stream());
-            }
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
-                    .setSlotName("output")
-                    .addIngredients(output);
-            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 138, 3)
-                    .setSlotName("upgradeable").addItemStack(Items.COMPASS.getDefaultInstance())
-                    .addTooltipCallback((view, list) -> {
-                        list.clear();
-                        list.add(upgradeRecipeTooltip.withColor(ChatFormatting.YELLOW));
-                        list.add(levelConditionTooltip.withColor(ChatFormatting.YELLOW, TooltipEntry.num(recipe.levelCondition)));
-                        list.add(Component.empty());
-                    });
-        } else {
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 138, 21)
-                    .setSlotName("output")
-                    .addItemStack(recipe.output);
         }
     }
 }

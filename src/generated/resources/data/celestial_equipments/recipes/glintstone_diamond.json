@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "celestial_core:treasure_fragment"
+    }
+  ],
+  "result": {
+    "item": "celestial_equipments:glintstone_diamond"
+  }
+}
