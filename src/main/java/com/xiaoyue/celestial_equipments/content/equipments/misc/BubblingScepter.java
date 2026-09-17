@@ -65,7 +65,7 @@ public class BubblingScepter extends ICelestialEquip.Impl {
         if (cooldownReady(pPlayer)) {
             AABB aabb = EntityUtils.getAABB(pPlayer, 6, 2);
             for (LivingEntity entity : pLevel.getEntitiesOfClass(LivingEntity.class, aabb)) {
-                if (isCurrentEntity(entity)) {
+                if (isCurrentEntity(entity, pPlayer)) {
                     double attack = pPlayer.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     entity.heal((float) (attack * healConfig.floatValue()));
                     EntityUtils.addEct(entity, MobEffects.HEALTH_BOOST, 6000, 4);
@@ -81,10 +81,10 @@ public class BubblingScepter extends ICelestialEquip.Impl {
         return InteractionResultHolder.fail(stack);
     }
 
-    private boolean isCurrentEntity(LivingEntity entity) {
+    private boolean isCurrentEntity(LivingEntity entity, Player player) {
         if (entity instanceof Player) return true;
         if (entity instanceof OwnableEntity ownable && ownable.getOwner() != null) {
-            return ownable.getOwner() == entity;
+            return ownable.getOwner() == player;
         }
         return false;
     }

@@ -50,7 +50,6 @@ public class GaleGrip extends BaseCurioItem {
         if (attacker instanceof Player player && EquipmentUtils.hasCurio(player, CEItems.GALE_GRIP.get()) && EntityUtils.isFullCharged(player)) {
             int level = EntityUtils.getEffectLevel(player, CEEffects.GALE_FORCE.get());
             int min = (int) Math.min(reduceConfig.get() * 100 + level, maxReduceConfig.get() * 100);
-            player.sendSystemMessage(Component.literal(min + ""));
             EntityUtils.addEct(player, CEEffects.GALE_FORCE.get(), 100, min);
         }
     }

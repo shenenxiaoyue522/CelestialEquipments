@@ -57,9 +57,10 @@ public class EquipmentEventHandler {
     public static void onChangeHp(LivingHealthChangeEvent event) {
         LivingEntity entity = event.getEntity();
         if (!entity.isAddedToWorld()) return;
-        if (CEItems.CHASING_SUMMER.isFullSet(entity)) {
-            entity.heal(event.getNewHealth() * ChasingSummer.healConfig.floatValue());
-        }
+        if (!CEItems.CHASING_SUMMER.isFullSet(entity)) return;
+        float change = Math.abs(event.getNewHealth() - event.getOriginalHealth());
+        if (change <= 0) return;
+        event.setNewHealth(event.getNewHealth() + change * ChasingSummer.healConfig.floatValue());
     }
 
     @SubscribeEvent

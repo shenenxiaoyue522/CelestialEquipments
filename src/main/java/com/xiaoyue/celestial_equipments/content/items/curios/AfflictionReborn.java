@@ -5,6 +5,8 @@ import com.google.common.collect.Multimap;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_equipments.content.items.generic.BaseCurioItem;
+import com.xiaoyue.celestial_equipments.register.CEItems;
+import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
 import com.xiaoyue.celestial_invoker.content.common.entry.AttributeAdder;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.DoubleConfigEntry;
@@ -58,11 +60,18 @@ public class AfflictionReborn extends BaseCurioItem {
         return map;
     }
 
+    private static final ThreadLocal<Boolean> APPLYING = ThreadLocal.withInitial(() -> false);
+
     public static void onHeal(LivingEntity entity, LivingHealEvent event) {
+        if (APPLYING.get()) return;
         LivingEntity target = entity.getLastHurtMob();
-        if (target != null) {
+        if (target == null || !EquipmentUtils.hasCurio(entity, CEItems.AFFLICTION_REBORN.get())) return;
+        APPLYING.set(true);
+        try {
             EntityUtils.hurtByPlayerOrMob(target, entity, event.getAmount() * dmgConfig.floatValue());
             event.setCanceled(true);
+        } finally {
+            APPLYING.set(false);
         }
     }
 }
