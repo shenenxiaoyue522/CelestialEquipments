@@ -1,0 +1,29 @@
+{
+  "type": "celestial_equipments:forge_recipe",
+  "input": {
+    "item": "minecraft:crossbow"
+  },
+  "isUpgrade": false,
+  "levelCondition": -1,
+  "materials": [
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "item": "celestial_core:light_fragment"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "celestial_equipments:glintstone_diamond"
+    }
+  ],
+  "output": {
+    "item": "celestial_equipments:glintstone_resonance",
+    "nbt": "{Damage:0}"
+  }
+}

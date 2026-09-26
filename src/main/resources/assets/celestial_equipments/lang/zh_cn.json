@@ -233,8 +233,19 @@
   "item.celestial_equipments.glintstone_diamond": "辉晶钻",
   "celestial_equipments.tooltip.deceitful_blade_0": "击中生物时偷取目标所有药水效果",
   "celestial_equipments.tooltip.deceitful_blade_1": "并对目标施加%s效果",
-  "item.celestial_equipments.deceitful_blade": "修饰之刃",
+  "item.celestial_equipments.deceitful_blade": "虚饰之刃",
   "celestial_equipments.tooltip.artifact_design": "玩家杀死最大生命大于%2$s的生物%1$s概率掉落",
   "item.celestial_equipments.artifact_design": "传奇设计图",
-  "item.celestial_equipments.reinforced_grip": "坚固手柄"
+  "item.celestial_equipments.reinforced_grip": "坚固手柄",
+  "item.celestial_equipments.soul_belt": "蕴灵腰带",
+  "celestial_equipments.tooltip.soul_belt_0": "每%s秒提高%s造成的伤害",
+  "celestial_equipments.tooltip.soul_belt_1": "至多提高%s",
+  "celestial_equipments.tooltip.soul_belt_2": "受到伤害时降低%s增伤效果",
+  "item.celestial_equipments.wrath_hand": "愤怒之手",
+  "celestial_equipments.tooltip.wrath_hand_0": "受到伤害后",
+  "celestial_equipments.tooltip.wrath_hand_1": "下次攻击造成的伤害提高%s",
+  "item.celestial_equipments.avarice_grip": "强欲之握",
+  "celestial_equipments.tooltip.avarice_grip_0": "攻击伤害降低%s",
+  "celestial_equipments.tooltip.avarice_grip_1": "提高%s等级%s",
+  "celestial_equipments.tooltip.avarice_grip_2": "提高%s等级%s"
 }

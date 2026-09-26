@@ -1,8 +1,8 @@
 package com.xiaoyue.celestial_equipments.utils;
 
+import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableBow;
 import com.xiaoyue.celestial_equipments.content.items.generic.UpgradeableTrident;
-import com.xiaoyue.celestial_equipments.content.items.generic.ICelestialEquip;
 import com.xiaoyue.celestial_invoker.invoker.config.ConfigHolderEntry;
 import com.xiaoyue.celestial_invoker.invoker.config.value.IntConfigEntry;
 import com.xiaoyue.celestial_invoker.invoker.tooltip.SubscribeTooltip;

@@ -2,9 +2,7 @@ package com.xiaoyue.celestial_equipments.events;
 
 import com.xiaoyue.celestial_equipments.content.equipments.armor.ChasingSummer;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.MortalShadow;
-import com.xiaoyue.celestial_equipments.content.items.curios.BladebiterGauntlets;
-import com.xiaoyue.celestial_equipments.content.items.curios.CursedVisage;
-import com.xiaoyue.celestial_equipments.content.items.curios.GaleGrip;
+import com.xiaoyue.celestial_equipments.content.items.curios.*;
 import com.xiaoyue.celestial_equipments.content.items.generic.GenericArmorItem;
 import com.xiaoyue.celestial_equipments.content.library.IAttackConfig;
 import com.xiaoyue.celestial_equipments.utils.EquipmentUtils;
@@ -35,6 +33,7 @@ public class CEAttackListener implements AttackListener {
     public void postAttack(AttackCache cache, LivingAttackEvent event, ItemStack weapon) {
         LivingEntity attacker = cache.getAttacker();
         GaleGrip.onAttack(attacker);
+        SoulBelt.onAttacked(attacker, cache);
     }
 
     @Override
@@ -53,6 +52,7 @@ public class CEAttackListener implements AttackListener {
             attack.onProjectileHurt(useItem, attacker, cache, EquipmentUtils.getLevel(useItem));
         }
         BladebiterGauntlets.onHurtTarget(attacker, source, cache);
+        WrathHand.onHurtTarget(attacker, cache);
     }
 
     @Override
@@ -90,5 +90,7 @@ public class CEAttackListener implements AttackListener {
         LivingEntity entity = cache.getAttackTarget();
         ChasingSummer.onDamaged(entity, event);
         CursedVisage.onOtherDamaged(entity, event.getSource());
+        SoulBelt.onDamaged(entity);
+        WrathHand.onDamaged(entity);
     }
 }

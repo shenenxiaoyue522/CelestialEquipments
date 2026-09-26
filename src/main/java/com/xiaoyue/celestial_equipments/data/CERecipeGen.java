@@ -214,6 +214,10 @@ public class CERecipeGen {
                 .material(Items.OBSIDIAN).material(Items.ECHO_SHARD).material(CCItems.MIDNIGHT_FRAGMENT)
                 .material(Items.EXPERIENCE_BOTTLE).material(CEItems.ARTIFACT_DESIGN)::unlockedBy, Items.CROSSBOW)
                 .save(pvd, getID(CEItems.SONIC_CROSSBOW));
+        unlock(pvd, new CEForgeRecipeBuilder(Items.CROSSBOW, CEItems.GLINTSTONE_RESONANCE.asStack())
+                .material(Items.COPPER_INGOT).material(Items.ECHO_SHARD).material(CCItems.LIGHT_FRAGMENT)
+                .material(Items.EXPERIENCE_BOTTLE).material(CEItems.GLINTSTONE_DIAMOND)::unlockedBy, Items.CROSSBOW)
+                .save(pvd, getID(CEItems.GLINTSTONE_RESONANCE));
         // upgrade
         unlock(pvd, new CEForgeRecipeBuilder(CETagGen.UPGRADEABLE_RANGED)
                 .material(Items.BOOK).material(Items.GOLD_INGOT).material(Items.QUARTZ)

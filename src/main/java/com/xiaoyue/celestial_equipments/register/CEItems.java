@@ -8,6 +8,7 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import com.xiaoyue.celestial_equipments.CelestialEquipments;
 import com.xiaoyue.celestial_equipments.content.equipments.armor.*;
 import com.xiaoyue.celestial_equipments.content.equipments.arrow.*;
+import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.GlintstoneResonance;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SakuraBloom;
 import com.xiaoyue.celestial_equipments.content.equipments.crossbow.SonicCrossbow;
@@ -17,7 +18,6 @@ import com.xiaoyue.celestial_equipments.content.equipments.misc.AbyssSacrificeDa
 import com.xiaoyue.celestial_equipments.content.equipments.misc.BubblingScepter;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.ResonantRuinDagger;
 import com.xiaoyue.celestial_equipments.content.equipments.misc.Senbonzakura;
-import com.xiaoyue.celestial_equipments.content.equipments.bow.*;
 import com.xiaoyue.celestial_equipments.content.equipments.tool.*;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.AbyssalDisaster;
 import com.xiaoyue.celestial_equipments.content.equipments.trident.OceanTide;
@@ -163,6 +163,9 @@ public class CEItems {
     public static final ItemEntry<LightOfDawn> LIGHT_OF_DAWN = hands("light_of_dawn", LightOfDawn::new);
     public static final ItemEntry<BladebiterGauntlets> BLADEBITER_GAUNTLETS = hands("bladebiter_gauntlets", BladebiterGauntlets::new);
     public static final ItemEntry<AmethystGauntlets> AMETHYST_GAUNTLETS = hands("amethyst_gauntlets", AmethystGauntlets::new);
+    public static final ItemEntry<WrathHand> WRATH_HAND = hands("wrath_hand", WrathHand::new);
+    public static final ItemEntry<AvariceGrip> AVARICE_GRIP = hands("avarice_grip", AvariceGrip::new);
+    public static final ItemEntry<SoulBelt> SOUL_BELT = belt("soul_belt", SoulBelt::new);
 
     public static <T extends Item> ItemBuilder<T, L2Registrate> register(String path, String id, NonNullFunction<Item.Properties, T> factory) {
         return REGISTRATE.item(id, factory).model((ctx, pvd) ->
@@ -231,6 +234,11 @@ public class CEItems {
     public static <T extends Item> ItemEntry<T> feet(String id, NonNullFunction<Item.Properties, T> factory) {
         ALL_EQUIPMENTS.add(id);
         return register("curios/feet", id, factory).tag(curio("feet")).register();
+    }
+
+    public static <T extends Item> ItemEntry<T> belt(String id, NonNullFunction<Item.Properties, T> factory) {
+        ALL_EQUIPMENTS.add(id);
+        return register("curios/belt", id, factory).tag(curio("belt")).register();
     }
 
     private static TagKey<Item> curio(String id) {

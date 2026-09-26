@@ -28,8 +28,8 @@ builder = "${mod_id}.mixins.json"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${ mod_id }]]
-    modId="celestial_artifacts"
-    mandatory=false
-    versionRange="[1.6.5,)"
-    ordering="BEFORE"
+    modId="curios"
+    mandatory=true
+    versionRange="[5.4,)"
+    ordering="AFTER"
     side="BOTH"

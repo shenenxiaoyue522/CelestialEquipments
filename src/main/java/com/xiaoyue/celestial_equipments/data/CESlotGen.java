@@ -29,7 +29,7 @@ public class CESlotGen extends RecordDataProvider {
     public void add(BiConsumer<String, Record> map) {
         map.accept(CelestialEquipments.MODID + "/curios/entities/player_vanilla", new CurioEntityBuilder(
                 new ArrayList<>(List.of(new ResourceLocation("player"))),
-                new ArrayList<>(List.of("hands", "head")),
+                new ArrayList<>(List.of("hands", "head", "belt")),
                 SlotCondition.of()
         ));
         map.accept(CelestialEquipments.MODID + "/curios/entities/player", new CurioEntityBuilder(
